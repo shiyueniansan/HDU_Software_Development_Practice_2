@@ -3,10 +3,11 @@ package com.rk.framework.security.service;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
+import com.rk.financial.domain.Role;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
-import com.rk.project.system.domain.SysRole;
 import com.rk.financial.domain.User;
 import com.rk.project.system.service.ISysMenuService;
 import com.rk.project.system.service.ISysRoleService;
@@ -62,11 +63,11 @@ public class SysPermissionService
         }
         else
         {
-            List<SysRole> roles = user.getRoles();
+            List<Role> roles = user.getRoles();
             if (!CollectionUtils.isEmpty(roles))
             {
                 // 多角色设置permissions属性，以便数据权限匹配权限
-                for (SysRole role : roles)
+                for (Role role : roles)
                 {
                     Set<String> rolePerms = menuService.selectMenuPermsByRoleId(role.getRoleId());
                     role.setPermissions(rolePerms);

@@ -11,29 +11,29 @@ import java.util.List;
  */
 public interface ISysUserService
 {
-    /**
-     * 根据条件分页查询用户列表
-     *
-     * @param user 用户信息
-     * @return 用户信息集合信息
-     */
-    public List<User> selectUserList(User user);
+//    /**
+//     * 根据条件分页查询用户列表
+//     *
+//     * @param user 用户信息
+//     * @return 用户信息集合信息
+//     */
+//    public List<User> selectUserList(User user);
 
-    /**
-     * 根据条件分页查询已分配用户角色列表
-     *
-     * @param user 用户信息
-     * @return 用户信息集合信息
-     */
-    public List<User> selectAllocatedList(User user);
+//    /**
+//     * 根据条件分页查询已分配用户角色列表
+//     *
+//     * @param user 用户信息
+//     * @return 用户信息集合信息
+//     */
+//    public List<User> selectAllocatedList(User user);
 
-    /**
-     * 根据条件分页查询未分配用户角色列表
-     *
-     * @param user 用户信息
-     * @return 用户信息集合信息
-     */
-    public List<User> selectUnallocatedList(User user);
+//    /**
+//     * 根据条件分页查询未分配用户角色列表
+//     *
+//     * @param user 用户信息
+//     * @return 用户信息集合信息
+//     */
+//    public List<User> selectUnallocatedList(User user);
 
     /**
      * 通过用户名查询用户
@@ -43,21 +43,21 @@ public interface ISysUserService
      */
     public User selectUserByUserName(String userName);
 
-    /**
-     * 通过用户ID查询用户
-     *
-     * @param userId 用户ID
-     * @return 用户对象信息
-     */
-    public User selectUserById(Long userId);
+//    /**
+//     * 通过用户ID查询用户
+//     *
+//     * @param userId 用户ID
+//     * @return 用户对象信息
+//     */
+//    public User selectUserById(Long userId);
 
-    /**
-     * 根据用户ID查询用户所属角色组
-     *
-     * @param userName 用户名
-     * @return 结果
-     */
-    public String selectUserRoleGroup(String userName);
+//    /**
+//     * 根据用户ID查询用户所属角色组
+//     *
+//     * @param userName 用户名
+//     * @return 结果
+//     */
+//    public String selectUserRoleGroup(String userName);
 
     /**
      * 校验用户名称是否唯一

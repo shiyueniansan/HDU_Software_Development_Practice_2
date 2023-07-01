@@ -3,14 +3,14 @@ package com.rk.project.system.service.impl;
 import com.rk.financial.mapper.UserMapper;
 import com.rk.framework.aspectj.lang.annotation.DataScope;
 import com.rk.common.constant.UserConstants;
-import com.rk.project.system.domain.SysRole;
+import com.rk.financial.domain.Role;
 import com.rk.financial.domain.User;
 import com.rk.common.exception.ServiceException;
 import com.rk.common.utils.SecurityUtils;
 import com.rk.common.utils.StringUtils;
 import com.rk.common.utils.bean.BeanValidators;
 import com.rk.common.utils.spring.SpringUtils;
-import com.rk.project.system.domain.SysUserRole;
+import com.rk.financial.domain.UserRole;
 import com.rk.project.system.mapper.*;
 import com.rk.project.system.service.ISysConfigService;
 import com.rk.project.system.service.ISysUserService;
@@ -123,12 +123,12 @@ public class SysUserServiceImpl implements ISysUserService
     @Override
     public String selectUserRoleGroup(String userName)
     {
-        List<SysRole> list = roleMapper.selectRolesByUserName(userName);
+        List<Role> list = roleMapper.selectRolesByUserName(userName);
         if (CollectionUtils.isEmpty(list))
         {
             return StringUtils.EMPTY;
         }
-        return list.stream().map(SysRole::getRoleName).collect(Collectors.joining(","));
+        return list.stream().map(Role::getRoleName).collect(Collectors.joining(","));
     }
 
     /**
@@ -199,72 +199,72 @@ public class SysUserServiceImpl implements ISysUserService
         }
     }
 
-    /**
-     * 校验用户是否有数据权限
-     *
-     * @param userId 用户id
-     */
-    @Override
-    public void checkUserDataScope(Long userId)
-    {
-        if (!User.isAdmin(SecurityUtils.getUserId()))
-        {
-            User user = new User();
-            user.setUserId(userId);
-            List<User> users = SpringUtils.getAopProxy(this).selectUserList(user);
-            if (StringUtils.isEmpty(users))
-            {
-                throw new ServiceException("没有权限访问用户数据！");
-            }
-        }
-    }
+//    /**
+//     * 校验用户是否有数据权限
+//     *
+//     * @param userId 用户id
+//     */
+//    @Override
+//    public void checkUserDataScope(Long userId)
+//    {
+//        if (!User.isAdmin(SecurityUtils.getUserId()))
+//        {
+//            User user = new User();
+//            user.setUserId(userId);
+//            List<User> users = SpringUtils.getAopProxy(this).selectUserList(user);
+//            if (StringUtils.isEmpty(users))
+//            {
+//                throw new ServiceException("没有权限访问用户数据！");
+//            }
+//        }
+//    }
 
-    /**
-     * 新增保存用户信息
-     *
-     * @param user 用户信息
-     * @return 结果
-     */
-    @Override
-    @Transactional
-    public int insertUser(User user)
-    {
-        // 新增用户信息
-        int rows = userMapper.insertUser(user);
-        // 新增用户与角色管理
-        insertUserRole(user);
-        return rows;
-    }
+//    /**
+//     * 新增保存用户信息
+//     *
+//     * @param user 用户信息
+//     * @return 结果
+//     */
+//    @Override
+//    @Transactional
+//    public int insertUser(User user)
+//    {
+//        // 新增用户信息
+//        int rows = userMapper.insertUser(user);
+//        // 新增用户与角色管理
+//        insertUserRole(user);
+//        return rows;
+//    }
 
-    /**
-     * 注册用户信息
-     *
-     * @param user 用户信息
-     * @return 结果
-     */
-    @Override
-    public boolean registerUser(User user)
-    {
-        return userMapper.insertUser(user) > 0;
-    }
+//    /**
+//     * 注册用户信息
+//     *
+//     * @param user 用户信息
+//     * @return 结果
+//     */
+//    @Override
+//    public boolean registerUser(User user)
+//    {
+//        return userMapper.insertUser(user) > 0;
+//    }
 
-    /**
-     * 修改保存用户信息
-     *
-     * @param user 用户信息
-     * @return 结果
-     */
-    @Override
-    @Transactional
-    public int updateUser(User user)
-    {
-        Long userId = user.getUserId();
-        // 删除用户与角色关联
-        userRoleMapper.deleteUserRoleByUserId(userId);
-        // 新增用户与角色管理
-        insertUserRole(user);
-        return userMapper.updateUser(user);
-    }
+//    /**
+//     * 修改保存用户信息
+//     *
+//     * @param user 用户信息
+//     * @return 结果
+//     */
+//    @Override
+//    @Transactional
+//    public int updateUser(User user)
+//    {
+//        Long userId = user.getUserId();
+//        // 删除用户与角色关联
+//        userRoleMapper.deleteUserRoleByUserId(userId);
+//        // 新增用户与角色管理
+//        insertUserRole(user);
+//        return userMapper.updateUser(user);
+//    }
 
     /**
      * 用户授权角色
@@ -364,10 +364,10 @@ public class SysUserServiceImpl implements ISysUserService
         if (StringUtils.isNotEmpty(roleIds))
         {
             // 新增用户与角色管理
-            List<SysUserRole> list = new ArrayList<SysUserRole>(roleIds.length);
+            List<UserRole> list = new ArrayList<UserRole>(roleIds.length);
             for (Long roleId : roleIds)
             {
-                SysUserRole ur = new SysUserRole();
+                UserRole ur = new UserRole();
                 ur.setUserId(userId);
                 ur.setRoleId(roleId);
                 list.add(ur);

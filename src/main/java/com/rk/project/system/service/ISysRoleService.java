@@ -2,8 +2,9 @@ package com.rk.project.system.service;
 
 import java.util.List;
 import java.util.Set;
-import com.rk.project.system.domain.SysRole;
-import com.rk.project.system.domain.SysUserRole;
+
+import com.rk.financial.domain.Role;
+import com.rk.financial.domain.UserRole;
 
 /**
  * 角色业务层
@@ -18,7 +19,7 @@ public interface ISysRoleService
      * @param role 角色信息
      * @return 角色数据集合信息
      */
-    public List<SysRole> selectRoleList(SysRole role);
+    public List<Role> selectRoleList(Role role);
 
     /**
      * 根据用户ID查询角色列表
@@ -26,7 +27,7 @@ public interface ISysRoleService
      * @param userId 用户ID
      * @return 角色列表
      */
-    public List<SysRole> selectRolesByUserId(Long userId);
+    public List<Role> selectRolesByUserId(Long userId);
 
     /**
      * 根据用户ID查询角色权限
@@ -41,7 +42,7 @@ public interface ISysRoleService
      *
      * @return 角色列表
      */
-    public List<SysRole> selectRoleAll();
+    public List<Role> selectRoleAll();
 
     /**
      * 根据用户ID获取角色选择框列表
@@ -57,7 +58,7 @@ public interface ISysRoleService
      * @param roleId 角色ID
      * @return 角色对象信息
      */
-    public SysRole selectRoleById(Long roleId);
+    public Role selectRoleById(Long roleId);
 
     /**
      * 校验角色名称是否唯一
@@ -65,7 +66,7 @@ public interface ISysRoleService
      * @param role 角色信息
      * @return 结果
      */
-    public boolean checkRoleNameUnique(SysRole role);
+    public boolean checkRoleNameUnique(Role role);
 
     /**
      * 校验角色权限是否唯一
@@ -73,14 +74,14 @@ public interface ISysRoleService
      * @param role 角色信息
      * @return 结果
      */
-    public boolean checkRoleKeyUnique(SysRole role);
+    public boolean checkRoleKeyUnique(Role role);
 
     /**
      * 校验角色是否允许操作
      *
      * @param role 角色信息
      */
-    public void checkRoleAllowed(SysRole role);
+    public void checkRoleAllowed(Role role);
 
     /**
      * 校验角色是否有数据权限
@@ -103,7 +104,7 @@ public interface ISysRoleService
      * @param role 角色信息
      * @return 结果
      */
-    public int insertRole(SysRole role);
+    public int insertRole(Role role);
 
     /**
      * 修改保存角色信息
@@ -111,7 +112,7 @@ public interface ISysRoleService
      * @param role 角色信息
      * @return 结果
      */
-    public int updateRole(SysRole role);
+    public int updateRole(Role role);
 
     /**
      * 修改角色状态
@@ -119,7 +120,7 @@ public interface ISysRoleService
      * @param role 角色信息
      * @return 结果
      */
-    public int updateRoleStatus(SysRole role);
+    public int updateRoleStatus(Role role);
 
     /**
      * 修改数据权限信息
@@ -127,7 +128,7 @@ public interface ISysRoleService
      * @param role 角色信息
      * @return 结果
      */
-    public int authDataScope(SysRole role);
+    public int authDataScope(Role role);
 
     /**
      * 通过角色ID删除角色
@@ -151,7 +152,7 @@ public interface ISysRoleService
      * @param userRole 用户和角色关联信息
      * @return 结果
      */
-    public int deleteAuthUser(SysUserRole userRole);
+    public int deleteAuthUser(UserRole userRole);
 
     /**
      * 批量取消授权用户角色

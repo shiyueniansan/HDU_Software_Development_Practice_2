@@ -1,13 +1,14 @@
 package com.rk.framework.security.service;
 
 import java.util.Set;
+
+import com.rk.financial.domain.Role;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 import com.rk.common.utils.SecurityUtils;
 import com.rk.common.utils.StringUtils;
 import com.rk.framework.security.LoginUser;
 import com.rk.framework.security.context.PermissionContextHolder;
-import com.rk.project.system.domain.SysRole;
 
 /**
  * 定义权限实现，ss取自SpringSecurity首字母
@@ -105,7 +106,7 @@ public class PermissionService
         {
             return false;
         }
-        for (SysRole sysRole : loginUser.getUser().getRoles())
+        for (Role sysRole : loginUser.getUser().getRoles())
         {
             String roleKey = sysRole.getRoleKey();
             if (SUPER_ADMIN.equals(roleKey) || roleKey.equals(StringUtils.trim(role)))

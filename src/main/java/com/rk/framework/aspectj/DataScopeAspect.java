@@ -2,6 +2,8 @@ package com.rk.framework.aspectj;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.rk.financial.domain.Role;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -13,7 +15,6 @@ import com.rk.framework.aspectj.lang.annotation.DataScope;
 import com.rk.framework.security.LoginUser;
 import com.rk.framework.security.context.PermissionContextHolder;
 import com.rk.framework.web.domain.BaseEntity;
-import com.rk.project.system.domain.SysRole;
 import com.rk.financial.domain.User;
 
 /**
@@ -93,7 +94,7 @@ public class DataScopeAspect
         StringBuilder sqlString = new StringBuilder();
         List<String> conditions = new ArrayList<String>();
 
-        for (SysRole role : user.getRoles())
+        for (Role role : user.getRoles())
         {
             String dataScope = role.getDataScope();
             if (!DATA_SCOPE_CUSTOM.equals(dataScope) && conditions.contains(dataScope))

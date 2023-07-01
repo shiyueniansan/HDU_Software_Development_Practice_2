@@ -1,8 +1,9 @@
 package com.rk.project.system.mapper;
 
 import java.util.List;
+
+import com.rk.financial.domain.Menu;
 import org.apache.ibatis.annotations.Param;
-import com.rk.project.system.domain.SysMenu;
 
 /**
  * 菜单表 数据层
@@ -17,7 +18,7 @@ public interface SysMenuMapper
      * @param menu 菜单信息
      * @return 菜单列表
      */
-    public List<SysMenu> selectMenuList(SysMenu menu);
+    public List<Menu> selectMenuList(Menu menu);
 
     /**
      * 根据用户所有权限
@@ -32,7 +33,7 @@ public interface SysMenuMapper
      * @param menu 菜单信息
      * @return 菜单列表
      */
-    public List<SysMenu> selectMenuListByUserId(SysMenu menu);
+    public List<Menu> selectMenuListByUserId(Menu menu);
 
     /**
      * 根据用户ID查询权限
@@ -55,7 +56,7 @@ public interface SysMenuMapper
      *
      * @return 菜单列表
      */
-    public List<SysMenu> selectMenuTreeAll();
+    public List<Menu> selectMenuTreeAll();
 
     /**
      * 根据用户ID查询菜单
@@ -63,7 +64,7 @@ public interface SysMenuMapper
      * @param username 用户ID
      * @return 菜单列表
      */
-    public List<SysMenu> selectMenuTreeByUserId(Long userId);
+    public List<Menu> selectMenuTreeByUserId(Long userId);
 
     /**
      * 根据角色ID查询菜单树信息
@@ -80,7 +81,7 @@ public interface SysMenuMapper
      * @param menuId 菜单ID
      * @return 菜单信息
      */
-    public SysMenu selectMenuById(Long menuId);
+    public Menu selectMenuById(Long menuId);
 
     /**
      * 是否存在菜单子节点
@@ -96,7 +97,7 @@ public interface SysMenuMapper
      * @param menu 菜单信息
      * @return 结果
      */
-    public int insertMenu(SysMenu menu);
+    public int insertMenu(Menu menu);
 
     /**
      * 修改菜单信息
@@ -104,7 +105,7 @@ public interface SysMenuMapper
      * @param menu 菜单信息
      * @return 结果
      */
-    public int updateMenu(SysMenu menu);
+    public int updateMenu(Menu menu);
 
     /**
      * 删除菜单管理信息
@@ -121,5 +122,5 @@ public interface SysMenuMapper
      * @param parentId 父菜单ID
      * @return 结果
      */
-    public SysMenu checkMenuNameUnique(@Param("menuName") String menuName, @Param("parentId") Long parentId);
+    public Menu checkMenuNameUnique(@Param("menuName") String menuName, @Param("parentId") Long parentId);
 }

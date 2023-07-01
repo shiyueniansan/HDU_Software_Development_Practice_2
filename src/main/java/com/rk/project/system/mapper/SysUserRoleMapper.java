@@ -1,8 +1,9 @@
 package com.rk.project.system.mapper;
 
 import java.util.List;
+
+import com.rk.financial.domain.UserRole;
 import org.apache.ibatis.annotations.Param;
-import com.rk.project.system.domain.SysUserRole;
 
 /**
  * 用户与角色关联表 数据层
@@ -41,7 +42,7 @@ public interface SysUserRoleMapper
      * @param userRoleList 用户角色列表
      * @return 结果
      */
-    public int batchUserRole(List<SysUserRole> userRoleList);
+    public int batchUserRole(List<UserRole> userRoleList);
 
     /**
      * 删除用户和角色关联信息
@@ -49,7 +50,7 @@ public interface SysUserRoleMapper
      * @param userRole 用户和角色关联信息
      * @return 结果
      */
-    public int deleteUserRoleInfo(SysUserRole userRole);
+    public int deleteUserRoleInfo(UserRole userRole);
 
     /**
      * 批量取消授权用户角色

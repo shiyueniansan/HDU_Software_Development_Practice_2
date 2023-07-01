@@ -1,7 +1,8 @@
 package com.rk.project.system.mapper;
 
 import java.util.List;
-import com.rk.project.system.domain.SysRoleMenu;
+
+import com.rk.financial.domain.RoleMenu;
 
 /**
  * 角色与菜单关联表 数据层
@@ -40,5 +41,5 @@ public interface SysRoleMenuMapper
      * @param roleMenuList 角色菜单列表
      * @return 结果
      */
-    public int batchRoleMenu(List<SysRoleMenu> roleMenuList);
+    public int batchRoleMenu(List<RoleMenu> roleMenuList);
 }
