@@ -1,4 +1,4 @@
-package com.rk.project.system.controller;
+package com.rk.common.controller;
 
 import java.util.List;
 import java.util.Set;

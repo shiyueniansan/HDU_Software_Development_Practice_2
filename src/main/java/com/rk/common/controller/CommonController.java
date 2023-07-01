@@ -1,4 +1,4 @@
-package com.rk.project.common;
+package com.rk.common.controller;
 
 import java.util.ArrayList;
 import java.util.List;

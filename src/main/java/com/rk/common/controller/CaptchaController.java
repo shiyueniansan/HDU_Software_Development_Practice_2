@@ -1,4 +1,4 @@
-package com.rk.project.common;
+package com.rk.common.controller;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;
