@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.logout.LogoutSuccessHandler;
 import com.alibaba.fastjson2.JSON;
-import com.rk.common.constant.Constants;
+import com.rk.financial.constant.Constants;
 import com.rk.common.utils.ServletUtils;
 import com.rk.common.utils.StringUtils;
 import com.rk.framework.manager.AsyncManager;

@@ -10,7 +10,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
 import com.rk.common.utils.http.HttpHelper;
-import com.rk.common.constant.Constants;
+import com.rk.financial.constant.Constants;
 
 /**
  * 构建可重复读取inputStream的request

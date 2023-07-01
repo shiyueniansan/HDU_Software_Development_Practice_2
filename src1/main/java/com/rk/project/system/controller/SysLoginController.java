@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import com.rk.common.constant.Constants;
+import com.rk.financial.constant.Constants;
 import com.rk.common.utils.SecurityUtils;
 import com.rk.framework.security.LoginBody;
 import com.rk.framework.security.service.SysLoginService;

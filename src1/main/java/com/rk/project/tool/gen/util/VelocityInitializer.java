@@ -2,7 +2,7 @@ package com.rk.project.tool.gen.util;
 
 import java.util.Properties;
 import org.apache.velocity.app.Velocity;
-import com.rk.common.constant.Constants;
+import com.rk.financial.constant.Constants;
 
 /**
  * VelocityEngine工厂

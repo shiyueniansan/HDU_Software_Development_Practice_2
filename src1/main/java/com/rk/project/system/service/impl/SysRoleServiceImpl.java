@@ -8,7 +8,7 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import com.rk.common.constant.UserConstants;
+import com.rk.financial.constant.UserConstants;
 import com.rk.common.exception.ServiceException;
 import com.rk.common.utils.SecurityUtils;
 import com.rk.common.utils.StringUtils;

@@ -2,7 +2,7 @@ package com.rk.project.tool.gen.util;
 
 import java.util.Arrays;
 import org.apache.commons.lang3.RegExUtils;
-import com.rk.common.constant.GenConstants;
+import com.rk.financial.constant.GenConstants;
 import com.rk.common.utils.StringUtils;
 import com.rk.framework.config.GenConfig;
 import com.rk.project.tool.gen.domain.GenTable;

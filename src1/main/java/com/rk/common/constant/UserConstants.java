@@ -1,4 +1,4 @@
-package com.rk.common.constant;
+package com.rk.financial.constant;
 
 /**
  * 用户常量信息

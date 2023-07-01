@@ -1,4 +1,4 @@
-package com.rk.common.constant;
+package com.rk.financial.constant;
 
 import io.jsonwebtoken.Claims;
 

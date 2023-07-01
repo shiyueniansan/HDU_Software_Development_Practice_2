@@ -11,7 +11,7 @@ import org.springframework.web.filter.CorsFilter;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import com.rk.common.constant.Constants;
+import com.rk.financial.constant.Constants;
 import com.rk.framework.interceptor.RepeatSubmitInterceptor;
 
 /**

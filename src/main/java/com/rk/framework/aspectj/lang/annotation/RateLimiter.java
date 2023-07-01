@@ -5,7 +5,7 @@ import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
-import com.rk.common.constant.CacheConstants;
+import com.rk.financial.constant.CacheConstants;
 import com.rk.framework.aspectj.lang.enums.LimitType;
 
 /**

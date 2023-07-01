@@ -2,7 +2,7 @@ package com.rk.framework.web.domain;
 
 import java.util.HashMap;
 import java.util.Objects;
-import com.rk.common.constant.HttpStatus;
+import com.rk.financial.constant.HttpStatus;
 import com.rk.common.utils.StringUtils;
 
 /**

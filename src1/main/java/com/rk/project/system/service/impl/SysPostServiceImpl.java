@@ -3,7 +3,7 @@ package com.rk.project.system.service.impl;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.rk.common.constant.UserConstants;
+import com.rk.financial.constant.UserConstants;
 import com.rk.common.exception.ServiceException;
 import com.rk.common.utils.StringUtils;
 import com.rk.project.system.domain.SysPost;

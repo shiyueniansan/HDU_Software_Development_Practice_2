@@ -6,7 +6,7 @@ import java.nio.file.Paths;
 import java.util.Objects;
 import org.apache.commons.io.FilenameUtils;
 import org.springframework.web.multipart.MultipartFile;
-import com.rk.common.constant.Constants;
+import com.rk.financial.constant.Constants;
 import com.rk.common.exception.file.FileNameLengthLimitExceededException;
 import com.rk.common.exception.file.FileSizeLimitExceededException;
 import com.rk.common.exception.file.InvalidExtensionException;
