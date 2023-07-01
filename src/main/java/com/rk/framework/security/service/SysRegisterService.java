@@ -14,7 +14,7 @@ import com.rk.framework.manager.AsyncManager;
 import com.rk.framework.manager.factory.AsyncFactory;
 import com.rk.framework.redis.RedisCache;
 import com.rk.framework.security.RegisterBody;
-import com.rk.project.system.domain.SysUser;
+import com.rk.financial.domain.User;
 import com.rk.project.system.service.ISysConfigService;
 import com.rk.project.system.service.ISysUserService;
 
@@ -41,8 +41,8 @@ public class SysRegisterService
     public String register(RegisterBody registerBody)
     {
         String msg = "", username = registerBody.getUsername(), password = registerBody.getPassword();
-        SysUser sysUser = new SysUser();
-        sysUser.setUserName(username);
+        User user = new User();
+        user.setUserName(username);
 
         // 验证码开关
         boolean captchaEnabled = configService.selectCaptchaEnabled();
@@ -69,15 +69,15 @@ public class SysRegisterService
         {
             msg = "密码长度必须在5到20个字符之间";
         }
-        else if (!userService.checkUserNameUnique(sysUser))
+        else if (!userService.checkUserNameUnique(user))
         {
             msg = "保存用户'" + username + "'失败，注册账号已存在";
         }
         else
         {
-            sysUser.setNickName(username);
-            sysUser.setPassword(SecurityUtils.encryptPassword(password));
-            boolean regFlag = userService.registerUser(sysUser);
+            user.setNickName(username);
+            user.setPassword(SecurityUtils.encryptPassword(password));
+            boolean regFlag = userService.registerUser(user);
             if (!regFlag)
             {
                 msg = "注册失败,请联系系统管理人员";

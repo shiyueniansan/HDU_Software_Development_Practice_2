@@ -15,7 +15,7 @@ import com.rk.framework.manager.AsyncManager;
 import com.rk.framework.manager.factory.AsyncFactory;
 import com.rk.framework.redis.RedisCache;
 import com.rk.framework.security.context.AuthenticationContextHolder;
-import com.rk.project.system.domain.SysUser;
+import com.rk.financial.domain.User;
 
 /**
  * 登录密码方法
@@ -45,7 +45,7 @@ public class SysPasswordService
         return CacheConstants.PWD_ERR_CNT_KEY + username;
     }
 
-    public void validate(SysUser user)
+    public void validate(User user)
     {
         Authentication usernamePasswordAuthenticationToken = AuthenticationContextHolder.getContext();
         String username = usernamePasswordAuthenticationToken.getName();
@@ -79,7 +79,7 @@ public class SysPasswordService
         }
     }
 
-    public boolean matches(SysUser user, String rawPassword)
+    public boolean matches(User user, String rawPassword)
     {
         return SecurityUtils.matchesPassword(rawPassword, user.getPassword());
     }

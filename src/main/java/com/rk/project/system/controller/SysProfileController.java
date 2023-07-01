@@ -20,7 +20,7 @@ import com.rk.framework.security.LoginUser;
 import com.rk.framework.security.service.TokenService;
 import com.rk.framework.web.controller.BaseController;
 import com.rk.framework.web.domain.AjaxResult;
-import com.rk.project.system.domain.SysUser;
+import com.rk.financial.domain.User;
 import com.rk.project.system.service.ISysUserService;
 
 /**
@@ -45,7 +45,7 @@ public class SysProfileController extends BaseController
     public AjaxResult profile()
     {
         LoginUser loginUser = getLoginUser();
-        SysUser user = loginUser.getUser();
+        User user = loginUser.getUser();
         AjaxResult ajax = AjaxResult.success(user);
         ajax.put("roleGroup", userService.selectUserRoleGroup(loginUser.getUsername()));
         return ajax;
@@ -56,10 +56,10 @@ public class SysProfileController extends BaseController
      */
     @Log(title = "个人信息", businessType = BusinessType.UPDATE)
     @PutMapping
-    public AjaxResult updateProfile(@RequestBody SysUser user)
+    public AjaxResult updateProfile(@RequestBody User user)
     {
         LoginUser loginUser = getLoginUser();
-        SysUser sysUser = loginUser.getUser();
+        User sysUser = loginUser.getUser();
         user.setUserName(sysUser.getUserName());
         if (StringUtils.isNotEmpty(user.getPhonenumber()) && !userService.checkPhoneUnique(user))
         {

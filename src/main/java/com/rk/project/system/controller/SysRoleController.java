@@ -24,7 +24,7 @@ import com.rk.framework.web.controller.BaseController;
 import com.rk.framework.web.domain.AjaxResult;
 import com.rk.framework.web.page.TableDataInfo;
 import com.rk.project.system.domain.SysRole;
-import com.rk.project.system.domain.SysUser;
+import com.rk.financial.domain.User;
 import com.rk.project.system.domain.SysUserRole;
 import com.rk.project.system.service.ISysRoleService;
 import com.rk.project.system.service.ISysUserService;
@@ -190,10 +190,10 @@ public class SysRoleController extends BaseController
      */
     @PreAuthorize("@ss.hasPermi('system:role:list')")
     @GetMapping("/authUser/allocatedList")
-    public TableDataInfo allocatedList(SysUser user)
+    public TableDataInfo allocatedList(User user)
     {
         startPage();
-        List<SysUser> list = userService.selectAllocatedList(user);
+        List<User> list = userService.selectAllocatedList(user);
         return getDataTable(list);
     }
 
@@ -202,10 +202,10 @@ public class SysRoleController extends BaseController
      */
     @PreAuthorize("@ss.hasPermi('system:role:list')")
     @GetMapping("/authUser/unallocatedList")
-    public TableDataInfo unallocatedList(SysUser user)
+    public TableDataInfo unallocatedList(User user)
     {
         startPage();
-        List<SysUser> list = userService.selectUnallocatedList(user);
+        List<User> list = userService.selectUnallocatedList(user);
         return getDataTable(list);
     }
 

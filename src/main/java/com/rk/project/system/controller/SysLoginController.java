@@ -14,7 +14,7 @@ import com.rk.framework.security.service.SysLoginService;
 import com.rk.framework.security.service.SysPermissionService;
 import com.rk.framework.web.domain.AjaxResult;
 import com.rk.project.system.domain.SysMenu;
-import com.rk.project.system.domain.SysUser;
+import com.rk.financial.domain.User;
 import com.rk.project.system.service.ISysMenuService;
 
 /**
@@ -59,7 +59,7 @@ public class SysLoginController
     @GetMapping("getInfo")
     public AjaxResult getInfo()
     {
-        SysUser user = SecurityUtils.getLoginUser().getUser();
+        User user = SecurityUtils.getLoginUser().getUser();
         // 角色集合
         Set<String> roles = permissionService.getRolePermission(user);
         // 权限集合

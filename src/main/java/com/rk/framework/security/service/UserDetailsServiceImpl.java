@@ -10,7 +10,7 @@ import com.rk.common.enums.UserStatus;
 import com.rk.common.exception.ServiceException;
 import com.rk.common.utils.StringUtils;
 import com.rk.framework.security.LoginUser;
-import com.rk.project.system.domain.SysUser;
+import com.rk.financial.domain.User;
 import com.rk.project.system.service.ISysUserService;
 
 /**
@@ -35,7 +35,7 @@ public class UserDetailsServiceImpl implements UserDetailsService
     @Override
     public UserDetails loadUserByUsername(String username)
     {
-        SysUser user = userService.selectUserByUserName(username);
+        User user = userService.selectUserByUserName(username);
         if (StringUtils.isNull(user))
         {
             log.info("登录用户：{} 不存在.", username);
@@ -57,7 +57,7 @@ public class UserDetailsServiceImpl implements UserDetailsService
         return createLoginUser(user);
     }
 
-    public UserDetails createLoginUser(SysUser user)
+    public UserDetails createLoginUser(User user)
     {
         return new LoginUser(user.getUserId(), user.getDeptId(), user, permissionService.getMenuPermission(user));
     }

@@ -1,8 +1,10 @@
-package com.rk.project.system.domain;
+package com.rk.financial.domain;
 
 import java.util.Date;
 import java.util.List;
 import javax.validation.constraints.*;
+
+import com.rk.project.system.domain.SysRole;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import com.rk.common.xss.Xss;
@@ -13,11 +15,11 @@ import com.rk.framework.aspectj.lang.annotation.Excels;
 import com.rk.framework.web.domain.BaseEntity;
 
 /**
- * 用户对象 sys_user
+ * 用户对象 user
  *
  * @author rk
  */
-public class SysUser extends BaseEntity
+public class User extends BaseEntity
 {
     private static final long serialVersionUID = 1L;
 
@@ -90,12 +92,12 @@ public class SysUser extends BaseEntity
     private Long facultyId;
 
 
-    public SysUser()
+    public User()
     {
 
     }
 
-    public SysUser(Long userId)
+    public User(Long userId)
     {
         this.userId = userId;
     }

@@ -25,7 +25,7 @@ import com.rk.framework.manager.factory.AsyncFactory;
 import com.rk.framework.redis.RedisCache;
 import com.rk.framework.security.LoginUser;
 import com.rk.framework.security.context.AuthenticationContextHolder;
-import com.rk.project.system.domain.SysUser;
+import com.rk.financial.domain.User;
 import com.rk.project.system.service.ISysConfigService;
 import com.rk.project.system.service.ISysUserService;
 
@@ -172,10 +172,10 @@ public class SysLoginService
      */
     public void recordLoginInfo(Long userId)
     {
-        SysUser sysUser = new SysUser();
-        sysUser.setUserId(userId);
-        sysUser.setLoginIp(IpUtils.getIpAddr());
-        sysUser.setLoginDate(DateUtils.getNowDate());
-        userService.updateUserProfile(sysUser);
+        User user = new User();
+        user.setUserId(userId);
+        user.setLoginIp(IpUtils.getIpAddr());
+        user.setLoginDate(DateUtils.getNowDate());
+        userService.updateUserProfile(user);
     }
 }

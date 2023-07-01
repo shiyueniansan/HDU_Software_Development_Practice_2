@@ -17,7 +17,7 @@ import com.rk.common.utils.StringUtils;
 import com.rk.framework.web.domain.TreeSelect;
 import com.rk.project.system.domain.SysMenu;
 import com.rk.project.system.domain.SysRole;
-import com.rk.project.system.domain.SysUser;
+import com.rk.financial.domain.User;
 import com.rk.project.system.domain.vo.MetaVo;
 import com.rk.project.system.domain.vo.RouterVo;
 import com.rk.project.system.mapper.SysMenuMapper;
@@ -67,7 +67,7 @@ public class SysMenuServiceImpl implements ISysMenuService
     {
         List<SysMenu> menuList = null;
         // 管理员显示所有菜单信息
-        if (SysUser.isAdmin(userId))
+        if (User.isAdmin(userId))
         {
             menuList = menuMapper.selectMenuList(menu);
         }

@@ -25,7 +25,7 @@ import com.rk.framework.web.controller.BaseController;
 import com.rk.framework.web.domain.AjaxResult;
 import com.rk.framework.web.page.TableDataInfo;
 import com.rk.project.system.domain.SysRole;
-import com.rk.project.system.domain.SysUser;
+import com.rk.financial.domain.User;
 import com.rk.project.system.service.ISysRoleService;
 import com.rk.project.system.service.ISysUserService;
 
@@ -49,20 +49,20 @@ public class SysUserController extends BaseController
      */
     @PreAuthorize("@ss.hasPermi('system:user:list')")
     @GetMapping("/list")
-    public TableDataInfo list(SysUser user)
+    public TableDataInfo list(User user)
     {
         startPage();
-        List<SysUser> list = userService.selectUserList(user);
+        List<User> list = userService.selectUserList(user);
         return getDataTable(list);
     }
 
     @Log(title = "用户管理", businessType = BusinessType.EXPORT)
     @PreAuthorize("@ss.hasPermi('system:user:export')")
     @PostMapping("/export")
-    public void export(HttpServletResponse response, SysUser user)
+    public void export(HttpServletResponse response, User user)
     {
-        List<SysUser> list = userService.selectUserList(user);
-        ExcelUtil<SysUser> util = new ExcelUtil<SysUser>(SysUser.class);
+        List<User> list = userService.selectUserList(user);
+        ExcelUtil<User> util = new ExcelUtil<User>(User.class);
         util.exportExcel(response, list, "用户数据");
     }
 
@@ -71,8 +71,8 @@ public class SysUserController extends BaseController
     @PostMapping("/importData")
     public AjaxResult importData(MultipartFile file, boolean updateSupport) throws Exception
     {
-        ExcelUtil<SysUser> util = new ExcelUtil<SysUser>(SysUser.class);
-        List<SysUser> userList = util.importExcel(file.getInputStream());
+        ExcelUtil<User> util = new ExcelUtil<User>(User.class);
+        List<User> userList = util.importExcel(file.getInputStream());
         String operName = getUsername();
         String message = userService.importUser(userList, updateSupport, operName);
         return success(message);
@@ -81,7 +81,7 @@ public class SysUserController extends BaseController
     @PostMapping("/importTemplate")
     public void importTemplate(HttpServletResponse response)
     {
-        ExcelUtil<SysUser> util = new ExcelUtil<SysUser>(SysUser.class);
+        ExcelUtil<User> util = new ExcelUtil<User>(User.class);
         util.importTemplateExcel(response, "用户数据");
     }
 
@@ -95,12 +95,12 @@ public class SysUserController extends BaseController
         userService.checkUserDataScope(userId);
         AjaxResult ajax = AjaxResult.success();
         List<SysRole> roles = roleService.selectRoleAll();
-        ajax.put("roles", SysUser.isAdmin(userId) ? roles : roles.stream().filter(r -> !r.isAdmin()).collect(Collectors.toList()));
+        ajax.put("roles", User.isAdmin(userId) ? roles : roles.stream().filter(r -> !r.isAdmin()).collect(Collectors.toList()));
         if (StringUtils.isNotNull(userId))
         {
-            SysUser sysUser = userService.selectUserById(userId);
-            ajax.put(AjaxResult.DATA_TAG, sysUser);
-            ajax.put("roleIds", sysUser.getRoles().stream().map(SysRole::getRoleId).collect(Collectors.toList()));
+            User user = userService.selectUserById(userId);
+            ajax.put(AjaxResult.DATA_TAG, user);
+            ajax.put("roleIds", user.getRoles().stream().map(SysRole::getRoleId).collect(Collectors.toList()));
         }
         return ajax;
     }
@@ -111,7 +111,7 @@ public class SysUserController extends BaseController
     @PreAuthorize("@ss.hasPermi('system:user:add')")
     @Log(title = "用户管理", businessType = BusinessType.INSERT)
     @PostMapping
-    public AjaxResult add(@Validated @RequestBody SysUser user)
+    public AjaxResult add(@Validated @RequestBody User user)
     {
         if (!userService.checkUserNameUnique(user))
         {
@@ -136,7 +136,7 @@ public class SysUserController extends BaseController
     @PreAuthorize("@ss.hasPermi('system:user:edit')")
     @Log(title = "用户管理", businessType = BusinessType.UPDATE)
     @PutMapping
-    public AjaxResult edit(@Validated @RequestBody SysUser user)
+    public AjaxResult edit(@Validated @RequestBody User user)
     {
         userService.checkUserAllowed(user);
         userService.checkUserDataScope(user.getUserId());
@@ -177,7 +177,7 @@ public class SysUserController extends BaseController
     @PreAuthorize("@ss.hasPermi('system:user:resetPwd')")
     @Log(title = "用户管理", businessType = BusinessType.UPDATE)
     @PutMapping("/resetPwd")
-    public AjaxResult resetPwd(@RequestBody SysUser user)
+    public AjaxResult resetPwd(@RequestBody User user)
     {
         userService.checkUserAllowed(user);
         userService.checkUserDataScope(user.getUserId());
@@ -192,7 +192,7 @@ public class SysUserController extends BaseController
     @PreAuthorize("@ss.hasPermi('system:user:edit')")
     @Log(title = "用户管理", businessType = BusinessType.UPDATE)
     @PutMapping("/changeStatus")
-    public AjaxResult changeStatus(@RequestBody SysUser user)
+    public AjaxResult changeStatus(@RequestBody User user)
     {
         userService.checkUserAllowed(user);
         userService.checkUserDataScope(user.getUserId());
@@ -208,10 +208,10 @@ public class SysUserController extends BaseController
     public AjaxResult authRole(@PathVariable("userId") Long userId)
     {
         AjaxResult ajax = AjaxResult.success();
-        SysUser user = userService.selectUserById(userId);
+        User user = userService.selectUserById(userId);
         List<SysRole> roles = roleService.selectRolesByUserId(userId);
         ajax.put("user", user);
-        ajax.put("roles", SysUser.isAdmin(userId) ? roles : roles.stream().filter(r -> !r.isAdmin()).collect(Collectors.toList()));
+        ajax.put("roles", User.isAdmin(userId) ? roles : roles.stream().filter(r -> !r.isAdmin()).collect(Collectors.toList()));
         return ajax;
     }
 

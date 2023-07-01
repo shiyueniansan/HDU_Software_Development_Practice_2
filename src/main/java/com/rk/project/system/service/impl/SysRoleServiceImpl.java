@@ -16,7 +16,7 @@ import com.rk.common.utils.spring.SpringUtils;
 import com.rk.framework.aspectj.lang.annotation.DataScope;
 import com.rk.project.system.domain.SysRole;
 import com.rk.project.system.domain.SysRoleMenu;
-import com.rk.project.system.domain.SysUser;
+import com.rk.financial.domain.User;
 import com.rk.project.system.domain.SysUserRole;
 import com.rk.project.system.mapper.SysRoleMapper;
 import com.rk.project.system.mapper.SysRoleMenuMapper;
@@ -193,7 +193,7 @@ public class SysRoleServiceImpl implements ISysRoleService
     @Override
     public void checkRoleDataScope(Long roleId)
     {
-        if (!SysUser.isAdmin(SecurityUtils.getUserId()))
+        if (!User.isAdmin(SecurityUtils.getUserId()))
         {
             SysRole role = new SysRole();
             role.setRoleId(roleId);

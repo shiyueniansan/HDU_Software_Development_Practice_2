@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 import com.rk.project.system.domain.SysRole;
-import com.rk.project.system.domain.SysUser;
+import com.rk.financial.domain.User;
 import com.rk.project.system.service.ISysMenuService;
 import com.rk.project.system.service.ISysRoleService;
 
@@ -31,7 +31,7 @@ public class SysPermissionService
      * @param user 用户信息
      * @return 角色权限信息
      */
-    public Set<String> getRolePermission(SysUser user)
+    public Set<String> getRolePermission(User user)
     {
         Set<String> roles = new HashSet<String>();
         // 管理员拥有所有权限
@@ -52,7 +52,7 @@ public class SysPermissionService
      * @param user 用户信息
      * @return 菜单权限信息
      */
-    public Set<String> getMenuPermission(SysUser user)
+    public Set<String> getMenuPermission(User user)
     {
         Set<String> perms = new HashSet<String>();
         // 管理员拥有所有权限
