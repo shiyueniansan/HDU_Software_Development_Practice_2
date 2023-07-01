@@ -3,12 +3,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.ruoyi</groupId>
-    <artifactId>ruoyi</artifactId>
+    <groupId>com.rk</groupId>
+    <artifactId>rk</artifactId>
     <version>3.8.6</version>
     <packaging>jar</packaging>
 
-    <name>RK</name>
+    <name>rk</name>
     <description>HDU财务系统</description>
 
     <parent>
