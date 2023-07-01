@@ -1,4 +1,4 @@
-package com.rk.project.system.controller;
+package com.rk.financial.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -1,7 +1,7 @@
 package com.rk.framework.web.domain;
 
 import java.io.Serializable;
-import com.rk.common.constant.HttpStatus;
+import com.rk.financial.constant.HttpStatus;
 
 /**
  * 响应信息主体

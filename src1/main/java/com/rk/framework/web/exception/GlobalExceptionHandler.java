@@ -9,7 +9,7 @@ import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import com.rk.common.constant.HttpStatus;
+import com.rk.financial.constant.HttpStatus;
 import com.rk.common.exception.DemoModeException;
 import com.rk.common.exception.ServiceException;
 import com.rk.common.utils.StringUtils;

@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import com.alibaba.fastjson2.JSON;
-import com.rk.common.constant.CacheConstants;
+import com.rk.financial.constant.CacheConstants;
 import com.rk.common.filter.RepeatedlyRequestWrapper;
 import com.rk.common.utils.StringUtils;
 import com.rk.common.utils.http.HttpHelper;

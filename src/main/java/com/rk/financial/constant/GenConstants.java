@@ -1,4 +1,4 @@
-package com.rk.common.constant;
+package com.rk.financial.constant;
 
 /**
  * 代码生成通用常量

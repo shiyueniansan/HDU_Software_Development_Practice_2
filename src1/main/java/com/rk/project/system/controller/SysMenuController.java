@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.rk.common.constant.UserConstants;
+import com.rk.financial.constant.UserConstants;
 import com.rk.common.utils.StringUtils;
 import com.rk.framework.aspectj.lang.annotation.Log;
 import com.rk.framework.aspectj.lang.enums.BusinessType;

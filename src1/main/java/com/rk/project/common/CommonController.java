@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
-import com.rk.common.constant.Constants;
+import com.rk.financial.constant.Constants;
 import com.rk.common.utils.StringUtils;
 import com.rk.common.utils.file.FileUploadUtils;
 import com.rk.common.utils.file.FileUtils;

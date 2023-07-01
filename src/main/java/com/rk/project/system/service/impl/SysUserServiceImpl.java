@@ -1,7 +1,7 @@
 package com.rk.project.system.service.impl;
 
 import com.rk.framework.aspectj.lang.annotation.DataScope;
-import com.rk.common.constant.UserConstants;
+import com.rk.financial.constant.UserConstants;
 import com.rk.project.system.domain.SysRole;
 import com.rk.project.system.domain.SysUser;
 import com.rk.common.exception.ServiceException;

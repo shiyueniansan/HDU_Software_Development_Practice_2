@@ -19,7 +19,7 @@ import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import com.rk.common.constant.Constants;
+import com.rk.financial.constant.Constants;
 import com.rk.common.utils.StringUtils;
 
 /**

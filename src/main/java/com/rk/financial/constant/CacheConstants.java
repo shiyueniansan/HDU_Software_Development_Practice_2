@@ -1,4 +1,4 @@
-package com.rk.common.constant;
+package com.rk.financial.constant;
 
 /**
  * 缓存的key 常量

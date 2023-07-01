@@ -7,7 +7,7 @@ import java.util.Set;
 import org.apache.velocity.VelocityContext;
 import com.alibaba.fastjson2.JSON;
 import com.alibaba.fastjson2.JSONObject;
-import com.rk.common.constant.GenConstants;
+import com.rk.financial.constant.GenConstants;
 import com.rk.common.utils.DateUtils;
 import com.rk.common.utils.StringUtils;
 import com.rk.project.tool.gen.domain.GenTable;

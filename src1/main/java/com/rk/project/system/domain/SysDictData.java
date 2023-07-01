@@ -4,7 +4,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
-import com.rk.common.constant.UserConstants;
+import com.rk.financial.constant.UserConstants;
 import com.rk.framework.aspectj.lang.annotation.Excel;
 import com.rk.framework.aspectj.lang.annotation.Excel.ColumnType;
 import com.rk.framework.web.domain.BaseEntity;

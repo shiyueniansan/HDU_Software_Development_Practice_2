@@ -4,7 +4,7 @@ import java.util.List;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import org.apache.commons.lang3.ArrayUtils;
-import com.rk.common.constant.GenConstants;
+import com.rk.financial.constant.GenConstants;
 import com.rk.common.utils.StringUtils;
 import com.rk.framework.web.domain.BaseEntity;
 

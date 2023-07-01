@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.rk.common.constant.UserConstants;
+import com.rk.financial.constant.UserConstants;
 import com.rk.common.core.text.Convert;
 import com.rk.common.exception.ServiceException;
 import com.rk.common.utils.SecurityUtils;

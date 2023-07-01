@@ -3,7 +3,7 @@ package com.rk.common.utils;
 import java.util.Collection;
 import java.util.List;
 import com.alibaba.fastjson2.JSONArray;
-import com.rk.common.constant.CacheConstants;
+import com.rk.financial.constant.CacheConstants;
 import com.rk.common.utils.spring.SpringUtils;
 import com.rk.framework.redis.RedisCache;
 import com.rk.project.system.domain.SysDictData;
