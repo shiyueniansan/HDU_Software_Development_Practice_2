@@ -14,7 +14,7 @@ import com.ruoyi.framework.web.domain.BaseEntity;
 
 /**
  * 用户对象 sys_user
- * 
+ *
  * @author ruoyi
  */
 public class SysUser extends BaseEntity
@@ -88,6 +88,11 @@ public class SysUser extends BaseEntity
 
     /** 角色ID */
     private Long roleId;
+
+    /** 教职工编号 */
+//    @Excel(name = "教职工编号")
+    private Long facultyId;
+
 
     public SysUser()
     {
@@ -297,6 +302,16 @@ public class SysUser extends BaseEntity
         this.roleId = roleId;
     }
 
+    public void setFacultyId(Long facultyId)
+    {
+        this.facultyId = facultyId;
+    }
+
+    public Long getFacultyId()
+    {
+        return facultyId;
+    }
+
     @Override
     public String toString() {
         return new ToStringBuilder(this,ToStringStyle.MULTI_LINE_STYLE)
@@ -319,6 +334,7 @@ public class SysUser extends BaseEntity
             .append("updateTime", getUpdateTime())
             .append("remark", getRemark())
             .append("dept", getDept())
+            .append("facultyId", getFacultyId())
             .toString();
     }
 }

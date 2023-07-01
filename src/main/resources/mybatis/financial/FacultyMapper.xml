@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.project.financial.mapper.FacultyMapper">
+
+    <resultMap type="Faculty" id="FacultyResult">
+        <result property="id"    column="id"    />
+        <result property="name"    column="name"    />
+        <result property="type"    column="type"    />
+        <result property="title"    column="title"    />
+        <result property="job"    column="job"    />
+        <result property="basicPay"    column="basic_pay"    />
+        <result property="livingSubsidy"    column="living_subsidy"    />
+        <result property="readingSubsidy"    column="reading_subsidy"    />
+        <result property="transportationSubsidy"    column="transportation_subsidy"    />
+        <result property="washingSubsidy"    column="washing_subsidy"    />
+        <result property="quotaHour"    column="quota_hour"    />
+    </resultMap>
+
+    <sql id="selectFacultyVo">
+        select id, name, type, title, job, basic_pay, living_subsidy, reading_subsidy, transportation_subsidy, washing_subsidy, quota_hour from faculty
+    </sql>
+
+    <select id="selectFacultyList" parameterType="Faculty" resultMap="FacultyResult">
+        <include refid="selectFacultyVo"/>
+        <where>
+            <if test="name != null  and name != ''"> and name like concat('%', #{name}, '%')</if>
+            <if test="type != null "> and type = #{type}</if>
+            <if test="title != null "> and title = #{title}</if>
+            <if test="job != null "> and job = #{job}</if>
+            <if test="basicPay != null "> and basic_pay = #{basicPay}</if>
+            <if test="livingSubsidy != null "> and living_subsidy = #{livingSubsidy}</if>
+            <if test="readingSubsidy != null "> and reading_subsidy = #{readingSubsidy}</if>
+            <if test="transportationSubsidy != null "> and transportation_subsidy = #{transportationSubsidy}</if>
+            <if test="washingSubsidy != null "> and washing_subsidy = #{washingSubsidy}</if>
+            <if test="quotaHour != null "> and quota_hour = #{quotaHour}</if>
+        </where>
+    </select>
+
+    <select id="selectFacultyById" parameterType="Long" resultMap="FacultyResult">
+        <include refid="selectFacultyVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertFaculty" parameterType="Faculty" useGeneratedKeys="true" keyProperty="id">
+        insert into faculty
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="name != null and name != ''">name,</if>
+            <if test="type != null">type,</if>
+            <if test="title != null">title,</if>
+            <if test="job != null">job,</if>
+            <if test="basicPay != null">basic_pay,</if>
+            <if test="livingSubsidy != null">living_subsidy,</if>
+            <if test="readingSubsidy != null">reading_subsidy,</if>
+            <if test="transportationSubsidy != null">transportation_subsidy,</if>
+            <if test="washingSubsidy != null">washing_subsidy,</if>
+            <if test="quotaHour != null">quota_hour,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="name != null and name != ''">#{name},</if>
+            <if test="type != null">#{type},</if>
+            <if test="title != null">#{title},</if>
+            <if test="job != null">#{job},</if>
+            <if test="basicPay != null">#{basicPay},</if>
+            <if test="livingSubsidy != null">#{livingSubsidy},</if>
+            <if test="readingSubsidy != null">#{readingSubsidy},</if>
+            <if test="transportationSubsidy != null">#{transportationSubsidy},</if>
+            <if test="washingSubsidy != null">#{washingSubsidy},</if>
+            <if test="quotaHour != null">#{quotaHour},</if>
+         </trim>
+    </insert>
+
+    <update id="updateFaculty" parameterType="Faculty">
+        update faculty
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="name != null and name != ''">name = #{name},</if>
+            <if test="type != null">type = #{type},</if>
+            <if test="title != null">title = #{title},</if>
+            <if test="job != null">job = #{job},</if>
+            <if test="basicPay != null">basic_pay = #{basicPay},</if>
+            <if test="livingSubsidy != null">living_subsidy = #{livingSubsidy},</if>
+            <if test="readingSubsidy != null">reading_subsidy = #{readingSubsidy},</if>
+            <if test="transportationSubsidy != null">transportation_subsidy = #{transportationSubsidy},</if>
+            <if test="washingSubsidy != null">washing_subsidy = #{washingSubsidy},</if>
+            <if test="quotaHour != null">quota_hour = #{quotaHour},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteFacultyById" parameterType="Long">
+        delete from faculty where id = #{id}
+    </delete>
+
+    <delete id="deleteFacultyByIds" parameterType="String">
+        delete from faculty where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

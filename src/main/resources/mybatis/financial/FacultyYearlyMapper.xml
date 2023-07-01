@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.project.financial.mapper.FacultyYearlyMapper">
+
+    <resultMap type="FacultyYearly" id="FacultyYearlyResult">
+        <result property="facultyId"    column="faculty_id"    />
+        <result property="name"    column="name"    />
+        <result property="totalPay"    column="total_pay"    />
+        <result property="hour"    column="hour"    />
+        <result property="avgPay"    column="avg_pay"    />
+        <result property="netPay"    column="net_pay"    />
+    </resultMap>
+
+    <sql id="selectFacultyYearlyVo">
+        select faculty_id, name, total_pay, hour, avg_pay, net_pay from faculty_yearly
+    </sql>
+
+    <select id="selectFacultyYearlyList" parameterType="FacultyYearly" resultMap="FacultyYearlyResult">
+        <include refid="selectFacultyYearlyVo"/>
+        <where>
+            <if test="facultyId != null "> and faculty_id = #{facultyId}</if>
+            <if test="name != null  and name != ''"> and name like concat('%', #{name}, '%')</if>
+            <if test="totalPay != null "> and total_pay = #{totalPay}</if>
+            <if test="hour != null "> and hour = #{hour}</if>
+            <if test="avgPay != null "> and avg_pay = #{avgPay}</if>
+            <if test="netPay != null "> and net_pay = #{netPay}</if>
+        </where>
+    </select>
+
+    <select id="selectFacultyYearlyByFacultyId" parameterType="Long" resultMap="FacultyYearlyResult">
+        <include refid="selectFacultyYearlyVo"/>
+        where faculty_id = #{facultyId}
+    </select>
+
+    <insert id="insertFacultyYearly" parameterType="FacultyYearly">
+        insert into faculty_yearly
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="facultyId != null">faculty_id,</if>
+            <if test="name != null">name,</if>
+            <if test="totalPay != null">total_pay,</if>
+            <if test="hour != null">hour,</if>
+            <if test="avgPay != null">avg_pay,</if>
+            <if test="netPay != null">net_pay,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="facultyId != null">#{facultyId},</if>
+            <if test="name != null">#{name},</if>
+            <if test="totalPay != null">#{totalPay},</if>
+            <if test="hour != null">#{hour},</if>
+            <if test="avgPay != null">#{avgPay},</if>
+            <if test="netPay != null">#{netPay},</if>
+         </trim>
+    </insert>
+
+    <update id="updateFacultyYearly" parameterType="FacultyYearly">
+        update faculty_yearly
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="name != null">name = #{name},</if>
+            <if test="totalPay != null">total_pay = #{totalPay},</if>
+            <if test="hour != null">hour = #{hour},</if>
+            <if test="avgPay != null">avg_pay = #{avgPay},</if>
+            <if test="netPay != null">net_pay = #{netPay},</if>
+        </trim>
+        where faculty_id = #{facultyId}
+    </update>
+
+    <delete id="deleteFacultyYearlyByFacultyId" parameterType="Long">
+        delete from faculty_yearly where faculty_id = #{facultyId}
+    </delete>
+
+    <delete id="deleteFacultyYearlyByFacultyIds" parameterType="String">
+        delete from faculty_yearly where faculty_id in
+        <foreach item="facultyId" collection="array" open="(" separator="," close=")">
+            #{facultyId}
+        </foreach>
+    </delete>
+</mapper>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.project.financial.mapper.JobMapper">
+
+    <resultMap type="Job" id="JobResult">
+        <result property="id"    column="id"    />
+        <result property="des"    column="des"    />
+        <result property="factor"    column="factor"    />
+    </resultMap>
+
+    <sql id="selectJobVo">
+        select id, des, factor from job
+    </sql>
+
+    <select id="selectJobList" parameterType="Job" resultMap="JobResult">
+        <include refid="selectJobVo"/>
+        <where>
+            <if test="des != null  and des != ''"> and des = #{des}</if>
+            <if test="factor != null "> and factor = #{factor}</if>
+        </where>
+    </select>
+
+    <select id="selectJobById" parameterType="Long" resultMap="JobResult">
+        <include refid="selectJobVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertJob" parameterType="Job" useGeneratedKeys="true" keyProperty="id">
+        insert into job
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="des != null and des != ''">des,</if>
+            <if test="factor != null">factor,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="des != null and des != ''">#{des},</if>
+            <if test="factor != null">#{factor},</if>
+         </trim>
+    </insert>
+
+    <update id="updateJob" parameterType="Job">
+        update job
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="des != null and des != ''">des = #{des},</if>
+            <if test="factor != null">factor = #{factor},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteJobById" parameterType="Long">
+        delete from job where id = #{id}
+    </delete>
+
+    <delete id="deleteJobByIds" parameterType="String">
+        delete from job where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>
