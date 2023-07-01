@@ -11,7 +11,7 @@
  Target Server Version : 80031
  File Encoding         : 65001
 
- Date: 01/07/2023 17:26:45
+ Date: 01/07/2023 17:42:54
 */
 
 SET NAMES utf8mb4;
@@ -358,32 +358,6 @@ INSERT INTO `sys_config` VALUES (5, '账号自助-是否开启用户注册功能
 INSERT INTO `sys_config` VALUES (6, '用户登录-黑名单列表', 'sys.login.blackIPList', '', 'Y', 'admin', '2023-05-28 07:54:27', '', NULL, '设置登录IP黑名单限制，多个匹配项以;分隔，支持匹配（*通配、网段）');
 
 -- ----------------------------
--- Table structure for sys_dept
--- ----------------------------
-DROP TABLE IF EXISTS `sys_dept`;
-CREATE TABLE `sys_dept`  (
-  `dept_id` bigint NOT NULL AUTO_INCREMENT COMMENT '部门id',
-  `parent_id` bigint NULL DEFAULT 0 COMMENT '父部门id',
-  `ancestors` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '' COMMENT '祖级列表',
-  `dept_name` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '' COMMENT '部门名称',
-  `order_num` int NULL DEFAULT 0 COMMENT '显示顺序',
-  `leader` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '负责人',
-  `phone` varchar(11) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '联系电话',
-  `email` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '邮箱',
-  `status` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '0' COMMENT '部门状态（0正常 1停用）',
-  `del_flag` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '0' COMMENT '删除标志（0代表存在 2代表删除）',
-  `create_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '' COMMENT '创建者',
-  `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
-  `update_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '' COMMENT '更新者',
-  `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
-  PRIMARY KEY (`dept_id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '部门表' ROW_FORMAT = DYNAMIC;
-
--- ----------------------------
--- Records of sys_dept
--- ----------------------------
-
--- ----------------------------
 -- Table structure for sys_dict_data
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_dict_data`;
@@ -698,28 +672,6 @@ INSERT INTO `sys_menu` VALUES (2195, '全部工资明细表删除', 2191, 4, '#'
 INSERT INTO `sys_menu` VALUES (2196, '全部工资明细表导出', 2191, 5, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:payDetails:export', '#', 'admin', '2023-05-30 23:36:39', '', NULL, '');
 
 -- ----------------------------
--- Table structure for sys_notice
--- ----------------------------
-DROP TABLE IF EXISTS `sys_notice`;
-CREATE TABLE `sys_notice`  (
-  `notice_id` int NOT NULL AUTO_INCREMENT COMMENT '公告ID',
-  `notice_title` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '公告标题',
-  `notice_type` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '公告类型（1通知 2公告）',
-  `notice_content` longblob NULL COMMENT '公告内容',
-  `status` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '0' COMMENT '公告状态（0正常 1关闭）',
-  `create_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '' COMMENT '创建者',
-  `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
-  `update_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '' COMMENT '更新者',
-  `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
-  `remark` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '备注',
-  PRIMARY KEY (`notice_id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '通知公告表' ROW_FORMAT = DYNAMIC;
-
--- ----------------------------
--- Records of sys_notice
--- ----------------------------
-
--- ----------------------------
 -- Table structure for sys_oper_log
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_oper_log`;
@@ -750,32 +702,6 @@ CREATE TABLE `sys_oper_log`  (
 -- ----------------------------
 -- Records of sys_oper_log
 -- ----------------------------
-
--- ----------------------------
--- Table structure for sys_post
--- ----------------------------
-DROP TABLE IF EXISTS `sys_post`;
-CREATE TABLE `sys_post`  (
-  `post_id` bigint NOT NULL AUTO_INCREMENT COMMENT '岗位ID',
-  `post_code` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '岗位编码',
-  `post_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '岗位名称',
-  `post_sort` int NOT NULL COMMENT '显示顺序',
-  `status` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '状态（0正常 1停用）',
-  `create_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '' COMMENT '创建者',
-  `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
-  `update_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '' COMMENT '更新者',
-  `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
-  `remark` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '备注',
-  PRIMARY KEY (`post_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '岗位信息表' ROW_FORMAT = DYNAMIC;
-
--- ----------------------------
--- Records of sys_post
--- ----------------------------
-INSERT INTO `sys_post` VALUES (1, 'ceo', '董事长', 1, '0', 'admin', '2023-05-28 07:54:27', '', NULL, '');
-INSERT INTO `sys_post` VALUES (2, 'se', '项目经理', 2, '0', 'admin', '2023-05-28 07:54:27', '', NULL, '');
-INSERT INTO `sys_post` VALUES (3, 'hr', '人力资源', 3, '0', 'admin', '2023-05-28 07:54:27', '', NULL, '');
-INSERT INTO `sys_post` VALUES (4, 'user', '普通员工', 4, '0', 'admin', '2023-05-28 07:54:27', '', NULL, '');
 
 -- ----------------------------
 -- Table structure for sys_role

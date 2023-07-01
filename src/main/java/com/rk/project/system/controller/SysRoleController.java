@@ -23,11 +23,9 @@ import com.rk.framework.security.service.TokenService;
 import com.rk.framework.web.controller.BaseController;
 import com.rk.framework.web.domain.AjaxResult;
 import com.rk.framework.web.page.TableDataInfo;
-import com.rk.project.system.domain.SysDept;
 import com.rk.project.system.domain.SysRole;
 import com.rk.project.system.domain.SysUser;
 import com.rk.project.system.domain.SysUserRole;
-import com.rk.project.system.service.ISysDeptService;
 import com.rk.project.system.service.ISysRoleService;
 import com.rk.project.system.service.ISysUserService;
 
@@ -52,8 +50,6 @@ public class SysRoleController extends BaseController
     @Autowired
     private ISysUserService userService;
 
-    @Autowired
-    private ISysDeptService deptService;
 
     @PreAuthorize("@ss.hasPermi('system:role:list')")
     @GetMapping("/list")
@@ -245,18 +241,5 @@ public class SysRoleController extends BaseController
     {
         roleService.checkRoleDataScope(roleId);
         return toAjax(roleService.insertAuthUsers(roleId, userIds));
-    }
-
-    /**
-     * 获取对应角色部门树列表
-     */
-    @PreAuthorize("@ss.hasPermi('system:role:query')")
-    @GetMapping(value = "/deptTree/{roleId}")
-    public AjaxResult deptTree(@PathVariable("roleId") Long roleId)
-    {
-        AjaxResult ajax = AjaxResult.success();
-        ajax.put("checkedKeys", deptService.selectDeptListByRoleId(roleId));
-        ajax.put("depts", deptService.selectDeptTreeList(new SysDept()));
-        return ajax;
     }
 }
