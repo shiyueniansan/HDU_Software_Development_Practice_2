@@ -11,7 +11,7 @@
  Target Server Version : 80031
  File Encoding         : 65001
 
- Date: 01/07/2023 17:42:54
+ Date: 01/07/2023 17:50:52
 */
 
 SET NAMES utf8mb4;
@@ -737,20 +737,6 @@ INSERT INTO `sys_role` VALUES (103, '银行', 'bank', 6, '1', 1, 1, '0', '0', 'a
 INSERT INTO `sys_role` VALUES (104, '人事', 'personnel', 7, '1', 1, 1, '0', '0', 'admin', '2023-05-31 08:01:12', '', NULL, NULL);
 
 -- ----------------------------
--- Table structure for sys_role_dept
--- ----------------------------
-DROP TABLE IF EXISTS `sys_role_dept`;
-CREATE TABLE `sys_role_dept`  (
-  `role_id` bigint NOT NULL COMMENT '角色ID',
-  `dept_id` bigint NOT NULL COMMENT '部门ID',
-  PRIMARY KEY (`role_id`, `dept_id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '角色和部门关联表' ROW_FORMAT = DYNAMIC;
-
--- ----------------------------
--- Records of sys_role_dept
--- ----------------------------
-
--- ----------------------------
 -- Table structure for sys_role_menu
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_role_menu`;
@@ -981,20 +967,6 @@ INSERT INTO `sys_user` VALUES (105, 5, NULL, '王五', '王五', '00', '', '', '
 INSERT INTO `sys_user` VALUES (106, NULL, NULL, '人事', '人事', '00', '', '', '0', '', '$2a$10$qwhdew0GztrMG.BAtRWgD.6SjXDUGVtaEY0oiFKD6Kz..3iM2Ipce', '0', '0', '127.0.0.1', '2023-05-31 08:09:28', 'admin', '2023-05-31 08:05:25', '', '2023-05-31 08:09:28', NULL);
 INSERT INTO `sys_user` VALUES (108, 1, NULL, '小马', '小马', '00', '', '', '0', '', '$2a$10$RNjfG3FgrWwLi4opoF8NDuzhPh/dFizBzUWa5QiOIApBbftclQJ1.', '0', '0', '127.0.0.1', '2023-06-01 15:49:12', 'admin', '2023-06-01 12:18:47', '', '2023-06-01 15:49:11', NULL);
 INSERT INTO `sys_user` VALUES (109, 2, NULL, '小王', '小王', '00', '', '', '0', '', '$2a$10$RL2InKEr7uUFRayCug0Z.u/eUBftagUEU6d02wFcipPzKiH9EnNXW', '0', '0', '', NULL, 'admin', '2023-06-01 13:33:29', 'admin', '2023-06-01 13:33:39', NULL);
-
--- ----------------------------
--- Table structure for sys_user_post
--- ----------------------------
-DROP TABLE IF EXISTS `sys_user_post`;
-CREATE TABLE `sys_user_post`  (
-  `user_id` bigint NOT NULL COMMENT '用户ID',
-  `post_id` bigint NOT NULL COMMENT '岗位ID',
-  PRIMARY KEY (`user_id`, `post_id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '用户与岗位关联表' ROW_FORMAT = DYNAMIC;
-
--- ----------------------------
--- Records of sys_user_post
--- ----------------------------
 
 -- ----------------------------
 -- Table structure for sys_user_role

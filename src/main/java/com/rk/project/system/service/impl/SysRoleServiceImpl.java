@@ -15,11 +15,9 @@ import com.rk.common.utils.StringUtils;
 import com.rk.common.utils.spring.SpringUtils;
 import com.rk.framework.aspectj.lang.annotation.DataScope;
 import com.rk.project.system.domain.SysRole;
-import com.rk.project.system.domain.SysRoleDept;
 import com.rk.project.system.domain.SysRoleMenu;
 import com.rk.project.system.domain.SysUser;
 import com.rk.project.system.domain.SysUserRole;
-import com.rk.project.system.mapper.SysRoleDeptMapper;
 import com.rk.project.system.mapper.SysRoleMapper;
 import com.rk.project.system.mapper.SysRoleMenuMapper;
 import com.rk.project.system.mapper.SysUserRoleMapper;
@@ -42,8 +40,6 @@ public class SysRoleServiceImpl implements ISysRoleService
     @Autowired
     private SysUserRoleMapper userRoleMapper;
 
-    @Autowired
-    private SysRoleDeptMapper roleDeptMapper;
 
     /**
      * 根据条件分页查询角色数据
@@ -275,12 +271,11 @@ public class SysRoleServiceImpl implements ISysRoleService
     @Transactional
     public int authDataScope(SysRole role)
     {
-        // 修改角色信息
-        roleMapper.updateRole(role);
-        // 删除角色与部门关联
-        roleDeptMapper.deleteRoleDeptByRoleId(role.getRoleId());
-        // 新增角色和部门信息（数据权限）
-        return insertRoleDept(role);
+//        // 修改角色信息
+//        roleMapper.updateRole(role);
+//        // 新增角色和部门信息（数据权限）
+//        return insertRoleDept(role);
+        return roleMapper.updateRole(role);
     }
 
     /**
@@ -308,30 +303,6 @@ public class SysRoleServiceImpl implements ISysRoleService
     }
 
     /**
-     * 新增角色部门信息(数据权限)
-     *
-     * @param role 角色对象
-     */
-    public int insertRoleDept(SysRole role)
-    {
-        int rows = 1;
-        // 新增角色与部门（数据权限）管理
-        List<SysRoleDept> list = new ArrayList<SysRoleDept>();
-        for (Long deptId : role.getDeptIds())
-        {
-            SysRoleDept rd = new SysRoleDept();
-            rd.setRoleId(role.getRoleId());
-            rd.setDeptId(deptId);
-            list.add(rd);
-        }
-        if (list.size() > 0)
-        {
-            rows = roleDeptMapper.batchRoleDept(list);
-        }
-        return rows;
-    }
-
-    /**
      * 通过角色ID删除角色
      *
      * @param roleId 角色ID
@@ -343,8 +314,6 @@ public class SysRoleServiceImpl implements ISysRoleService
     {
         // 删除角色与菜单关联
         roleMenuMapper.deleteRoleMenuByRoleId(roleId);
-        // 删除角色与部门关联
-        roleDeptMapper.deleteRoleDeptByRoleId(roleId);
         return roleMapper.deleteRoleById(roleId);
     }
 
@@ -370,8 +339,6 @@ public class SysRoleServiceImpl implements ISysRoleService
         }
         // 删除角色与菜单关联
         roleMenuMapper.deleteRoleMenu(roleIds);
-        // 删除角色与部门关联
-        roleDeptMapper.deleteRoleDept(roleIds);
         return roleMapper.deleteRoleByIds(roleIds);
     }
 
