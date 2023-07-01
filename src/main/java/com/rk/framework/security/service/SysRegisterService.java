@@ -11,7 +11,7 @@ import com.rk.common.utils.MessageUtils;
 import com.rk.common.utils.SecurityUtils;
 import com.rk.common.utils.StringUtils;
 import com.rk.framework.manager.AsyncManager;
-import com.rk.framework.manager.factory.AsyncFactory;
+//import com.rk.framework.manager.factory.AsyncFactory;
 import com.rk.framework.redis.RedisCache;
 import com.rk.framework.security.RegisterBody;
 import com.rk.project.system.domain.SysUser;
@@ -69,10 +69,10 @@ public class SysRegisterService
         {
             msg = "密码长度必须在5到20个字符之间";
         }
-        else if (!userService.checkUserNameUnique(sysUser))
-        {
-            msg = "保存用户'" + username + "'失败，注册账号已存在";
-        }
+//        else if (!userService.checkUserNameUnique(sysUser))
+//        {
+//            msg = "保存用户'" + username + "'失败，注册账号已存在";
+//        }
         else
         {
             sysUser.setNickName(username);
@@ -84,7 +84,7 @@ public class SysRegisterService
             }
             else
             {
-                AsyncManager.me().execute(AsyncFactory.recordLogininfor(username, Constants.REGISTER, MessageUtils.message("user.register.success")));
+//                AsyncManager.me().execute(AsyncFactory.recordLogininfor(username, Constants.REGISTER, MessageUtils.message("user.register.success")));
             }
         }
         return msg;

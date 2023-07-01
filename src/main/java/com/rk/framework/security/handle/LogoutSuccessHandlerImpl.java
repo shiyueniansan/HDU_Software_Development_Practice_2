@@ -13,7 +13,7 @@ import com.rk.common.constant.Constants;
 import com.rk.common.utils.ServletUtils;
 import com.rk.common.utils.StringUtils;
 import com.rk.framework.manager.AsyncManager;
-import com.rk.framework.manager.factory.AsyncFactory;
+//import com.rk.framework.manager.factory.AsyncFactory;
 import com.rk.framework.security.LoginUser;
 import com.rk.framework.security.service.TokenService;
 import com.rk.framework.web.domain.AjaxResult;
@@ -45,7 +45,7 @@ public class LogoutSuccessHandlerImpl implements LogoutSuccessHandler
             // 删除用户缓存记录
             tokenService.delLoginUser(loginUser.getToken());
             // 记录用户退出日志
-            AsyncManager.me().execute(AsyncFactory.recordLogininfor(userName, Constants.LOGOUT, "退出成功"));
+//            AsyncManager.me().execute(AsyncFactory.recordLogininfor(userName, Constants.LOGOUT, "退出成功"));
         }
         ServletUtils.renderString(response, JSON.toJSONString(AjaxResult.success("退出成功")));
     }

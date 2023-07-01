@@ -41,16 +41,16 @@ public class UserDetailsServiceImpl implements UserDetailsService
             log.info("登录用户：{} 不存在.", username);
             throw new ServiceException("登录用户：" + username + " 不存在");
         }
-        else if (UserStatus.DELETED.getCode().equals(user.getDelFlag()))
-        {
-            log.info("登录用户：{} 已被删除.", username);
-            throw new ServiceException("对不起，您的账号：" + username + " 已被删除");
-        }
-        else if (UserStatus.DISABLE.getCode().equals(user.getStatus()))
-        {
-            log.info("登录用户：{} 已被停用.", username);
-            throw new ServiceException("对不起，您的账号：" + username + " 已停用");
-        }
+//        else if (UserStatus.DELETED.getCode().equals(user.getDelFlag()))
+//        {
+//            log.info("登录用户：{} 已被删除.", username);
+//            throw new ServiceException("对不起，您的账号：" + username + " 已被删除");
+//        }
+//        else if (UserStatus.DISABLE.getCode().equals(user.getStatus()))
+//        {
+//            log.info("登录用户：{} 已被停用.", username);
+//            throw new ServiceException("对不起，您的账号：" + username + " 已停用");
+//        }
 
         passwordService.validate(user);
 
@@ -59,6 +59,7 @@ public class UserDetailsServiceImpl implements UserDetailsService
 
     public UserDetails createLoginUser(SysUser user)
     {
-        return new LoginUser(user.getUserId(), user.getDeptId(), user, permissionService.getMenuPermission(user));
+//        return new LoginUser(user.getUserId(), user.getDeptId(), user, permissionService.getMenuPermission(user));
+        return new LoginUser(user.getUserId(), user, permissionService.getMenuPermission(user));
     }
 }
