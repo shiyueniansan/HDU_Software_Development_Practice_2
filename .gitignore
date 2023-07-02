@@ -45,4 +45,4 @@ nbdist/
 !*/build/*.html
 !*/build/*.xml
 
-src1/
+/src1/
