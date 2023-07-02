@@ -6,10 +6,10 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
-import com.rk.project.system.domain.SysRole;
-import com.rk.project.system.domain.SysUser;
-import com.rk.project.system.service.ISysMenuService;
-import com.rk.project.system.service.ISysRoleService;
+import com.rk.common.domain.SysRole;
+import com.rk.common.domain.SysUser;
+import com.rk.common.service.ISysMenuService;
+import com.rk.common.service.ISysRoleService;
 
 /**
  * 用户权限处理

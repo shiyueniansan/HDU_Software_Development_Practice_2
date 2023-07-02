@@ -1,7 +1,7 @@
-package com.rk.project.system.mapper;
+package com.rk.common.mapper;
 
 import java.util.List;
-import com.rk.project.system.domain.SysDictType;
+import com.rk.common.domain.SysDictType;
 
 /**
  * 字典表 数据层

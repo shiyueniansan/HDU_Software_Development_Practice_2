@@ -1,4 +1,4 @@
-package com.rk.project.system.domain.vo;
+package com.rk.common.domain.vo;
 
 import com.rk.common.utils.StringUtils;
 

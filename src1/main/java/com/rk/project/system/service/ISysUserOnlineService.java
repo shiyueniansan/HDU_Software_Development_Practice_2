@@ -1,4 +1,4 @@
-package com.rk.project.system.service;
+package com.rk.common.service;
 
 import com.rk.framework.security.LoginUser;
 import com.rk.project.monitor.domain.SysUserOnline;

@@ -1,17 +1,17 @@
-package com.rk.project.system.service.impl;
+package com.rk.common.service.impl;
 
 import com.rk.framework.aspectj.lang.annotation.DataScope;
 import com.rk.common.constant.UserConstants;
-import com.rk.project.system.domain.SysRole;
-import com.rk.project.system.domain.SysUser;
+import com.rk.common.domain.SysRole;
+import com.rk.common.domain.SysUser;
 import com.rk.common.exception.ServiceException;
 import com.rk.common.utils.SecurityUtils;
 import com.rk.common.utils.StringUtils;
 import com.rk.common.utils.bean.BeanValidators;
 import com.rk.common.utils.spring.SpringUtils;
-import com.rk.project.system.domain.SysUserRole;
-import com.rk.project.system.mapper.*;
-import com.rk.project.system.service.ISysUserService;
+import com.rk.common.domain.SysUserRole;
+import com.rk.common.mapper.*;
+import com.rk.common.service.ISysUserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -19,8 +19,8 @@ import com.rk.framework.aspectj.lang.enums.BusinessType;
 import com.rk.framework.web.controller.BaseController;
 import com.rk.framework.web.domain.AjaxResult;
 import com.rk.framework.web.page.TableDataInfo;
-import com.rk.project.system.domain.SysDictType;
-import com.rk.project.system.service.ISysDictTypeService;
+import com.rk.common.domain.SysDictType;
+import com.rk.common.service.ISysDictTypeService;
 
 /**
  * 数据字典信息

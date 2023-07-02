@@ -1,4 +1,4 @@
-package com.rk.project.system.mapper;
+package com.rk.common.mapper;
 
 import java.util.List;
 

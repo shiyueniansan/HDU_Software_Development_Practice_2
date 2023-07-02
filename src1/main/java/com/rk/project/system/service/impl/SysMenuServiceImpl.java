@@ -1,4 +1,4 @@
-package com.rk.project.system.service.impl;
+package com.rk.common.service.impl;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -15,15 +15,15 @@ import com.rk.common.constant.UserConstants;
 import com.rk.common.utils.SecurityUtils;
 import com.rk.common.utils.StringUtils;
 import com.rk.framework.web.domain.TreeSelect;
-import com.rk.project.system.domain.SysMenu;
-import com.rk.project.system.domain.SysRole;
-import com.rk.project.system.domain.SysUser;
-import com.rk.project.system.domain.vo.MetaVo;
-import com.rk.project.system.domain.vo.RouterVo;
-import com.rk.project.system.mapper.SysMenuMapper;
-import com.rk.project.system.mapper.SysRoleMapper;
-import com.rk.project.system.mapper.SysRoleMenuMapper;
-import com.rk.project.system.service.ISysMenuService;
+import com.rk.common.domain.SysMenu;
+import com.rk.common.domain.SysRole;
+import com.rk.common.domain.SysUser;
+import com.rk.common.domain.vo.MetaVo;
+import com.rk.common.domain.vo.RouterVo;
+import com.rk.common.mapper.SysMenuMapper;
+import com.rk.common.mapper.SysRoleMapper;
+import com.rk.common.mapper.SysRoleMenuMapper;
+import com.rk.common.service.ISysMenuService;
 
 /**
  * 菜单 业务层处理

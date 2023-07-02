@@ -11,7 +11,6 @@ import com.rk.common.constant.CacheConstants;
 import com.rk.common.constant.Constants;
 import com.rk.common.constant.UserConstants;
 import com.rk.common.exception.ServiceException;
-import com.rk.common.exception.user.BlackListException;
 import com.rk.common.exception.user.CaptchaException;
 import com.rk.common.exception.user.CaptchaExpireException;
 import com.rk.common.exception.user.UserNotExistsException;
@@ -25,8 +24,8 @@ import com.rk.framework.manager.factory.AsyncFactory;
 import com.rk.framework.redis.RedisCache;
 import com.rk.framework.security.LoginUser;
 import com.rk.framework.security.context.AuthenticationContextHolder;
-import com.rk.project.system.domain.SysUser;
-import com.rk.project.system.service.ISysUserService;
+import com.rk.common.domain.SysUser;
+import com.rk.common.service.ISysUserService;
 
 /**
  * 登录校验方法

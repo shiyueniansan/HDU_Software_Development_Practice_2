@@ -18,8 +18,8 @@ import com.rk.framework.aspectj.lang.annotation.Log;
 import com.rk.framework.aspectj.lang.enums.BusinessType;
 import com.rk.framework.web.controller.BaseController;
 import com.rk.framework.web.domain.AjaxResult;
-import com.rk.project.system.domain.SysMenu;
-import com.rk.project.system.service.ISysMenuService;
+import com.rk.common.domain.SysMenu;
+import com.rk.common.service.ISysMenuService;
 
 /**
  * 菜单信息

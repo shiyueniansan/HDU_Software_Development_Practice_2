@@ -20,8 +20,8 @@ import com.rk.framework.security.LoginUser;
 import com.rk.framework.security.service.TokenService;
 import com.rk.framework.web.controller.BaseController;
 import com.rk.framework.web.domain.AjaxResult;
-import com.rk.project.system.domain.SysUser;
-import com.rk.project.system.service.ISysUserService;
+import com.rk.common.domain.SysUser;
+import com.rk.common.service.ISysUserService;
 
 /**
  * 个人信息 业务处理

@@ -1,6 +1,6 @@
-package com.rk.project.system.service;
+package com.rk.common.service;
 
-import com.rk.project.system.domain.SysUser;
+import com.rk.common.domain.SysUser;
 
 import java.util.List;
 

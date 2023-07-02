@@ -1,4 +1,4 @@
-package com.rk.project.system.service.impl;
+package com.rk.common.service.impl;
 
 import java.util.Collection;
 import java.util.List;

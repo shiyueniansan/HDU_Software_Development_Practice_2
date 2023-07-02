@@ -1,8 +1,8 @@
-package com.rk.project.system.mapper;
+package com.rk.common.mapper;
 
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
-import com.rk.project.system.domain.SysUserRole;
+import com.rk.common.domain.SysUserRole;
 
 /**
  * 用户与角色关联表 数据层

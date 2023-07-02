@@ -1,4 +1,4 @@
-package com.rk.project.system.service.impl;
+package com.rk.common.service.impl;
 
 import org.springframework.stereotype.Service;
 import com.rk.common.utils.StringUtils;

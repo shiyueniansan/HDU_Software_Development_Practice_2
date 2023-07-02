@@ -1,7 +1,7 @@
-package com.rk.project.system.mapper;
+package com.rk.common.mapper;
 
 import java.util.List;
-import com.rk.project.system.domain.SysRole;
+import com.rk.common.domain.SysRole;
 
 /**
  * 角色表 数据层

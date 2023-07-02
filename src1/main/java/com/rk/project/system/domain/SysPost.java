@@ -1,4 +1,4 @@
-package com.rk.project.system.domain;
+package com.rk.common.domain;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;

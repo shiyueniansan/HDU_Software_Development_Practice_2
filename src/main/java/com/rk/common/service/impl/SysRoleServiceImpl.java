@@ -1,4 +1,4 @@
-package com.rk.project.system.service.impl;
+package com.rk.common.service.impl;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -14,14 +14,14 @@ import com.rk.common.utils.SecurityUtils;
 import com.rk.common.utils.StringUtils;
 import com.rk.common.utils.spring.SpringUtils;
 import com.rk.framework.aspectj.lang.annotation.DataScope;
-import com.rk.project.system.domain.SysRole;
-import com.rk.project.system.domain.SysRoleMenu;
-import com.rk.project.system.domain.SysUser;
-import com.rk.project.system.domain.SysUserRole;
-import com.rk.project.system.mapper.SysRoleMapper;
-import com.rk.project.system.mapper.SysRoleMenuMapper;
-import com.rk.project.system.mapper.SysUserRoleMapper;
-import com.rk.project.system.service.ISysRoleService;
+import com.rk.common.domain.SysRole;
+import com.rk.common.domain.SysRoleMenu;
+import com.rk.common.domain.SysUser;
+import com.rk.common.domain.SysUserRole;
+import com.rk.common.mapper.SysRoleMapper;
+import com.rk.common.mapper.SysRoleMenuMapper;
+import com.rk.common.mapper.SysUserRoleMapper;
+import com.rk.common.service.ISysRoleService;
 
 /**
  * 角色 业务层处理

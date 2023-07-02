@@ -10,8 +10,8 @@ import com.rk.common.enums.UserStatus;
 import com.rk.common.exception.ServiceException;
 import com.rk.common.utils.StringUtils;
 import com.rk.framework.security.LoginUser;
-import com.rk.project.system.domain.SysUser;
-import com.rk.project.system.service.ISysUserService;
+import com.rk.common.domain.SysUser;
+import com.rk.common.service.ISysUserService;
 
 /**
  * 用户验证处理

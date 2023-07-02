@@ -13,9 +13,9 @@ import com.rk.framework.security.LoginBody;
 import com.rk.framework.security.service.SysLoginService;
 import com.rk.framework.security.service.SysPermissionService;
 import com.rk.framework.web.domain.AjaxResult;
-import com.rk.project.system.domain.SysMenu;
-import com.rk.project.system.domain.SysUser;
-import com.rk.project.system.service.ISysMenuService;
+import com.rk.common.domain.SysMenu;
+import com.rk.common.domain.SysUser;
+import com.rk.common.service.ISysMenuService;
 
 /**
  * 登录验证

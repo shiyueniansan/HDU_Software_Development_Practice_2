@@ -1,12 +1,12 @@
-package com.rk.project.system.service.impl;
+package com.rk.common.service.impl;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.rk.common.utils.DictUtils;
-import com.rk.project.system.domain.SysDictData;
-import com.rk.project.system.mapper.SysDictDataMapper;
-import com.rk.project.system.service.ISysDictDataService;
+import com.rk.common.domain.SysDictData;
+import com.rk.common.mapper.SysDictDataMapper;
+import com.rk.common.service.ISysDictDataService;
 
 /**
  * 字典 业务层处理

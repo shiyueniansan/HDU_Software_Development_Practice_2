@@ -1,4 +1,4 @@
-package com.rk.project.system.service.impl;
+package com.rk.common.service.impl;
 
 import java.util.Comparator;
 import java.util.List;
@@ -12,11 +12,11 @@ import com.rk.common.constant.UserConstants;
 import com.rk.common.exception.ServiceException;
 import com.rk.common.utils.DictUtils;
 import com.rk.common.utils.StringUtils;
-import com.rk.project.system.domain.SysDictData;
-import com.rk.project.system.domain.SysDictType;
-import com.rk.project.system.mapper.SysDictDataMapper;
-import com.rk.project.system.mapper.SysDictTypeMapper;
-import com.rk.project.system.service.ISysDictTypeService;
+import com.rk.common.domain.SysDictData;
+import com.rk.common.domain.SysDictType;
+import com.rk.common.mapper.SysDictDataMapper;
+import com.rk.common.mapper.SysDictTypeMapper;
+import com.rk.common.service.ISysDictTypeService;
 
 /**
  * 字典 业务层处理

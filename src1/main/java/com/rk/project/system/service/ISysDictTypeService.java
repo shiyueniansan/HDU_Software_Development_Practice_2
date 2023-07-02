@@ -1,8 +1,8 @@
-package com.rk.project.system.service;
+package com.rk.common.service;
 
 import java.util.List;
-import com.rk.project.system.domain.SysDictData;
-import com.rk.project.system.domain.SysDictType;
+import com.rk.common.domain.SysDictData;
+import com.rk.common.domain.SysDictType;
 
 /**
  * 字典 业务层

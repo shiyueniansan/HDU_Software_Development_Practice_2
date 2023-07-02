@@ -1,7 +1,7 @@
-package com.rk.project.system.mapper;
+package com.rk.common.mapper;
 
 import java.util.List;
-import com.rk.project.system.domain.SysRoleMenu;
+import com.rk.common.domain.SysRoleMenu;
 
 /**
  * 角色与菜单关联表 数据层

@@ -1,4 +1,4 @@
-package com.rk.project.system.domain;
+package com.rk.common.domain;
 
 import java.util.Date;
 import java.util.List;
@@ -9,7 +9,6 @@ import com.rk.common.xss.Xss;
 import com.rk.framework.aspectj.lang.annotation.Excel;
 import com.rk.framework.aspectj.lang.annotation.Excel.ColumnType;
 import com.rk.framework.aspectj.lang.annotation.Excel.Type;
-import com.rk.framework.aspectj.lang.annotation.Excels;
 import com.rk.framework.web.domain.BaseEntity;
 
 /**

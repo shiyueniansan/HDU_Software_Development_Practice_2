@@ -1,4 +1,4 @@
-package com.rk.project.system.domain;
+package com.rk.common.domain;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;

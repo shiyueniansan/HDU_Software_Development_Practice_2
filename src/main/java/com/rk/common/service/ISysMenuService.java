@@ -1,10 +1,10 @@
-package com.rk.project.system.service;
+package com.rk.common.service;
 
 import java.util.List;
 import java.util.Set;
 import com.rk.framework.web.domain.TreeSelect;
-import com.rk.project.system.domain.SysMenu;
-import com.rk.project.system.domain.vo.RouterVo;
+import com.rk.common.domain.SysMenu;
+import com.rk.common.domain.vo.RouterVo;
 
 /**
  * 菜单 业务层

@@ -1,8 +1,8 @@
-package com.rk.project.system.mapper;
+package com.rk.common.mapper;
 
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
-import com.rk.project.system.domain.SysMenu;
+import com.rk.common.domain.SysMenu;
 
 /**
  * 菜单表 数据层

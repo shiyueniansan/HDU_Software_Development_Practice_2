@@ -7,7 +7,7 @@ import com.rk.common.utils.SecurityUtils;
 import com.rk.common.utils.StringUtils;
 import com.rk.framework.security.LoginUser;
 import com.rk.framework.security.context.PermissionContextHolder;
-import com.rk.project.system.domain.SysRole;
+import com.rk.common.domain.SysRole;
 
 /**
  * 定义权限实现，ss取自SpringSecurity首字母

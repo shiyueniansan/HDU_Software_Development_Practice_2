@@ -1,4 +1,4 @@
-package com.rk.project.system.service.impl;
+package com.rk.common.service.impl;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -14,9 +14,9 @@ import com.rk.common.utils.StringUtils;
 import com.rk.common.utils.spring.SpringUtils;
 import com.rk.framework.aspectj.lang.annotation.DataScope;
 import com.rk.framework.web.domain.TreeSelect;
-import com.rk.project.system.domain.SysRole;
-import com.rk.project.system.domain.SysUser;
-import com.rk.project.system.mapper.SysRoleMapper;
+import com.rk.common.domain.SysRole;
+import com.rk.common.domain.SysUser;
+import com.rk.common.mapper.SysRoleMapper;
 
 /**
  * 部门管理 服务实现

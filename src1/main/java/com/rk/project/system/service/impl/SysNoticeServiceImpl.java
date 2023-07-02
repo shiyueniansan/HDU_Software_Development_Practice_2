@@ -1,4 +1,4 @@
-package com.rk.project.system.service.impl;
+package com.rk.common.service.impl;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
