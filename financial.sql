@@ -11,7 +11,7 @@
  Target Server Version : 80031
  File Encoding         : 65001
 
- Date: 02/07/2023 10:04:37
+ Date: 02/07/2023 10:19:07
 */
 
 SET NAMES utf8mb4;
@@ -191,97 +191,6 @@ INSERT INTO `faculty_monthly` VALUES (6, '小李', 11, 0, 0, 0, 0, 0, 250, 250, 
 INSERT INTO `faculty_monthly` VALUES (6, '小李', 12, 0, 0, 0, 0, 0, 250, 250, -500);
 
 -- ----------------------------
--- Table structure for faculty_monthly_pay
--- ----------------------------
-DROP TABLE IF EXISTS `faculty_monthly_pay`;
-CREATE TABLE `faculty_monthly_pay`  (
-  `faculty_id` bigint NOT NULL COMMENT '教职工编号',
-  `name` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '姓名',
-  `month` int NOT NULL COMMENT '月份',
-  `net_pay` float NULL DEFAULT 0 COMMENT '实发工资',
-  PRIMARY KEY (`faculty_id`, `month`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '教职工月度表' ROW_FORMAT = DYNAMIC;
-
--- ----------------------------
--- Records of faculty_monthly_pay
--- ----------------------------
-INSERT INTO `faculty_monthly_pay` VALUES (1, '龚嘉伦', 1, 18755.2);
-INSERT INTO `faculty_monthly_pay` VALUES (2, '叶云熙', 2, 12496.4);
-INSERT INTO `faculty_monthly_pay` VALUES (3, '林震南', 3, 12550.2);
-INSERT INTO `faculty_monthly_pay` VALUES (4, '吴岚', 4, 7227.57);
-INSERT INTO `faculty_monthly_pay` VALUES (5, '刘睿', 5, 18067.9);
-
--- ----------------------------
--- Table structure for faculty_monthly_pay_detail
--- ----------------------------
-DROP TABLE IF EXISTS `faculty_monthly_pay_detail`;
-CREATE TABLE `faculty_monthly_pay_detail`  (
-  `faculty_id` bigint NOT NULL COMMENT '教职工编号',
-  `name` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '姓名',
-  `month` int NOT NULL COMMENT '月份',
-  `basic_pay` float NULL DEFAULT 0 COMMENT '基本工资',
-  `job` int NULL DEFAULT 0 COMMENT '职务',
-  `title` int NULL DEFAULT 0 COMMENT '职称',
-  `living_subsidy` float NULL DEFAULT 0 COMMENT '生活补贴',
-  `reading_subsidy` float NULL DEFAULT 0 COMMENT '书报费',
-  `transportation_subsidy` float NULL DEFAULT 0 COMMENT '交通费',
-  `washing_subsidy` float NULL DEFAULT 0 COMMENT '洗理费',
-  `teacher_pay` float NULL DEFAULT 0 COMMENT '课时费',
-  `staff_pay` float NULL DEFAULT 0 COMMENT '岗位津贴',
-  `extra_teacher_pay` float NULL DEFAULT 0 COMMENT '超额课时费',
-  `total_pay` float NULL DEFAULT 0 COMMENT '工资总额',
-  `tax` float NULL DEFAULT 0 COMMENT '个人所得税',
-  `housing` float NULL DEFAULT 0 COMMENT '住房公积金',
-  `insurance` float NULL DEFAULT 0 COMMENT '保险费',
-  `net_pay` float NULL DEFAULT 0 COMMENT '实发工资',
-  PRIMARY KEY (`faculty_id`, `month`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '教职工月度表' ROW_FORMAT = DYNAMIC;
-
--- ----------------------------
--- Records of faculty_monthly_pay_detail
--- ----------------------------
-INSERT INTO `faculty_monthly_pay_detail` VALUES (1, '龚嘉伦', 1, 0, 0, 0, 0, 0, 0, 0, 5259.73, 2190.32, 3772.36, 10147.2, 762.6, 597.18, 171.17, 18755.2);
-INSERT INTO `faculty_monthly_pay_detail` VALUES (2, '叶云熙', 2, 0, 0, 0, 0, 0, 0, 0, 2527.7, 49.56, 2462.93, 15607.1, 593.9, 726.91, 540.07, 12496.4);
-INSERT INTO `faculty_monthly_pay_detail` VALUES (3, '林震南', 3, 0, 0, 0, 0, 0, 0, 0, 3228.42, 2802.99, 134.22, 16957.5, 416.39, 298.88, 915.43, 12550.2);
-INSERT INTO `faculty_monthly_pay_detail` VALUES (4, '吴岚', 4, 0, 0, 0, 0, 0, 0, 0, 7544.67, 2300.4, 1382.5, 9897.04, 324.55, 27.84, 125.78, 7227.57);
-INSERT INTO `faculty_monthly_pay_detail` VALUES (5, '刘睿', 5, 0, 0, 0, 0, 0, 0, 0, 3122.63, 2959.62, 45.56, 18204.2, 123.03, 76.28, 986.48, 18067.9);
-
--- ----------------------------
--- Table structure for faculty_monthly_pay_detail_test
--- ----------------------------
-DROP TABLE IF EXISTS `faculty_monthly_pay_detail_test`;
-CREATE TABLE `faculty_monthly_pay_detail_test`  (
-  `faculty_id` bigint NOT NULL COMMENT '教职工编号',
-  `name` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '姓名',
-  `month` int NOT NULL COMMENT '月份',
-  `basic_pay` float NULL DEFAULT 0 COMMENT '基本工资',
-  `job` int NULL DEFAULT 0 COMMENT '职务',
-  `title` int NULL DEFAULT 0 COMMENT '职称',
-  `living_subsidy` float NULL DEFAULT 0 COMMENT '生活补贴',
-  `reading_subsidy` float NULL DEFAULT 0 COMMENT '书报费',
-  `transportation_subsidy` float NULL DEFAULT 0 COMMENT '交通费',
-  `washing_subsidy` float NULL DEFAULT 0 COMMENT '洗理费',
-  `teacher_pay` float NULL DEFAULT 0 COMMENT '课时费',
-  `staff_pay` float NULL DEFAULT 0 COMMENT '岗位津贴',
-  `extra_teacher_pay` float NULL DEFAULT 0 COMMENT '超额课时费',
-  `total_pay` float NULL DEFAULT 0 COMMENT '工资总额',
-  `tax` float NULL DEFAULT 0 COMMENT '个人所得税',
-  `housing` float NULL DEFAULT 0 COMMENT '住房公积金',
-  `insurance` float NULL DEFAULT 0 COMMENT '保险费',
-  `net_pay` float NULL DEFAULT 0 COMMENT '实发工资',
-  PRIMARY KEY (`faculty_id`, `month`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '教职工月度表' ROW_FORMAT = DYNAMIC;
-
--- ----------------------------
--- Records of faculty_monthly_pay_detail_test
--- ----------------------------
-INSERT INTO `faculty_monthly_pay_detail_test` VALUES (1, '龚嘉伦', 1, 0, 0, 0, 0, 0, 0, 0, 5259.73, 2190.32, 3772.36, 10147.2, 762.6, 597.18, 171.17, 18755.2);
-INSERT INTO `faculty_monthly_pay_detail_test` VALUES (2, '叶云熙', 2, 0, 0, 0, 0, 0, 0, 0, 2527.7, 49.56, 2462.93, 15607.1, 593.9, 726.91, 540.07, 12496.4);
-INSERT INTO `faculty_monthly_pay_detail_test` VALUES (3, '林震南', 3, 0, 0, 0, 0, 0, 0, 0, 3228.42, 2802.99, 134.22, 16957.5, 416.39, 298.88, 915.43, 12550.2);
-INSERT INTO `faculty_monthly_pay_detail_test` VALUES (4, '吴岚', 4, 0, 0, 0, 0, 0, 0, 0, 7544.67, 2300.4, 1382.5, 9897.04, 324.55, 27.84, 125.78, 7227.57);
-INSERT INTO `faculty_monthly_pay_detail_test` VALUES (5, '刘睿', 5, 0, 0, 0, 0, 0, 0, 0, 3122.63, 2959.62, 45.56, 18204.2, 123.03, 76.28, 986.48, 18067.9);
-
--- ----------------------------
 -- Table structure for faculty_yearly
 -- ----------------------------
 DROP TABLE IF EXISTS `faculty_yearly`;
@@ -328,29 +237,6 @@ INSERT INTO `job` VALUES (5, '科长', 1.6);
 INSERT INTO `job` VALUES (6, '副科长', 1.4);
 INSERT INTO `job` VALUES (7, '主管', 1.2);
 INSERT INTO `job` VALUES (8, '职员', 1);
-
--- ----------------------------
--- Table structure for sys_logininfor
--- ----------------------------
-DROP TABLE IF EXISTS `sys_logininfor`;
-CREATE TABLE `sys_logininfor`  (
-  `info_id` bigint NOT NULL AUTO_INCREMENT COMMENT '访问ID',
-  `user_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '' COMMENT '用户账号',
-  `ipaddr` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '' COMMENT '登录IP地址',
-  `login_location` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '' COMMENT '登录地点',
-  `browser` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '' COMMENT '浏览器类型',
-  `os` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '' COMMENT '操作系统',
-  `status` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '0' COMMENT '登录状态（0成功 1失败）',
-  `msg` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '' COMMENT '提示消息',
-  `login_time` datetime NULL DEFAULT NULL COMMENT '访问时间',
-  PRIMARY KEY (`info_id`) USING BTREE,
-  INDEX `idx_sys_logininfor_s`(`status` ASC) USING BTREE,
-  INDEX `idx_sys_logininfor_lt`(`login_time` ASC) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '系统访问记录' ROW_FORMAT = DYNAMIC;
-
--- ----------------------------
--- Records of sys_logininfor
--- ----------------------------
 
 -- ----------------------------
 -- Table structure for sys_menu
@@ -521,38 +407,6 @@ INSERT INTO `sys_menu` VALUES (2193, '全部工资明细表新增', 2191, 2, '#'
 INSERT INTO `sys_menu` VALUES (2194, '全部工资明细表修改', 2191, 3, '#', '', NULL, 1, 0, 'C', '1', '1', 'financial:payDetails:edit', '#', 'admin', '2023-05-30 23:36:39', 'admin', '2023-05-31 08:01:58', '');
 INSERT INTO `sys_menu` VALUES (2195, '全部工资明细表删除', 2191, 4, '#', '', NULL, 1, 0, 'C', '1', '1', 'financial:payDetails:remove', '#', 'admin', '2023-05-30 23:36:39', 'admin', '2023-05-31 08:02:05', '');
 INSERT INTO `sys_menu` VALUES (2196, '全部工资明细表导出', 2191, 5, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:payDetails:export', '#', 'admin', '2023-05-30 23:36:39', '', NULL, '');
-
--- ----------------------------
--- Table structure for sys_oper_log
--- ----------------------------
-DROP TABLE IF EXISTS `sys_oper_log`;
-CREATE TABLE `sys_oper_log`  (
-  `oper_id` bigint NOT NULL AUTO_INCREMENT COMMENT '日志主键',
-  `title` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '' COMMENT '模块标题',
-  `business_type` int NULL DEFAULT 0 COMMENT '业务类型（0其它 1新增 2修改 3删除）',
-  `method` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '' COMMENT '方法名称',
-  `request_method` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '' COMMENT '请求方式',
-  `operator_type` int NULL DEFAULT 0 COMMENT '操作类别（0其它 1后台用户 2手机端用户）',
-  `oper_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '' COMMENT '操作人员',
-  `dept_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '' COMMENT '部门名称',
-  `oper_url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '' COMMENT '请求URL',
-  `oper_ip` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '' COMMENT '主机地址',
-  `oper_location` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '' COMMENT '操作地点',
-  `oper_param` varchar(2000) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '' COMMENT '请求参数',
-  `json_result` varchar(2000) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '' COMMENT '返回参数',
-  `status` int NULL DEFAULT 0 COMMENT '操作状态（0正常 1异常）',
-  `error_msg` varchar(2000) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '' COMMENT '错误消息',
-  `oper_time` datetime NULL DEFAULT NULL COMMENT '操作时间',
-  `cost_time` bigint NULL DEFAULT 0 COMMENT '消耗时间',
-  PRIMARY KEY (`oper_id`) USING BTREE,
-  INDEX `idx_sys_oper_log_bt`(`business_type` ASC) USING BTREE,
-  INDEX `idx_sys_oper_log_s`(`status` ASC) USING BTREE,
-  INDEX `idx_sys_oper_log_ot`(`oper_time` ASC) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '操作日志记录' ROW_FORMAT = DYNAMIC;
-
--- ----------------------------
--- Records of sys_oper_log
--- ----------------------------
 
 -- ----------------------------
 -- Table structure for sys_role
