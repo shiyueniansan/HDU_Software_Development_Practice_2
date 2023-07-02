@@ -18,7 +18,6 @@ import com.rk.common.utils.sign.Base64;
 import com.rk.common.utils.uuid.IdUtils;
 import com.rk.framework.redis.RedisCache;
 import com.rk.framework.web.domain.AjaxResult;
-import com.rk.project.system.service.ISysConfigService;
 
 /**
  * 验证码操作处理
@@ -41,8 +40,8 @@ public class CaptchaController
     @Value("${rk.captchaType}")
     private String captchaType;
 
-    @Autowired
-    private ISysConfigService configService;
+//    @Autowired
+//    private ISysConfigService configService;
 
     /**
      * 生成验证码
@@ -51,7 +50,8 @@ public class CaptchaController
     public AjaxResult getCode(HttpServletResponse response) throws IOException
     {
         AjaxResult ajax = AjaxResult.success();
-        boolean captchaEnabled = configService.selectCaptchaEnabled();
+//        boolean captchaEnabled = configService.selectCaptchaEnabled();
+        boolean captchaEnabled = true;
         ajax.put("captchaEnabled", captchaEnabled);
         if (!captchaEnabled)
         {

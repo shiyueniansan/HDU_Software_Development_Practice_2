@@ -1,7 +1,6 @@
 package com.rk.project.system.mapper;
 
 import java.util.List;
-import com.rk.project.system.domain.SysNotice;
 
 /**
  * 通知公告表 数据层

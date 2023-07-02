@@ -26,7 +26,6 @@ import com.rk.framework.redis.RedisCache;
 import com.rk.framework.security.LoginUser;
 import com.rk.framework.security.context.AuthenticationContextHolder;
 import com.rk.project.system.domain.SysUser;
-import com.rk.project.system.service.ISysConfigService;
 import com.rk.project.system.service.ISysUserService;
 
 /**

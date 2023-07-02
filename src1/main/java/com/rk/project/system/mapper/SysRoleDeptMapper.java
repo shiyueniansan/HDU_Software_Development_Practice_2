@@ -1,7 +1,6 @@
 package com.rk.project.system.mapper;
 
 import java.util.List;
-import com.rk.project.system.domain.SysRoleDept;
 
 /**
  * 角色与部门关联表 数据层

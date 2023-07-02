@@ -14,12 +14,9 @@ import com.rk.common.utils.StringUtils;
 import com.rk.common.utils.spring.SpringUtils;
 import com.rk.framework.aspectj.lang.annotation.DataScope;
 import com.rk.framework.web.domain.TreeSelect;
-import com.rk.project.system.domain.SysDept;
 import com.rk.project.system.domain.SysRole;
 import com.rk.project.system.domain.SysUser;
-import com.rk.project.system.mapper.SysDeptMapper;
 import com.rk.project.system.mapper.SysRoleMapper;
-import com.rk.project.system.service.ISysDeptService;
 
 /**
  * 部门管理 服务实现

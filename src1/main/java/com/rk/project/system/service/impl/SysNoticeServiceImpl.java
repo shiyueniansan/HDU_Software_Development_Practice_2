@@ -3,9 +3,6 @@ package com.rk.project.system.service.impl;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.rk.project.system.domain.SysNotice;
-import com.rk.project.system.mapper.SysNoticeMapper;
-import com.rk.project.system.service.ISysNoticeService;
 
 /**
  * 公告 服务层实现

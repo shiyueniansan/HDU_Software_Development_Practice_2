@@ -4,7 +4,6 @@ import org.springframework.stereotype.Service;
 import com.rk.common.utils.StringUtils;
 import com.rk.framework.security.LoginUser;
 import com.rk.project.monitor.domain.SysUserOnline;
-import com.rk.project.system.service.ISysUserOnlineService;
 
 /**
  * 在线用户 服务层处理

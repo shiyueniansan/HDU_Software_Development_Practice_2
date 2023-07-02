@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.stream.Collectors;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.rk.project.system.domain.SysDept;
 import com.rk.project.system.domain.SysMenu;
 
 /**

@@ -6,10 +6,6 @@ import org.springframework.stereotype.Service;
 import com.rk.common.constant.UserConstants;
 import com.rk.common.exception.ServiceException;
 import com.rk.common.utils.StringUtils;
-import com.rk.project.system.domain.SysPost;
-import com.rk.project.system.mapper.SysPostMapper;
-import com.rk.project.system.mapper.SysUserPostMapper;
-import com.rk.project.system.service.ISysPostService;
 
 /**
  * 岗位信息 服务层处理

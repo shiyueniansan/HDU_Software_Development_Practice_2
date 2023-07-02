@@ -1,7 +1,6 @@
 package com.rk.project.system.mapper;
 
 import java.util.List;
-import com.rk.project.system.domain.SysConfig;
 
 /**
  * 参数配置 数据层

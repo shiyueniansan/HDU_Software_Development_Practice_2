@@ -2,7 +2,6 @@ package com.rk.project.system.service;
 
 import java.util.List;
 import com.rk.framework.web.domain.TreeSelect;
-import com.rk.project.system.domain.SysDept;
 
 /**
  * 部门管理 服务层

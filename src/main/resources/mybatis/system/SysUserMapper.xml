@@ -24,19 +24,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="updateTime"   column="update_time"  />
         <result property="remark"       column="remark"       />
 		<result property="facultyId"    column="faculty_id"    />
-        <association property="dept"    column="dept_id" javaType="SysDept" resultMap="deptResult" />
+<!--        <association property="dept"    column="dept_id" javaType="SysDept" resultMap="deptResult" />-->
         <collection  property="roles"   javaType="java.util.List"           resultMap="RoleResult" />
     </resultMap>
 
-    <resultMap id="deptResult" type="SysDept">
-        <id     property="deptId"    column="dept_id"     />
-        <result property="parentId"  column="parent_id"   />
-        <result property="deptName"  column="dept_name"   />
-        <result property="ancestors" column="ancestors"   />
-        <result property="orderNum"  column="order_num"   />
-        <result property="leader"    column="leader"      />
-        <result property="status"    column="dept_status" />
-    </resultMap>
+<!--    <resultMap id="deptResult" type="SysDept">-->
+<!--        <id     property="deptId"    column="dept_id"     />-->
+<!--        <result property="parentId"  column="parent_id"   />-->
+<!--        <result property="deptName"  column="dept_name"   />-->
+<!--        <result property="ancestors" column="ancestors"   />-->
+<!--        <result property="orderNum"  column="order_num"   />-->
+<!--        <result property="leader"    column="leader"      />-->
+<!--        <result property="status"    column="dept_status" />-->
+<!--    </resultMap>-->
 
     <resultMap id="RoleResult" type="SysRole">
         <id     property="roleId"       column="role_id"        />

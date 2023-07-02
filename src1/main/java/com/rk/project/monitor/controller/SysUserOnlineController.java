@@ -21,7 +21,6 @@ import com.rk.framework.web.controller.BaseController;
 import com.rk.framework.web.domain.AjaxResult;
 import com.rk.framework.web.page.TableDataInfo;
 import com.rk.project.monitor.domain.SysUserOnline;
-import com.rk.project.system.service.ISysUserOnlineService;
 
 /**
  * 在线用户监控

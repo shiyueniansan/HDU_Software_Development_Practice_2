@@ -19,8 +19,6 @@ import com.rk.framework.aspectj.lang.annotation.Log;
 import com.rk.framework.aspectj.lang.enums.BusinessType;
 import com.rk.framework.web.controller.BaseController;
 import com.rk.framework.web.domain.AjaxResult;
-import com.rk.project.system.domain.SysDept;
-import com.rk.project.system.service.ISysDeptService;
 
 /**
  * 部门信息

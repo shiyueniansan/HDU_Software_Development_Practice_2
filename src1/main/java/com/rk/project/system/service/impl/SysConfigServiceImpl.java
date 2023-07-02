@@ -11,9 +11,6 @@ import com.rk.common.core.text.Convert;
 import com.rk.common.exception.ServiceException;
 import com.rk.common.utils.StringUtils;
 import com.rk.framework.redis.RedisCache;
-import com.rk.project.system.domain.SysConfig;
-import com.rk.project.system.mapper.SysConfigMapper;
-import com.rk.project.system.service.ISysConfigService;
 
 /**
  * 参数配置 服务层实现

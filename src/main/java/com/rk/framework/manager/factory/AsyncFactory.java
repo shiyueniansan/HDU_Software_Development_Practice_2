@@ -10,10 +10,10 @@ import com.rk.common.utils.StringUtils;
 import com.rk.common.utils.ip.AddressUtils;
 import com.rk.common.utils.ip.IpUtils;
 import com.rk.common.utils.spring.SpringUtils;
-import com.rk.project.monitor.domain.SysLogininfor;
-import com.rk.project.monitor.domain.SysOperLog;
-import com.rk.project.monitor.service.ISysLogininforService;
-import com.rk.project.monitor.service.ISysOperLogService;
+//import com.rk.project.monitor.domain.SysLogininfor;
+//import com.rk.project.monitor.domain.SysOperLog;
+//import com.rk.project.monitor.service.ISysLogininforService;
+//import com.rk.project.monitor.service.ISysOperLogService;
 import eu.bitwalker.useragentutils.UserAgent;
 
 /**
@@ -57,46 +57,46 @@ public class AsyncFactory
                 String os = userAgent.getOperatingSystem().getName();
                 // 获取客户端浏览器
                 String browser = userAgent.getBrowser().getName();
-                // 封装对象
-                SysLogininfor logininfor = new SysLogininfor();
-                logininfor.setUserName(username);
-                logininfor.setIpaddr(ip);
-                logininfor.setLoginLocation(address);
-                logininfor.setBrowser(browser);
-                logininfor.setOs(os);
-                logininfor.setMsg(message);
+//                // 封装对象
+//                SysLogininfor logininfor = new SysLogininfor();
+//                logininfor.setUserName(username);
+//                logininfor.setIpaddr(ip);
+//                logininfor.setLoginLocation(address);
+//                logininfor.setBrowser(browser);
+//                logininfor.setOs(os);
+//                logininfor.setMsg(message);
                 // 日志状态
                 if (StringUtils.equalsAny(status, Constants.LOGIN_SUCCESS, Constants.LOGOUT, Constants.REGISTER))
                 {
-                    logininfor.setStatus(Constants.SUCCESS);
+//                    logininfor.setStatus(Constants.SUCCESS);
                 }
                 else if (Constants.LOGIN_FAIL.equals(status))
                 {
-                    logininfor.setStatus(Constants.FAIL);
+//                    logininfor.setStatus(Constants.FAIL);
                 }
                 // 插入数据
-                SpringUtils.getBean(ISysLogininforService.class).insertLogininfor(logininfor);
+//                SpringUtils.getBean(ISysLogininforService.class).insertLogininfor(logininfor);
             }
         };
     }
 
-    /**
-     * 操作日志记录
-     *
-     * @param operLog 操作日志信息
-     * @return 任务task
-     */
-    public static TimerTask recordOper(final SysOperLog operLog)
-    {
-        return new TimerTask()
-        {
-            @Override
-            public void run()
-            {
-                // 远程查询操作地点
-                operLog.setOperLocation(AddressUtils.getRealAddressByIP(operLog.getOperIp()));
-                SpringUtils.getBean(ISysOperLogService.class).insertOperlog(operLog);
-            }
-        };
-    }
+//    /**
+//     * 操作日志记录
+//     *
+//     * @param operLog 操作日志信息
+//     * @return 任务task
+//     */
+//    public static TimerTask recordOper(final SysOperLog operLog)
+//    {
+//        return new TimerTask()
+//        {
+//            @Override
+//            public void run()
+//            {
+//                // 远程查询操作地点
+//                operLog.setOperLocation(AddressUtils.getRealAddressByIP(operLog.getOperIp()));
+//                SpringUtils.getBean(ISysOperLogService.class).insertOperlog(operLog);
+//            }
+//        };
+//    }
 }

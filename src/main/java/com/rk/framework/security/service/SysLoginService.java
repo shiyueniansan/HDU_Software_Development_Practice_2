@@ -26,7 +26,6 @@ import com.rk.framework.redis.RedisCache;
 import com.rk.framework.security.LoginUser;
 import com.rk.framework.security.context.AuthenticationContextHolder;
 import com.rk.project.system.domain.SysUser;
-import com.rk.project.system.service.ISysConfigService;
 import com.rk.project.system.service.ISysUserService;
 
 /**
@@ -49,8 +48,8 @@ public class SysLoginService
     @Autowired
     private ISysUserService userService;
 
-    @Autowired
-    private ISysConfigService configService;
+//    @Autowired
+//    private ISysConfigService configService;
 
     /**
      * 登录验证
@@ -110,7 +109,8 @@ public class SysLoginService
      */
     public void validateCaptcha(String username, String code, String uuid)
     {
-        boolean captchaEnabled = configService.selectCaptchaEnabled();
+//        boolean captchaEnabled = configService.selectCaptchaEnabled();
+        boolean captchaEnabled = true;
         if (captchaEnabled)
         {
             String verifyKey = CacheConstants.CAPTCHA_CODE_KEY + StringUtils.nvl(uuid, "");
@@ -156,13 +156,13 @@ public class SysLoginService
             AsyncManager.me().execute(AsyncFactory.recordLogininfor(username, Constants.LOGIN_FAIL, MessageUtils.message("user.password.not.match")));
             throw new UserPasswordNotMatchException();
         }
-        // IP黑名单校验
-        String blackStr = configService.selectConfigByKey("sys.login.blackIPList");
-        if (IpUtils.isMatchedIp(blackStr, IpUtils.getIpAddr()))
-        {
-            AsyncManager.me().execute(AsyncFactory.recordLogininfor(username, Constants.LOGIN_FAIL, MessageUtils.message("login.blocked")));
-            throw new BlackListException();
-        }
+//        // IP黑名单校验
+//        String blackStr = configService.selectConfigByKey("sys.login.blackIPList");
+//        if (IpUtils.isMatchedIp(blackStr, IpUtils.getIpAddr()))
+//        {
+//            AsyncManager.me().execute(AsyncFactory.recordLogininfor(username, Constants.LOGIN_FAIL, MessageUtils.message("login.blocked")));
+//            throw new BlackListException();
+//        }
     }
 
     /**

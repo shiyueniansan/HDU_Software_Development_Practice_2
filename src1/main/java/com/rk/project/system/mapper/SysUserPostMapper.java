@@ -1,7 +1,6 @@
 package com.rk.project.system.mapper;
 
 import java.util.List;
-import com.rk.project.system.domain.SysUserPost;
 
 /**
  * 用户与岗位关联表 数据层

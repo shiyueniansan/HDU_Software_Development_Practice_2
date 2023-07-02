@@ -18,7 +18,6 @@ import com.rk.common.utils.sign.Base64;
 import com.rk.common.utils.uuid.IdUtils;
 import com.rk.framework.redis.RedisCache;
 import com.rk.framework.web.domain.AjaxResult;
-import com.rk.project.system.service.ISysConfigService;
 
 /**
  * 验证码操作处理

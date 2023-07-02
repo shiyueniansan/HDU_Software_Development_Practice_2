@@ -9,7 +9,6 @@ import com.rk.framework.security.RegisterBody;
 import com.rk.framework.security.service.SysRegisterService;
 import com.rk.framework.web.controller.BaseController;
 import com.rk.framework.web.domain.AjaxResult;
-import com.rk.project.system.service.ISysConfigService;
 
 /**
  * 注册验证

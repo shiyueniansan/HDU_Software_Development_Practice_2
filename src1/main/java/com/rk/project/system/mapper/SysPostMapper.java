@@ -1,7 +1,6 @@
 package com.rk.project.system.mapper;
 
 import java.util.List;
-import com.rk.project.system.domain.SysPost;
 
 /**
  * 岗位信息 数据层

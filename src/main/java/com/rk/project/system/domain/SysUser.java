@@ -70,12 +70,12 @@ public class SysUser extends BaseEntity
     @Excel(name = "最后登录时间", width = 30, dateFormat = "yyyy-MM-dd HH:mm:ss", type = Type.EXPORT)
     private Date loginDate;
 
-    /** 部门对象 */
-    @Excels({
-        @Excel(name = "部门名称", targetAttr = "deptName", type = Type.EXPORT),
-        @Excel(name = "部门负责人", targetAttr = "leader", type = Type.EXPORT)
-    })
-    private SysDept dept;
+//    /** 部门对象 */
+//    @Excels({
+//        @Excel(name = "部门名称", targetAttr = "deptName", type = Type.EXPORT),
+//        @Excel(name = "部门负责人", targetAttr = "leader", type = Type.EXPORT)
+//    })
+//    private SysDept dept;
 
     /** 角色对象 */
     private List<SysRole> roles;
@@ -252,15 +252,15 @@ public class SysUser extends BaseEntity
         this.loginDate = loginDate;
     }
 
-    public SysDept getDept()
-    {
-        return dept;
-    }
-
-    public void setDept(SysDept dept)
-    {
-        this.dept = dept;
-    }
+//    public SysDept getDept()
+//    {
+//        return dept;
+//    }
+//
+//    public void setDept(SysDept dept)
+//    {
+//        this.dept = dept;
+//    }
 
     public List<SysRole> getRoles()
     {
@@ -333,7 +333,7 @@ public class SysUser extends BaseEntity
             .append("updateBy", getUpdateBy())
             .append("updateTime", getUpdateTime())
             .append("remark", getRemark())
-            .append("dept", getDept())
+//            .append("dept", getDept())
             .append("facultyId", getFacultyId())
             .toString();
     }

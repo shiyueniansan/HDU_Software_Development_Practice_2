@@ -24,11 +24,8 @@ import com.rk.framework.aspectj.lang.enums.BusinessType;
 import com.rk.framework.web.controller.BaseController;
 import com.rk.framework.web.domain.AjaxResult;
 import com.rk.framework.web.page.TableDataInfo;
-import com.rk.project.system.domain.SysDept;
 import com.rk.project.system.domain.SysRole;
 import com.rk.project.system.domain.SysUser;
-import com.rk.project.system.service.ISysDeptService;
-import com.rk.project.system.service.ISysPostService;
 import com.rk.project.system.service.ISysRoleService;
 import com.rk.project.system.service.ISysUserService;
 
