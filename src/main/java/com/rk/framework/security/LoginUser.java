@@ -5,7 +5,7 @@ import java.util.Set;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import com.alibaba.fastjson2.annotation.JSONField;
-import com.rk.project.system.domain.SysUser;
+import com.rk.common.domain.SysUser;
 
 /**
  * 登录用户身份权限

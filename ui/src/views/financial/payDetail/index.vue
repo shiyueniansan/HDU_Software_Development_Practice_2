@@ -57,12 +57,12 @@
       <el-table-column label="基本工资" align="center" prop="basicPay" />
       <el-table-column label="职务" align="center" prop="job">
         <template slot-scope="scope">
-          <dict-tag :options="dict.type.faculty_job" :value="scope.row.job" />
+          {{ facultyJobFormat(scope.row.job) }}
         </template>
       </el-table-column>
       <el-table-column label="职称" align="center" prop="title">
         <template slot-scope="scope">
-          <dict-tag :options="dict.type.faculty_title" :value="scope.row.title" />
+          {{ facultyTitleFormat(scope.row.title) }}
         </template>
       </el-table-column>
       <el-table-column label="生活补贴" align="center" prop="livingSubsidy" />
@@ -77,38 +77,11 @@
       <el-table-column label="住房公积金" width="85" align="center" prop="housing" />
       <el-table-column label="保险费" align="center" prop="insurance" />
       <el-table-column label="实发工资" align="center" prop="netPay" />
-      <!--      <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
-        <template slot-scope="scope">
-          <el-button
-            size="mini"
-            type="text"
-            icon="el-icon-edit"
-            @click="handleUpdate(scope.row)"
-            v-hasPermi="['financial:payDetail:edit']"
-          >修改</el-button>
-          <el-button
-            size="mini"
-            type="text"
-            icon="el-icon-delete"
-            @click="handleDelete(scope.row)"
-            v-hasPermi="['financial:payDetail:remove']"
-          >删除</el-button>
-        </template>
-      </el-table-column>-->
     </el-table>
 
     <pagination v-show="total > 0" :total="total" :page.sync="queryParams.pageNum" :limit.sync="queryParams.pageSize"
       @pagination="getList" />
 
-    <!--    &lt;!&ndash; 添加或修改工资明细表对话框 &ndash;&gt;
-    <el-dialog :title="title" :visible.sync="open" width="500px" append-to-body>
-      <el-form ref="form" :model="form" :rules="rules" label-width="80px">
-      </el-form>
-      <div slot="footer" class="dialog-footer">
-        <el-button type="primary" @click="submitForm">确 定</el-button>
-        <el-button @click="cancel">取 消</el-button>
-      </div>
-    </el-dialog>-->
   </div>
 </template>
 
@@ -117,7 +90,7 @@ import { listPayDetail, getPayDetail, delPayDetail, addPayDetail, updatePayDetai
 
 export default {
   name: "PayDetail",
-  dicts: ['faculty_job', 'faculty_title'],
+  dicts: [],
   data() {
     return {
       // 遮罩层
@@ -154,13 +127,40 @@ export default {
       form: {},
       // 表单校验
       rules: {
-      }
+      },
+      // 职务
+      faculty_job:[
+        { label: "校长", value: 1 },
+        { label: "副校长", value: 2 },
+        { label: "处长", value: 3 },
+        { label: "副处长", value: 4 },
+        { label: "科长", value: 5 },
+        { label: "副科长", value: 6 },
+        { label: "主管", value: 7 },
+        { label: "职员", value: 8 },
+        { label: "无", value: 0 }
+      ],
+      // 职称
+      faculty_title: [
+        { label: "教授", value: 1 },
+        { label: "副教授", value: 2 },
+        { label: "讲师", value: 3 },
+        { label: "助教", value: 4 },
+        { label: "无", value: 0 }
+      ],
     };
   },
   created() {
     this.getList();
   },
   methods: {
+    // 自定义方法翻译
+    facultyJobFormat(job) {
+      return this.selectDictLabel(this.faculty_job, job);
+    },
+    facultyTitleFormat(title) {
+      return this.selectDictLabel(this.faculty_title, title);
+    },
     /** 查询工资明细表列表 */
     getList() {
       this.loading = true;

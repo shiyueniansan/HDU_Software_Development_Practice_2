@@ -13,8 +13,8 @@ import com.rk.framework.aspectj.lang.annotation.DataScope;
 import com.rk.framework.security.LoginUser;
 import com.rk.framework.security.context.PermissionContextHolder;
 import com.rk.framework.web.domain.BaseEntity;
-import com.rk.project.system.domain.SysRole;
-import com.rk.project.system.domain.SysUser;
+import com.rk.common.domain.SysRole;
+import com.rk.common.domain.SysUser;
 
 /**
  * 数据过滤处理

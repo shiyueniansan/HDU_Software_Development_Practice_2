@@ -15,7 +15,7 @@ import com.rk.framework.manager.AsyncManager;
 import com.rk.framework.manager.factory.AsyncFactory;
 import com.rk.framework.redis.RedisCache;
 import com.rk.framework.security.context.AuthenticationContextHolder;
-import com.rk.project.system.domain.SysUser;
+import com.rk.common.domain.SysUser;
 
 /**
  * 登录密码方法
