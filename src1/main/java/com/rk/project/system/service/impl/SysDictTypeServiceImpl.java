@@ -10,13 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import com.rk.common.constant.UserConstants;
 import com.rk.common.exception.ServiceException;
-import com.rk.common.utils.DictUtils;
 import com.rk.common.utils.StringUtils;
-import com.rk.common.domain.SysDictData;
-import com.rk.common.domain.SysDictType;
-import com.rk.common.mapper.SysDictDataMapper;
-import com.rk.common.mapper.SysDictTypeMapper;
-import com.rk.common.service.ISysDictTypeService;
 
 /**
  * 字典 业务层处理

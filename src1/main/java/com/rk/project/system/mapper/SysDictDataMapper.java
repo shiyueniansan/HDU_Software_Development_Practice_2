@@ -2,7 +2,6 @@ package com.rk.common.mapper;
 
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
-import com.rk.common.domain.SysDictData;
 
 /**
  * 字典表 数据层

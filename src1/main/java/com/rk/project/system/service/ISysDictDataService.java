@@ -1,7 +1,6 @@
 package com.rk.common.service;
 
 import java.util.List;
-import com.rk.common.domain.SysDictData;
 
 /**
  * 字典 业务层
