@@ -6,17 +6,17 @@
       </el-form-item>
       <el-form-item label="教师/职工" prop="type">
         <el-select v-model="queryParams.type" placeholder="请选择教师/职工" clearable>
-          <el-option v-for="dict in dict.type.faculty_type" :key="dict.value" :label="dict.label" :value="dict.value" />
+          <el-option v-for="dict in faculty_type" :key="dict.value" :label="dict.label" :value="dict.value" />
         </el-select>
       </el-form-item>
       <el-form-item label="职务" prop="job">
         <el-select v-model="queryParams.job" placeholder="请选择职务" clearable>
-          <el-option v-for="dict in dict.type.faculty_job" :key="dict.value" :label="dict.label" :value="dict.value" />
+          <el-option v-for="dict in faculty_job" :key="dict.value" :label="dict.label" :value="dict.value" />
         </el-select>
       </el-form-item>
       <el-form-item label="职称" prop="title">
         <el-select v-model="queryParams.title" placeholder="请选择职称" clearable>
-          <el-option v-for="dict in dict.type.faculty_title" :key="dict.value" :label="dict.label" :value="dict.value" />
+          <el-option v-for="dict in faculty_title" :key="dict.value" :label="dict.label" :value="dict.value" />
         </el-select>
       </el-form-item>
       <el-form-item label="基本工资" prop="basicPay">
@@ -70,17 +70,17 @@
       <el-table-column label="姓名" align="center" prop="name" />
       <el-table-column label="教师/职工" align="center" prop="type">
         <template slot-scope="scope">
-          <dict-tag :options="dict.type.faculty_type" :value="scope.row.type" />
+          {{ facultyTypeFormat(scope.row.type) }}
         </template>
       </el-table-column>
       <el-table-column label="职务" align="center" prop="job">
         <template slot-scope="scope">
-          <dict-tag :options="dict.type.faculty_job" :value="scope.row.job" />
+          {{ facultyJobFormat(scope.row.job) }}
         </template>
       </el-table-column>
       <el-table-column label="职称" align="center" prop="title">
         <template slot-scope="scope">
-          <dict-tag :options="dict.type.faculty_title" :value="scope.row.title" />
+          {{ facultyTitleFormat(scope.row.title) }}
         </template>
       </el-table-column>
       <el-table-column label="基本工资" align="center" prop="basicPay" />
@@ -110,20 +110,20 @@
         </el-form-item>
         <el-form-item label="教师/职工" prop="type">
           <el-select v-model="form.type" placeholder="请选择教师/职工">
-            <el-option v-for="dict in dict.type.faculty_type" :key="dict.value" :label="dict.label"
+            <el-option v-for="dict in faculty_type" :key="dict.value" :label="dict.label"
               :value="parseInt(dict.value)"></el-option>
           </el-select>
         </el-form-item>
         <el-form-item label="职务" prop="job">
           <el-select v-model="form.job" placeholder="请选择职务">
-            <el-option v-for="dict in dict.type.faculty_job" :key="dict.value" :label="dict.label"
+            <el-option v-for="dict in faculty_job" :key="dict.value" :label="dict.label"
               :value="parseInt(dict.value)"></el-option>
           </el-select>
         </el-form-item>
 
         <el-form-item label="职称" prop="title">
           <el-select v-model="form.title" placeholder="请选择职称">
-            <el-option v-for="dict in dict.type.faculty_title" :key="dict.value" :label="dict.label"
+            <el-option v-for="dict in faculty_title" :key="dict.value" :label="dict.label"
               :value="parseInt(dict.value)"></el-option>
           </el-select>
         </el-form-item>
@@ -159,7 +159,8 @@ import { listFaculty, getFaculty, delFaculty, addFaculty, updateFaculty } from "
 
 export default {
   name: "Faculty",
-  dicts: ['faculty_title', 'faculty_job', 'faculty_type'],
+  // dicts: ['faculty_title', 'faculty_job', 'faculty_type'],
+  dicts: [],
   data() {
     return {
       // 遮罩层
@@ -205,13 +206,48 @@ export default {
         type: [
           { required: true, message: "教师/职工不能为空", trigger: "change" }
         ],
-      }
+      },
+      // 教师/职工
+      faculty_type: [
+        { label: "教师", value: 0 },
+        { label: "职工", value: 1 }
+      ],
+      // 职务
+      faculty_job:[
+        { label: "校长", value: 1 },
+        { label: "副校长", value: 2 },
+        { label: "处长", value: 3 },
+        { label: "副处长", value: 4 },
+        { label: "科长", value: 5 },
+        { label: "副科长", value: 6 },
+        { label: "主管", value: 7 },
+        { label: "职员", value: 8 },
+        { label: "无", value: 0 }
+      ],
+      // 职称
+      faculty_title: [
+        { label: "教授", value: 1 },
+        { label: "副教授", value: 2 },
+        { label: "讲师", value: 3 },
+        { label: "助教", value: 4 },
+        { label: "无", value: 0 }
+      ],
     };
   },
   created() {
     this.getList();
   },
   methods: {
+    // 自定义方法翻译
+    facultyTypeFormat(type) {
+      return this.selectDictLabel(this.faculty_type, type);
+    },
+    facultyJobFormat(job) {
+      return this.selectDictLabel(this.faculty_job, job);
+    },
+    facultyTitleFormat(title) {
+      return this.selectDictLabel(this.faculty_title, title);
+    },
     /** 查询教职工列表 */
     getList() {
       this.loading = true;

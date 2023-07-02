@@ -1242,6 +1242,50 @@ public class ExcelUtil<T>
     public static String convertDictByExp(String dictValue, String dictType, String separator)
     {
 //        return DictUtils.getDictLabel(dictType, dictValue, separator);
+        if(dictType=="faculty_type"){
+            switch (dictValue){
+                case "0":
+                    return "教师";
+                case "1":
+                    return "职工";
+            }
+        }
+        if(dictType=="faculty_job"){
+            switch (dictValue){
+                case "1":
+                    return "校长";
+                case "2":
+                    return "副校长";
+                case "3":
+                    return "处长";
+                case "4":
+                    return "副处长";
+                case "5":
+                    return "科长";
+                case "6":
+                    return "副科长";
+                case "7":
+                    return "主管";
+                case "8":
+                    return "职员";
+                case "0":
+                    return "无";
+            }
+        }
+        if(dictType=="faculty_title"){
+            switch (dictValue){
+                case "1":
+                    return "教授";
+                case "2":
+                    return "副教授";
+                case "3":
+                    return "讲师";
+                case "4":
+                    return "助教";
+                case "0":
+                    return "无";
+            }
+        }
         return dictValue;
     }
 
@@ -1256,6 +1300,50 @@ public class ExcelUtil<T>
     public static String reverseDictByExp(String dictLabel, String dictType, String separator)
     {
 //        return DictUtils.getDictValue(dictType, dictLabel, separator);
+        if(dictType=="faculty_type"){
+            switch (dictLabel){
+                case "教师":
+                    return "0";
+                case "职工":
+                    return "1";
+            }
+        }
+        if(dictType=="faculty_job"){
+            switch (dictLabel){
+                case "校长":
+                    return "1";
+                case "副校长":
+                    return "2";
+                case "处长":
+                    return "3";
+                case "副处长":
+                    return "4";
+                case "科长":
+                    return "5";
+                case "副科长":
+                    return "6";
+                case "主管":
+                    return "7";
+                case "职员":
+                    return "8";
+                case "无":
+                    return "0";
+            }
+        }
+        if(dictType=="faculty_title"){
+            switch (dictLabel){
+                case "教授":
+                    return "1";
+                case "副教授":
+                    return "2";
+                case "讲师":
+                    return "3";
+                case "助教":
+                    return "4";
+                case "无":
+                    return "0";
+            }
+        }
         return dictLabel;
     }
 
