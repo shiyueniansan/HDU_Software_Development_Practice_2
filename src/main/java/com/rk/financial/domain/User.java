@@ -1,6 +1,5 @@
-package com.rk.common.domain;
+package com.rk.financial.domain;
 
-import java.util.Date;
 import java.util.List;
 import javax.validation.constraints.*;
 import org.apache.commons.lang3.builder.ToStringBuilder;
@@ -16,7 +15,7 @@ import com.rk.framework.web.domain.BaseEntity;
  *
  * @author rk
  */
-public class SysUser extends BaseEntity
+public class User extends BaseEntity
 {
     private static final long serialVersionUID = 1L;
 
@@ -55,18 +54,18 @@ public class SysUser extends BaseEntity
     private String password;
 
     /** 角色对象 */
-    private List<SysRole> roles;
+    private List<Role> roles;
 
     /** 教职工编号 */
     private Long facultyId;
 
 
-    public SysUser()
+    public User()
     {
 
     }
 
-    public SysUser(Long userId)
+    public User(Long userId)
     {
         this.userId = userId;
     }
@@ -179,12 +178,12 @@ public class SysUser extends BaseEntity
         this.password = password;
     }
 
-    public List<SysRole> getRoles()
+    public List<Role> getRoles()
     {
         return roles;
     }
 
-    public void setRoles(List<SysRole> roles)
+    public void setRoles(List<Role> roles)
     {
         this.roles = roles;
     }

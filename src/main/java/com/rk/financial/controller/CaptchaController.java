@@ -1,4 +1,4 @@
-package com.rk.common.controller;
+package com.rk.financial.controller;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;

@@ -1,17 +1,17 @@
-package com.rk.common.service;
+package com.rk.financial.service;
 
 import java.util.List;
 import java.util.Set;
-import com.rk.framework.web.domain.TreeSelect;
-import com.rk.common.domain.SysMenu;
-import com.rk.common.domain.vo.RouterVo;
+
+import com.rk.financial.domain.Menu;
+import com.rk.financial.domain.vo.RouterVo;
 
 /**
  * 菜单 业务层
  *
  * @author rk
  */
-public interface ISysMenuService
+public interface IMenuService
 {
     /**
      * 根据用户ID查询权限
@@ -35,7 +35,7 @@ public interface ISysMenuService
      * @param userId 用户ID
      * @return 菜单列表
      */
-    public List<SysMenu> selectMenuTreeByUserId(Long userId);
+    public List<Menu> selectMenuTreeByUserId(Long userId);
 
     /**
      * 构建前端路由所需要的菜单
@@ -43,5 +43,5 @@ public interface ISysMenuService
      * @param menus 菜单列表
      * @return 路由列表
      */
-    public List<RouterVo> buildMenus(List<SysMenu> menus);
+    public List<RouterVo> buildMenus(List<Menu> menus);
 }

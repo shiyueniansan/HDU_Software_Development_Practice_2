@@ -1,11 +1,11 @@
-package com.rk.common.service.impl;
+package com.rk.financial.service.impl;
 
 import com.rk.common.constant.UserConstants;
-import com.rk.common.domain.SysRole;
-import com.rk.common.domain.SysUser;
-import com.rk.common.mapper.SysRoleMapper;
-import com.rk.common.mapper.SysUserMapper;
-import com.rk.common.service.ISysUserService;
+import com.rk.financial.domain.Role;
+import com.rk.financial.domain.User;
+import com.rk.financial.mapper.RoleMapper;
+import com.rk.financial.mapper.UserMapper;
+import com.rk.financial.service.IUserService;
 import com.rk.common.utils.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,13 +21,13 @@ import java.util.stream.Collectors;
  * @author rk
  */
 @Service
-public class SysUserServiceImpl implements ISysUserService
+public class UserServiceImpl implements IUserService
 {
     @Autowired
-    private SysUserMapper userMapper;
+    private UserMapper userMapper;
 
     @Autowired
-    private SysRoleMapper roleMapper;
+    private RoleMapper roleMapper;
 
     @Autowired
     protected Validator validator;
@@ -39,7 +39,7 @@ public class SysUserServiceImpl implements ISysUserService
      * @return 用户对象信息
      */
     @Override
-    public SysUser selectUserByUserName(String userName)
+    public User selectUserByUserName(String userName)
     {
         return userMapper.selectUserByUserName(userName);
     }
@@ -53,12 +53,12 @@ public class SysUserServiceImpl implements ISysUserService
     @Override
     public String selectUserRoleGroup(String userName)
     {
-        List<SysRole> list = roleMapper.selectRolesByUserName(userName);
+        List<Role> list = roleMapper.selectRolesByUserName(userName);
         if (CollectionUtils.isEmpty(list))
         {
             return StringUtils.EMPTY;
         }
-        return list.stream().map(SysRole::getRoleName).collect(Collectors.joining(","));
+        return list.stream().map(Role::getRoleName).collect(Collectors.joining(","));
     }
 
     /**
@@ -80,10 +80,10 @@ public class SysUserServiceImpl implements ISysUserService
      * @return
      */
     @Override
-    public boolean checkPhoneUnique(SysUser user)
+    public boolean checkPhoneUnique(User user)
     {
         Long userId = StringUtils.isNull(user.getUserId()) ? -1L : user.getUserId();
-        SysUser info = userMapper.checkPhoneUnique(user.getPhonenumber());
+        User info = userMapper.checkPhoneUnique(user.getPhonenumber());
         if (StringUtils.isNotNull(info) && info.getUserId().longValue() != userId.longValue())
         {
             return UserConstants.NOT_UNIQUE;
@@ -98,10 +98,10 @@ public class SysUserServiceImpl implements ISysUserService
      * @return
      */
     @Override
-    public boolean checkEmailUnique(SysUser user)
+    public boolean checkEmailUnique(User user)
     {
         Long userId = StringUtils.isNull(user.getUserId()) ? -1L : user.getUserId();
-        SysUser info = userMapper.checkEmailUnique(user.getEmail());
+        User info = userMapper.checkEmailUnique(user.getEmail());
         if (StringUtils.isNotNull(info) && info.getUserId().longValue() != userId.longValue())
         {
             return UserConstants.NOT_UNIQUE;
@@ -116,7 +116,7 @@ public class SysUserServiceImpl implements ISysUserService
      * @return 结果
      */
     @Override
-    public int updateUserProfile(SysUser user)
+    public int updateUserProfile(User user)
     {
         return userMapper.updateUser(user);
     }

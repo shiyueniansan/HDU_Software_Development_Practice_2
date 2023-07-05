@@ -11,7 +11,7 @@
  Target Server Version : 80031
  File Encoding         : 65001
 
- Date: 05/07/2023 12:13:48
+ Date: 05/07/2023 12:29:14
 */
 
 SET NAMES utf8mb4;
@@ -239,10 +239,10 @@ INSERT INTO `job` VALUES (7, '主管', 1.2);
 INSERT INTO `job` VALUES (8, '职员', 1);
 
 -- ----------------------------
--- Table structure for sys_menu
+-- Table structure for menu
 -- ----------------------------
-DROP TABLE IF EXISTS `sys_menu`;
-CREATE TABLE `sys_menu`  (
+DROP TABLE IF EXISTS `menu`;
+CREATE TABLE `menu`  (
   `menu_id` bigint NOT NULL AUTO_INCREMENT COMMENT '菜单ID',
   `menu_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '菜单名称',
   `parent_id` bigint NULL DEFAULT 0 COMMENT '父菜单ID',
@@ -261,69 +261,69 @@ CREATE TABLE `sys_menu`  (
 ) ENGINE = InnoDB AUTO_INCREMENT = 2197 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '菜单权限表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
--- Records of sys_menu
+-- Records of menu
 -- ----------------------------
-INSERT INTO `sys_menu` VALUES (2052, '人事', 0, 3, 'personnel', NULL, NULL, 1, 0, 'M', '0', '0', NULL, 'peoples');
-INSERT INTO `sys_menu` VALUES (2131, '教职工', 2052, 1, 'faculty', 'financial/faculty/index', NULL, 1, 0, 'C', '0', '0', 'financial:faculty:list', 'people');
-INSERT INTO `sys_menu` VALUES (2132, '教职工查询', 2131, 1, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:faculty:query', '#');
-INSERT INTO `sys_menu` VALUES (2133, '教职工新增', 2131, 2, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:faculty:add', '#');
-INSERT INTO `sys_menu` VALUES (2134, '教职工修改', 2131, 3, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:faculty:edit', '#');
-INSERT INTO `sys_menu` VALUES (2135, '教职工删除', 2131, 4, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:faculty:remove', '#');
-INSERT INTO `sys_menu` VALUES (2136, '教职工导出', 2131, 5, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:faculty:export', '#');
-INSERT INTO `sys_menu` VALUES (2137, '职称', 2052, 3, 'title', 'financial/title/index', NULL, 1, 0, 'C', '0', '0', 'financial:title:list', 'post');
-INSERT INTO `sys_menu` VALUES (2138, '职称查询', 2137, 1, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:title:query', '#');
-INSERT INTO `sys_menu` VALUES (2139, '职称新增', 2137, 2, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:title:add', '#');
-INSERT INTO `sys_menu` VALUES (2140, '职称修改', 2137, 3, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:title:edit', '#');
-INSERT INTO `sys_menu` VALUES (2141, '职称删除', 2137, 4, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:title:remove', '#');
-INSERT INTO `sys_menu` VALUES (2142, '职称导出', 2137, 5, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:title:export', '#');
-INSERT INTO `sys_menu` VALUES (2143, '职务', 2052, 2, 'job', 'financial/job/index', NULL, 1, 0, 'C', '0', '0', 'financial:job:list', 'post');
-INSERT INTO `sys_menu` VALUES (2144, '职务查询', 2143, 1, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:job:query', '#');
-INSERT INTO `sys_menu` VALUES (2145, '职务新增', 2143, 2, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:job:add', '#');
-INSERT INTO `sys_menu` VALUES (2146, '职务修改', 2143, 3, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:job:edit', '#');
-INSERT INTO `sys_menu` VALUES (2147, '职务删除', 2143, 4, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:job:remove', '#');
-INSERT INTO `sys_menu` VALUES (2148, '职务导出', 2143, 5, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:job:export', '#');
-INSERT INTO `sys_menu` VALUES (2149, '教职工年度', 0, 5, 'yearly', 'financial/yearly/index', NULL, 1, 1, 'C', '0', '0', 'financial:yearly:list', 'build');
-INSERT INTO `sys_menu` VALUES (2150, '教职工年度查询', 2149, 1, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:yearly:query', '#');
-INSERT INTO `sys_menu` VALUES (2151, '教职工年度新增', 2149, 2, '#', '', NULL, 1, 0, 'C', '1', '1', 'financial:yearly:add', '#');
-INSERT INTO `sys_menu` VALUES (2152, '教职工年度修改', 2149, 3, '#', '', NULL, 1, 0, 'C', '1', '1', 'financial:yearly:edit', '#');
-INSERT INTO `sys_menu` VALUES (2153, '教职工年度删除', 2149, 4, '#', '', NULL, 1, 0, 'C', '1', '1', 'financial:yearly:remove', '#');
-INSERT INTO `sys_menu` VALUES (2154, '教职工年度导出', 2149, 5, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:yearly:export', '#');
-INSERT INTO `sys_menu` VALUES (2155, '工资明细表', 0, 2, 'payDetail', 'financial/payDetail/index', NULL, 1, 1, 'C', '0', '0', 'financial:payDetail:list', 'money');
-INSERT INTO `sys_menu` VALUES (2156, '工资明细表查询', 2155, 1, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:payDetail:query', '#');
-INSERT INTO `sys_menu` VALUES (2157, '工资明细表新增', 2155, 2, '#', '', NULL, 1, 0, 'C', '1', '1', 'financial:payDetail:add', '#');
-INSERT INTO `sys_menu` VALUES (2158, '工资明细表修改', 2155, 3, '#', '', NULL, 1, 0, 'C', '1', '1', 'financial:payDetail:edit', '#');
-INSERT INTO `sys_menu` VALUES (2159, '工资明细表删除', 2155, 4, '#', '', NULL, 1, 0, 'C', '1', '1', 'financial:payDetail:remove', '#');
-INSERT INTO `sys_menu` VALUES (2160, '工资明细表导出', 2155, 5, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:payDetail:export', '#');
-INSERT INTO `sys_menu` VALUES (2161, '工资表', 0, 2, 'pay', 'financial/pay/index', NULL, 1, 1, 'C', '0', '0', 'financial:pay:list', 'money');
-INSERT INTO `sys_menu` VALUES (2162, '工资表查询', 2161, 1, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:pay:query', '#');
-INSERT INTO `sys_menu` VALUES (2163, '工资表新增', 2161, 2, '#', '', NULL, 1, 0, 'C', '1', '1', 'financial:pay:add', '#');
-INSERT INTO `sys_menu` VALUES (2164, '工资表修改', 2161, 3, '#', '', NULL, 1, 0, 'C', '1', '1', 'financial:pay:edit', '#');
-INSERT INTO `sys_menu` VALUES (2165, '工资表删除', 2161, 4, '#', '', NULL, 1, 0, 'C', '1', '1', 'financial:pay:remove', '#');
-INSERT INTO `sys_menu` VALUES (2166, '工资表导出', 2161, 5, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:pay:export', '#');
-INSERT INTO `sys_menu` VALUES (2173, '个人事务', 0, 4, 'affair', 'financial/affair/index', NULL, 1, 0, 'C', '0', '0', 'financial:affair:list', 'education');
-INSERT INTO `sys_menu` VALUES (2174, '个人事务查询', 2173, 1, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:affair:query', '#');
-INSERT INTO `sys_menu` VALUES (2175, '个人事务新增', 2173, 2, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:affair:add', '#');
-INSERT INTO `sys_menu` VALUES (2176, '个人事务修改', 2173, 3, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:affair:edit', '#');
-INSERT INTO `sys_menu` VALUES (2177, '个人事务删除', 2173, 4, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:affair:remove', '#');
-INSERT INTO `sys_menu` VALUES (2178, '个人事务导出', 2173, 5, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:affair:export', '#');
-INSERT INTO `sys_menu` VALUES (2185, '事务', 0, 4, 'affairs', 'financial/affairs/index', NULL, 1, 1, 'C', '0', '0', 'financial:affairs:list', 'education');
-INSERT INTO `sys_menu` VALUES (2186, '事务查询', 2185, 1, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:affairs:query', '#');
-INSERT INTO `sys_menu` VALUES (2187, '事务新增', 2185, 2, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:affairs:add', '#');
-INSERT INTO `sys_menu` VALUES (2188, '事务修改', 2185, 3, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:affairs:edit', '#');
-INSERT INTO `sys_menu` VALUES (2189, '事务删除', 2185, 4, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:affairs:remove', '#');
-INSERT INTO `sys_menu` VALUES (2190, '事务导出', 2185, 5, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:affairs:export', '#');
-INSERT INTO `sys_menu` VALUES (2191, '全部工资明细表', 0, 2, 'payDetails', 'financial/payDetails/index', NULL, 1, 0, 'C', '0', '0', 'financial:payDetails:list', 'money');
-INSERT INTO `sys_menu` VALUES (2192, '全部工资明细表查询', 2191, 1, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:payDetails:query', '#');
-INSERT INTO `sys_menu` VALUES (2193, '全部工资明细表新增', 2191, 2, '#', '', NULL, 1, 0, 'C', '1', '1', 'financial:payDetails:add', '#');
-INSERT INTO `sys_menu` VALUES (2194, '全部工资明细表修改', 2191, 3, '#', '', NULL, 1, 0, 'C', '1', '1', 'financial:payDetails:edit', '#');
-INSERT INTO `sys_menu` VALUES (2195, '全部工资明细表删除', 2191, 4, '#', '', NULL, 1, 0, 'C', '1', '1', 'financial:payDetails:remove', '#');
-INSERT INTO `sys_menu` VALUES (2196, '全部工资明细表导出', 2191, 5, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:payDetails:export', '#');
+INSERT INTO `menu` VALUES (2052, '人事', 0, 3, 'personnel', NULL, NULL, 1, 0, 'M', '0', '0', NULL, 'peoples');
+INSERT INTO `menu` VALUES (2131, '教职工', 2052, 1, 'faculty', 'financial/faculty/index', NULL, 1, 0, 'C', '0', '0', 'financial:faculty:list', 'people');
+INSERT INTO `menu` VALUES (2132, '教职工查询', 2131, 1, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:faculty:query', '#');
+INSERT INTO `menu` VALUES (2133, '教职工新增', 2131, 2, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:faculty:add', '#');
+INSERT INTO `menu` VALUES (2134, '教职工修改', 2131, 3, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:faculty:edit', '#');
+INSERT INTO `menu` VALUES (2135, '教职工删除', 2131, 4, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:faculty:remove', '#');
+INSERT INTO `menu` VALUES (2136, '教职工导出', 2131, 5, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:faculty:export', '#');
+INSERT INTO `menu` VALUES (2137, '职称', 2052, 3, 'title', 'financial/title/index', NULL, 1, 0, 'C', '0', '0', 'financial:title:list', 'post');
+INSERT INTO `menu` VALUES (2138, '职称查询', 2137, 1, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:title:query', '#');
+INSERT INTO `menu` VALUES (2139, '职称新增', 2137, 2, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:title:add', '#');
+INSERT INTO `menu` VALUES (2140, '职称修改', 2137, 3, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:title:edit', '#');
+INSERT INTO `menu` VALUES (2141, '职称删除', 2137, 4, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:title:remove', '#');
+INSERT INTO `menu` VALUES (2142, '职称导出', 2137, 5, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:title:export', '#');
+INSERT INTO `menu` VALUES (2143, '职务', 2052, 2, 'job', 'financial/job/index', NULL, 1, 0, 'C', '0', '0', 'financial:job:list', 'post');
+INSERT INTO `menu` VALUES (2144, '职务查询', 2143, 1, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:job:query', '#');
+INSERT INTO `menu` VALUES (2145, '职务新增', 2143, 2, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:job:add', '#');
+INSERT INTO `menu` VALUES (2146, '职务修改', 2143, 3, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:job:edit', '#');
+INSERT INTO `menu` VALUES (2147, '职务删除', 2143, 4, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:job:remove', '#');
+INSERT INTO `menu` VALUES (2148, '职务导出', 2143, 5, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:job:export', '#');
+INSERT INTO `menu` VALUES (2149, '教职工年度', 0, 5, 'yearly', 'financial/yearly/index', NULL, 1, 1, 'C', '0', '0', 'financial:yearly:list', 'build');
+INSERT INTO `menu` VALUES (2150, '教职工年度查询', 2149, 1, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:yearly:query', '#');
+INSERT INTO `menu` VALUES (2151, '教职工年度新增', 2149, 2, '#', '', NULL, 1, 0, 'C', '1', '1', 'financial:yearly:add', '#');
+INSERT INTO `menu` VALUES (2152, '教职工年度修改', 2149, 3, '#', '', NULL, 1, 0, 'C', '1', '1', 'financial:yearly:edit', '#');
+INSERT INTO `menu` VALUES (2153, '教职工年度删除', 2149, 4, '#', '', NULL, 1, 0, 'C', '1', '1', 'financial:yearly:remove', '#');
+INSERT INTO `menu` VALUES (2154, '教职工年度导出', 2149, 5, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:yearly:export', '#');
+INSERT INTO `menu` VALUES (2155, '工资明细表', 0, 2, 'payDetail', 'financial/payDetail/index', NULL, 1, 1, 'C', '0', '0', 'financial:payDetail:list', 'money');
+INSERT INTO `menu` VALUES (2156, '工资明细表查询', 2155, 1, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:payDetail:query', '#');
+INSERT INTO `menu` VALUES (2157, '工资明细表新增', 2155, 2, '#', '', NULL, 1, 0, 'C', '1', '1', 'financial:payDetail:add', '#');
+INSERT INTO `menu` VALUES (2158, '工资明细表修改', 2155, 3, '#', '', NULL, 1, 0, 'C', '1', '1', 'financial:payDetail:edit', '#');
+INSERT INTO `menu` VALUES (2159, '工资明细表删除', 2155, 4, '#', '', NULL, 1, 0, 'C', '1', '1', 'financial:payDetail:remove', '#');
+INSERT INTO `menu` VALUES (2160, '工资明细表导出', 2155, 5, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:payDetail:export', '#');
+INSERT INTO `menu` VALUES (2161, '工资表', 0, 2, 'pay', 'financial/pay/index', NULL, 1, 1, 'C', '0', '0', 'financial:pay:list', 'money');
+INSERT INTO `menu` VALUES (2162, '工资表查询', 2161, 1, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:pay:query', '#');
+INSERT INTO `menu` VALUES (2163, '工资表新增', 2161, 2, '#', '', NULL, 1, 0, 'C', '1', '1', 'financial:pay:add', '#');
+INSERT INTO `menu` VALUES (2164, '工资表修改', 2161, 3, '#', '', NULL, 1, 0, 'C', '1', '1', 'financial:pay:edit', '#');
+INSERT INTO `menu` VALUES (2165, '工资表删除', 2161, 4, '#', '', NULL, 1, 0, 'C', '1', '1', 'financial:pay:remove', '#');
+INSERT INTO `menu` VALUES (2166, '工资表导出', 2161, 5, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:pay:export', '#');
+INSERT INTO `menu` VALUES (2173, '个人事务', 0, 4, 'affair', 'financial/affair/index', NULL, 1, 0, 'C', '0', '0', 'financial:affair:list', 'education');
+INSERT INTO `menu` VALUES (2174, '个人事务查询', 2173, 1, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:affair:query', '#');
+INSERT INTO `menu` VALUES (2175, '个人事务新增', 2173, 2, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:affair:add', '#');
+INSERT INTO `menu` VALUES (2176, '个人事务修改', 2173, 3, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:affair:edit', '#');
+INSERT INTO `menu` VALUES (2177, '个人事务删除', 2173, 4, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:affair:remove', '#');
+INSERT INTO `menu` VALUES (2178, '个人事务导出', 2173, 5, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:affair:export', '#');
+INSERT INTO `menu` VALUES (2185, '事务', 0, 4, 'affairs', 'financial/affairs/index', NULL, 1, 1, 'C', '0', '0', 'financial:affairs:list', 'education');
+INSERT INTO `menu` VALUES (2186, '事务查询', 2185, 1, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:affairs:query', '#');
+INSERT INTO `menu` VALUES (2187, '事务新增', 2185, 2, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:affairs:add', '#');
+INSERT INTO `menu` VALUES (2188, '事务修改', 2185, 3, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:affairs:edit', '#');
+INSERT INTO `menu` VALUES (2189, '事务删除', 2185, 4, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:affairs:remove', '#');
+INSERT INTO `menu` VALUES (2190, '事务导出', 2185, 5, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:affairs:export', '#');
+INSERT INTO `menu` VALUES (2191, '全部工资明细表', 0, 2, 'payDetails', 'financial/payDetails/index', NULL, 1, 0, 'C', '0', '0', 'financial:payDetails:list', 'money');
+INSERT INTO `menu` VALUES (2192, '全部工资明细表查询', 2191, 1, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:payDetails:query', '#');
+INSERT INTO `menu` VALUES (2193, '全部工资明细表新增', 2191, 2, '#', '', NULL, 1, 0, 'C', '1', '1', 'financial:payDetails:add', '#');
+INSERT INTO `menu` VALUES (2194, '全部工资明细表修改', 2191, 3, '#', '', NULL, 1, 0, 'C', '1', '1', 'financial:payDetails:edit', '#');
+INSERT INTO `menu` VALUES (2195, '全部工资明细表删除', 2191, 4, '#', '', NULL, 1, 0, 'C', '1', '1', 'financial:payDetails:remove', '#');
+INSERT INTO `menu` VALUES (2196, '全部工资明细表导出', 2191, 5, '#', '', NULL, 1, 0, 'F', '0', '0', 'financial:payDetails:export', '#');
 
 -- ----------------------------
--- Table structure for sys_role
+-- Table structure for role
 -- ----------------------------
-DROP TABLE IF EXISTS `sys_role`;
-CREATE TABLE `sys_role`  (
+DROP TABLE IF EXISTS `role`;
+CREATE TABLE `role`  (
   `role_id` bigint NOT NULL AUTO_INCREMENT COMMENT '角色ID',
   `role_name` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '角色名称',
   `role_key` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '角色权限字符串',
@@ -331,178 +331,121 @@ CREATE TABLE `sys_role`  (
 ) ENGINE = InnoDB AUTO_INCREMENT = 105 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '角色信息表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
--- Records of sys_role
+-- Records of role
 -- ----------------------------
-INSERT INTO `sys_role` VALUES (1, '超级管理员', 'admin');
-INSERT INTO `sys_role` VALUES (2, '普通角色', 'common');
-INSERT INTO `sys_role` VALUES (100, '会计', 'finance');
-INSERT INTO `sys_role` VALUES (101, '教职工', 'faculty');
-INSERT INTO `sys_role` VALUES (102, '管理员', 'root');
-INSERT INTO `sys_role` VALUES (103, '银行', 'bank');
-INSERT INTO `sys_role` VALUES (104, '人事', 'personnel');
+INSERT INTO `role` VALUES (1, '超级管理员', 'admin');
+INSERT INTO `role` VALUES (2, '普通角色', 'common');
+INSERT INTO `role` VALUES (100, '会计', 'finance');
+INSERT INTO `role` VALUES (101, '教职工', 'faculty');
+INSERT INTO `role` VALUES (102, '管理员', 'root');
+INSERT INTO `role` VALUES (103, '银行', 'bank');
+INSERT INTO `role` VALUES (104, '人事', 'personnel');
 
 -- ----------------------------
--- Table structure for sys_role_menu
+-- Table structure for role_menu
 -- ----------------------------
-DROP TABLE IF EXISTS `sys_role_menu`;
-CREATE TABLE `sys_role_menu`  (
+DROP TABLE IF EXISTS `role_menu`;
+CREATE TABLE `role_menu`  (
   `role_id` bigint NOT NULL COMMENT '角色ID',
   `menu_id` bigint NOT NULL COMMENT '菜单ID',
   PRIMARY KEY (`role_id`, `menu_id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '角色和菜单关联表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
--- Records of sys_role_menu
+-- Records of role_menu
 -- ----------------------------
-INSERT INTO `sys_role_menu` VALUES (100, 2161);
-INSERT INTO `sys_role_menu` VALUES (100, 2162);
-INSERT INTO `sys_role_menu` VALUES (100, 2163);
-INSERT INTO `sys_role_menu` VALUES (100, 2164);
-INSERT INTO `sys_role_menu` VALUES (100, 2165);
-INSERT INTO `sys_role_menu` VALUES (100, 2166);
-INSERT INTO `sys_role_menu` VALUES (101, 2155);
-INSERT INTO `sys_role_menu` VALUES (101, 2156);
-INSERT INTO `sys_role_menu` VALUES (101, 2157);
-INSERT INTO `sys_role_menu` VALUES (101, 2158);
-INSERT INTO `sys_role_menu` VALUES (101, 2159);
-INSERT INTO `sys_role_menu` VALUES (101, 2160);
-INSERT INTO `sys_role_menu` VALUES (101, 2173);
-INSERT INTO `sys_role_menu` VALUES (101, 2174);
-INSERT INTO `sys_role_menu` VALUES (101, 2175);
-INSERT INTO `sys_role_menu` VALUES (101, 2176);
-INSERT INTO `sys_role_menu` VALUES (101, 2177);
-INSERT INTO `sys_role_menu` VALUES (101, 2178);
-INSERT INTO `sys_role_menu` VALUES (102, 2052);
-INSERT INTO `sys_role_menu` VALUES (102, 2131);
-INSERT INTO `sys_role_menu` VALUES (102, 2132);
-INSERT INTO `sys_role_menu` VALUES (102, 2133);
-INSERT INTO `sys_role_menu` VALUES (102, 2134);
-INSERT INTO `sys_role_menu` VALUES (102, 2135);
-INSERT INTO `sys_role_menu` VALUES (102, 2136);
-INSERT INTO `sys_role_menu` VALUES (102, 2137);
-INSERT INTO `sys_role_menu` VALUES (102, 2138);
-INSERT INTO `sys_role_menu` VALUES (102, 2139);
-INSERT INTO `sys_role_menu` VALUES (102, 2140);
-INSERT INTO `sys_role_menu` VALUES (102, 2141);
-INSERT INTO `sys_role_menu` VALUES (102, 2142);
-INSERT INTO `sys_role_menu` VALUES (102, 2143);
-INSERT INTO `sys_role_menu` VALUES (102, 2144);
-INSERT INTO `sys_role_menu` VALUES (102, 2145);
-INSERT INTO `sys_role_menu` VALUES (102, 2146);
-INSERT INTO `sys_role_menu` VALUES (102, 2147);
-INSERT INTO `sys_role_menu` VALUES (102, 2148);
-INSERT INTO `sys_role_menu` VALUES (102, 2149);
-INSERT INTO `sys_role_menu` VALUES (102, 2150);
-INSERT INTO `sys_role_menu` VALUES (102, 2151);
-INSERT INTO `sys_role_menu` VALUES (102, 2152);
-INSERT INTO `sys_role_menu` VALUES (102, 2153);
-INSERT INTO `sys_role_menu` VALUES (102, 2154);
-INSERT INTO `sys_role_menu` VALUES (102, 2161);
-INSERT INTO `sys_role_menu` VALUES (102, 2162);
-INSERT INTO `sys_role_menu` VALUES (102, 2163);
-INSERT INTO `sys_role_menu` VALUES (102, 2164);
-INSERT INTO `sys_role_menu` VALUES (102, 2165);
-INSERT INTO `sys_role_menu` VALUES (102, 2166);
-INSERT INTO `sys_role_menu` VALUES (102, 2185);
-INSERT INTO `sys_role_menu` VALUES (102, 2186);
-INSERT INTO `sys_role_menu` VALUES (102, 2187);
-INSERT INTO `sys_role_menu` VALUES (102, 2188);
-INSERT INTO `sys_role_menu` VALUES (102, 2189);
-INSERT INTO `sys_role_menu` VALUES (102, 2190);
-INSERT INTO `sys_role_menu` VALUES (102, 2191);
-INSERT INTO `sys_role_menu` VALUES (102, 2192);
-INSERT INTO `sys_role_menu` VALUES (102, 2193);
-INSERT INTO `sys_role_menu` VALUES (102, 2194);
-INSERT INTO `sys_role_menu` VALUES (102, 2195);
-INSERT INTO `sys_role_menu` VALUES (102, 2196);
-INSERT INTO `sys_role_menu` VALUES (103, 2161);
-INSERT INTO `sys_role_menu` VALUES (103, 2162);
-INSERT INTO `sys_role_menu` VALUES (103, 2163);
-INSERT INTO `sys_role_menu` VALUES (103, 2164);
-INSERT INTO `sys_role_menu` VALUES (103, 2165);
-INSERT INTO `sys_role_menu` VALUES (103, 2166);
-INSERT INTO `sys_role_menu` VALUES (104, 2052);
-INSERT INTO `sys_role_menu` VALUES (104, 2131);
-INSERT INTO `sys_role_menu` VALUES (104, 2132);
-INSERT INTO `sys_role_menu` VALUES (104, 2133);
-INSERT INTO `sys_role_menu` VALUES (104, 2134);
-INSERT INTO `sys_role_menu` VALUES (104, 2135);
-INSERT INTO `sys_role_menu` VALUES (104, 2136);
-INSERT INTO `sys_role_menu` VALUES (104, 2137);
-INSERT INTO `sys_role_menu` VALUES (104, 2138);
-INSERT INTO `sys_role_menu` VALUES (104, 2139);
-INSERT INTO `sys_role_menu` VALUES (104, 2140);
-INSERT INTO `sys_role_menu` VALUES (104, 2141);
-INSERT INTO `sys_role_menu` VALUES (104, 2142);
-INSERT INTO `sys_role_menu` VALUES (104, 2143);
-INSERT INTO `sys_role_menu` VALUES (104, 2144);
-INSERT INTO `sys_role_menu` VALUES (104, 2145);
-INSERT INTO `sys_role_menu` VALUES (104, 2146);
-INSERT INTO `sys_role_menu` VALUES (104, 2147);
-INSERT INTO `sys_role_menu` VALUES (104, 2148);
-INSERT INTO `sys_role_menu` VALUES (104, 2185);
-INSERT INTO `sys_role_menu` VALUES (104, 2186);
-INSERT INTO `sys_role_menu` VALUES (104, 2187);
-INSERT INTO `sys_role_menu` VALUES (104, 2188);
-INSERT INTO `sys_role_menu` VALUES (104, 2189);
-INSERT INTO `sys_role_menu` VALUES (104, 2190);
-
--- ----------------------------
--- Table structure for sys_user
--- ----------------------------
-DROP TABLE IF EXISTS `sys_user`;
-CREATE TABLE `sys_user`  (
-  `user_id` bigint NOT NULL AUTO_INCREMENT COMMENT '用户ID',
-  `faculty_id` bigint NULL DEFAULT NULL COMMENT '教职工编号',
-  `user_name` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '用户账号',
-  `nick_name` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '用户昵称',
-  `email` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '' COMMENT '用户邮箱',
-  `phonenumber` varchar(11) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '' COMMENT '手机号码',
-  `sex` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '0' COMMENT '用户性别（0男 1女 2未知）',
-  `avatar` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '' COMMENT '头像地址',
-  `password` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '' COMMENT '密码',
-  PRIMARY KEY (`user_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 110 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '用户信息表' ROW_FORMAT = DYNAMIC;
-
--- ----------------------------
--- Records of sys_user
--- ----------------------------
-INSERT INTO `sys_user` VALUES (1, NULL, 'admin', 'admin', 'ry@163.com', '15888888888', '1', '', '$2a$10$qbEWfxyIvSnrF.al7Iv3BujH5.FbbGXgRIqOVuFI3NrRlrzDHFjiW');
-INSERT INTO `sys_user` VALUES (100, NULL, '会计', '会计', '', '', '0', '', '$2a$10$GIAJySInsBxv1mmg9FwDeOzmn.oVTnCGvngbwy0Uye2MJYj2hJsuK');
-INSERT INTO `sys_user` VALUES (101, 3, '张三', '张三', '', '', '0', '', '$2a$10$IDvnC7OcqO2h/cIiuyBvwe0iu8VoLH.sL.1htCChn9zdQ3NGhweJe');
-INSERT INTO `sys_user` VALUES (102, NULL, '管理员', '管理员', '', '', '0', '', '$2a$10$3qU6MrBmHx1DOD2vGym.cOpsKkuoom/giTLbAenY4BmmE0a2Izc1y');
-INSERT INTO `sys_user` VALUES (103, NULL, '银行', '银行', '', '', '0', '', '$2a$10$2.kU9IFrlDDZvxf63yUQEuPTZGeZcsrn99oR0Kf97IzoTS2MloovG');
-INSERT INTO `sys_user` VALUES (104, 4, '李四', '李四', '', '', '0', '', '$2a$10$sznQVulcqjy97edpdmzpDuwUfY1aWSHBnv/HI8Hg7L1dY5uVi1w2u');
-INSERT INTO `sys_user` VALUES (105, 5, '王五', '王五', '', '', '0', '', '$2a$10$dp312W9GwZDhNFqdmvTkY.gkOtzoo0/sI9eTZ6h5hNNLKqPFaTNa.');
-INSERT INTO `sys_user` VALUES (106, NULL, '人事', '人事', '', '', '0', '', '$2a$10$qwhdew0GztrMG.BAtRWgD.6SjXDUGVtaEY0oiFKD6Kz..3iM2Ipce');
-INSERT INTO `sys_user` VALUES (108, 1, '小马', '小马', '', '', '0', '', '$2a$10$RNjfG3FgrWwLi4opoF8NDuzhPh/dFizBzUWa5QiOIApBbftclQJ1.');
-INSERT INTO `sys_user` VALUES (109, 2, '小王', '小王', '', '', '0', '', '$2a$10$RL2InKEr7uUFRayCug0Z.u/eUBftagUEU6d02wFcipPzKiH9EnNXW');
-
--- ----------------------------
--- Table structure for sys_user_role
--- ----------------------------
-DROP TABLE IF EXISTS `sys_user_role`;
-CREATE TABLE `sys_user_role`  (
-  `user_id` bigint NOT NULL COMMENT '用户ID',
-  `role_id` bigint NOT NULL COMMENT '角色ID',
-  PRIMARY KEY (`user_id`, `role_id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '用户和角色关联表' ROW_FORMAT = DYNAMIC;
-
--- ----------------------------
--- Records of sys_user_role
--- ----------------------------
-INSERT INTO `sys_user_role` VALUES (1, 1);
-INSERT INTO `sys_user_role` VALUES (2, 2);
-INSERT INTO `sys_user_role` VALUES (100, 100);
-INSERT INTO `sys_user_role` VALUES (101, 101);
-INSERT INTO `sys_user_role` VALUES (102, 102);
-INSERT INTO `sys_user_role` VALUES (103, 103);
-INSERT INTO `sys_user_role` VALUES (104, 101);
-INSERT INTO `sys_user_role` VALUES (105, 101);
-INSERT INTO `sys_user_role` VALUES (106, 104);
-INSERT INTO `sys_user_role` VALUES (107, 101);
-INSERT INTO `sys_user_role` VALUES (108, 101);
-INSERT INTO `sys_user_role` VALUES (109, 101);
+INSERT INTO `role_menu` VALUES (100, 2161);
+INSERT INTO `role_menu` VALUES (100, 2162);
+INSERT INTO `role_menu` VALUES (100, 2163);
+INSERT INTO `role_menu` VALUES (100, 2164);
+INSERT INTO `role_menu` VALUES (100, 2165);
+INSERT INTO `role_menu` VALUES (100, 2166);
+INSERT INTO `role_menu` VALUES (101, 2155);
+INSERT INTO `role_menu` VALUES (101, 2156);
+INSERT INTO `role_menu` VALUES (101, 2157);
+INSERT INTO `role_menu` VALUES (101, 2158);
+INSERT INTO `role_menu` VALUES (101, 2159);
+INSERT INTO `role_menu` VALUES (101, 2160);
+INSERT INTO `role_menu` VALUES (101, 2173);
+INSERT INTO `role_menu` VALUES (101, 2174);
+INSERT INTO `role_menu` VALUES (101, 2175);
+INSERT INTO `role_menu` VALUES (101, 2176);
+INSERT INTO `role_menu` VALUES (101, 2177);
+INSERT INTO `role_menu` VALUES (101, 2178);
+INSERT INTO `role_menu` VALUES (102, 2052);
+INSERT INTO `role_menu` VALUES (102, 2131);
+INSERT INTO `role_menu` VALUES (102, 2132);
+INSERT INTO `role_menu` VALUES (102, 2133);
+INSERT INTO `role_menu` VALUES (102, 2134);
+INSERT INTO `role_menu` VALUES (102, 2135);
+INSERT INTO `role_menu` VALUES (102, 2136);
+INSERT INTO `role_menu` VALUES (102, 2137);
+INSERT INTO `role_menu` VALUES (102, 2138);
+INSERT INTO `role_menu` VALUES (102, 2139);
+INSERT INTO `role_menu` VALUES (102, 2140);
+INSERT INTO `role_menu` VALUES (102, 2141);
+INSERT INTO `role_menu` VALUES (102, 2142);
+INSERT INTO `role_menu` VALUES (102, 2143);
+INSERT INTO `role_menu` VALUES (102, 2144);
+INSERT INTO `role_menu` VALUES (102, 2145);
+INSERT INTO `role_menu` VALUES (102, 2146);
+INSERT INTO `role_menu` VALUES (102, 2147);
+INSERT INTO `role_menu` VALUES (102, 2148);
+INSERT INTO `role_menu` VALUES (102, 2149);
+INSERT INTO `role_menu` VALUES (102, 2150);
+INSERT INTO `role_menu` VALUES (102, 2151);
+INSERT INTO `role_menu` VALUES (102, 2152);
+INSERT INTO `role_menu` VALUES (102, 2153);
+INSERT INTO `role_menu` VALUES (102, 2154);
+INSERT INTO `role_menu` VALUES (102, 2161);
+INSERT INTO `role_menu` VALUES (102, 2162);
+INSERT INTO `role_menu` VALUES (102, 2163);
+INSERT INTO `role_menu` VALUES (102, 2164);
+INSERT INTO `role_menu` VALUES (102, 2165);
+INSERT INTO `role_menu` VALUES (102, 2166);
+INSERT INTO `role_menu` VALUES (102, 2185);
+INSERT INTO `role_menu` VALUES (102, 2186);
+INSERT INTO `role_menu` VALUES (102, 2187);
+INSERT INTO `role_menu` VALUES (102, 2188);
+INSERT INTO `role_menu` VALUES (102, 2189);
+INSERT INTO `role_menu` VALUES (102, 2190);
+INSERT INTO `role_menu` VALUES (102, 2191);
+INSERT INTO `role_menu` VALUES (102, 2192);
+INSERT INTO `role_menu` VALUES (102, 2193);
+INSERT INTO `role_menu` VALUES (102, 2194);
+INSERT INTO `role_menu` VALUES (102, 2195);
+INSERT INTO `role_menu` VALUES (102, 2196);
+INSERT INTO `role_menu` VALUES (103, 2161);
+INSERT INTO `role_menu` VALUES (103, 2162);
+INSERT INTO `role_menu` VALUES (103, 2163);
+INSERT INTO `role_menu` VALUES (103, 2164);
+INSERT INTO `role_menu` VALUES (103, 2165);
+INSERT INTO `role_menu` VALUES (103, 2166);
+INSERT INTO `role_menu` VALUES (104, 2052);
+INSERT INTO `role_menu` VALUES (104, 2131);
+INSERT INTO `role_menu` VALUES (104, 2132);
+INSERT INTO `role_menu` VALUES (104, 2133);
+INSERT INTO `role_menu` VALUES (104, 2134);
+INSERT INTO `role_menu` VALUES (104, 2135);
+INSERT INTO `role_menu` VALUES (104, 2136);
+INSERT INTO `role_menu` VALUES (104, 2137);
+INSERT INTO `role_menu` VALUES (104, 2138);
+INSERT INTO `role_menu` VALUES (104, 2139);
+INSERT INTO `role_menu` VALUES (104, 2140);
+INSERT INTO `role_menu` VALUES (104, 2141);
+INSERT INTO `role_menu` VALUES (104, 2142);
+INSERT INTO `role_menu` VALUES (104, 2143);
+INSERT INTO `role_menu` VALUES (104, 2144);
+INSERT INTO `role_menu` VALUES (104, 2145);
+INSERT INTO `role_menu` VALUES (104, 2146);
+INSERT INTO `role_menu` VALUES (104, 2147);
+INSERT INTO `role_menu` VALUES (104, 2148);
+INSERT INTO `role_menu` VALUES (104, 2185);
+INSERT INTO `role_menu` VALUES (104, 2186);
+INSERT INTO `role_menu` VALUES (104, 2187);
+INSERT INTO `role_menu` VALUES (104, 2188);
+INSERT INTO `role_menu` VALUES (104, 2189);
+INSERT INTO `role_menu` VALUES (104, 2190);
 
 -- ----------------------------
 -- Table structure for title
@@ -523,5 +466,62 @@ INSERT INTO `title` VALUES (1, '教授', 2);
 INSERT INTO `title` VALUES (2, '副教授', 1.7);
 INSERT INTO `title` VALUES (3, '讲师', 1.5);
 INSERT INTO `title` VALUES (4, '助教', 1.2);
+
+-- ----------------------------
+-- Table structure for user
+-- ----------------------------
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE `user`  (
+  `user_id` bigint NOT NULL AUTO_INCREMENT COMMENT '用户ID',
+  `faculty_id` bigint NULL DEFAULT NULL COMMENT '教职工编号',
+  `user_name` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '用户账号',
+  `nick_name` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '用户昵称',
+  `email` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '' COMMENT '用户邮箱',
+  `phonenumber` varchar(11) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '' COMMENT '手机号码',
+  `sex` char(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '0' COMMENT '用户性别（0男 1女 2未知）',
+  `avatar` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '' COMMENT '头像地址',
+  `password` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT '' COMMENT '密码',
+  PRIMARY KEY (`user_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 110 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '用户信息表' ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of user
+-- ----------------------------
+INSERT INTO `user` VALUES (1, NULL, 'admin', 'admin', 'ry@163.com', '15888888888', '1', '', '$2a$10$qbEWfxyIvSnrF.al7Iv3BujH5.FbbGXgRIqOVuFI3NrRlrzDHFjiW');
+INSERT INTO `user` VALUES (100, NULL, '会计', '会计', '', '', '0', '', '$2a$10$GIAJySInsBxv1mmg9FwDeOzmn.oVTnCGvngbwy0Uye2MJYj2hJsuK');
+INSERT INTO `user` VALUES (101, 3, '张三', '张三', '', '', '0', '', '$2a$10$IDvnC7OcqO2h/cIiuyBvwe0iu8VoLH.sL.1htCChn9zdQ3NGhweJe');
+INSERT INTO `user` VALUES (102, NULL, '管理员', '管理员', '', '', '0', '', '$2a$10$3qU6MrBmHx1DOD2vGym.cOpsKkuoom/giTLbAenY4BmmE0a2Izc1y');
+INSERT INTO `user` VALUES (103, NULL, '银行', '银行', '', '', '0', '', '$2a$10$2.kU9IFrlDDZvxf63yUQEuPTZGeZcsrn99oR0Kf97IzoTS2MloovG');
+INSERT INTO `user` VALUES (104, 4, '李四', '李四', '', '', '0', '', '$2a$10$sznQVulcqjy97edpdmzpDuwUfY1aWSHBnv/HI8Hg7L1dY5uVi1w2u');
+INSERT INTO `user` VALUES (105, 5, '王五', '王五', '', '', '0', '', '$2a$10$dp312W9GwZDhNFqdmvTkY.gkOtzoo0/sI9eTZ6h5hNNLKqPFaTNa.');
+INSERT INTO `user` VALUES (106, NULL, '人事', '人事', '', '', '0', '', '$2a$10$qwhdew0GztrMG.BAtRWgD.6SjXDUGVtaEY0oiFKD6Kz..3iM2Ipce');
+INSERT INTO `user` VALUES (108, 1, '小马', '小马', '', '', '0', '', '$2a$10$RNjfG3FgrWwLi4opoF8NDuzhPh/dFizBzUWa5QiOIApBbftclQJ1.');
+INSERT INTO `user` VALUES (109, 2, '小王', '小王', '', '', '0', '', '$2a$10$RL2InKEr7uUFRayCug0Z.u/eUBftagUEU6d02wFcipPzKiH9EnNXW');
+
+-- ----------------------------
+-- Table structure for user_role
+-- ----------------------------
+DROP TABLE IF EXISTS `user_role`;
+CREATE TABLE `user_role`  (
+  `user_id` bigint NOT NULL COMMENT '用户ID',
+  `role_id` bigint NOT NULL COMMENT '角色ID',
+  PRIMARY KEY (`user_id`, `role_id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '用户和角色关联表' ROW_FORMAT = DYNAMIC;
+
+-- ----------------------------
+-- Records of user_role
+-- ----------------------------
+INSERT INTO `user_role` VALUES (1, 1);
+INSERT INTO `user_role` VALUES (2, 2);
+INSERT INTO `user_role` VALUES (100, 100);
+INSERT INTO `user_role` VALUES (101, 101);
+INSERT INTO `user_role` VALUES (102, 102);
+INSERT INTO `user_role` VALUES (103, 103);
+INSERT INTO `user_role` VALUES (104, 101);
+INSERT INTO `user_role` VALUES (105, 101);
+INSERT INTO `user_role` VALUES (106, 104);
+INSERT INTO `user_role` VALUES (107, 101);
+INSERT INTO `user_role` VALUES (108, 101);
+INSERT INTO `user_role` VALUES (109, 101);
 
 SET FOREIGN_KEY_CHECKS = 1;

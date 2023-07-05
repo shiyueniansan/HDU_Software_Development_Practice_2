@@ -1,8 +1,8 @@
-package com.rk.common.service.impl;
+package com.rk.financial.service.impl;
 
-import com.rk.common.domain.SysRole;
-import com.rk.common.mapper.SysRoleMapper;
-import com.rk.common.service.ISysRoleService;
+import com.rk.financial.domain.Role;
+import com.rk.financial.mapper.RoleMapper;
+import com.rk.financial.service.IRoleService;
 import com.rk.common.utils.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,10 +18,10 @@ import java.util.Set;
  * @author rk
  */
 @Service
-public class SysRoleServiceImpl implements ISysRoleService
+public class RoleServiceImpl implements IRoleService
 {
     @Autowired
-    private SysRoleMapper roleMapper;
+    private RoleMapper roleMapper;
 
     /**
      * 根据用户ID查询权限
@@ -32,9 +32,9 @@ public class SysRoleServiceImpl implements ISysRoleService
     @Override
     public Set<String> selectRolePermissionByUserId(Long userId)
     {
-        List<SysRole> perms = roleMapper.selectRolePermissionByUserId(userId);
+        List<Role> perms = roleMapper.selectRolePermissionByUserId(userId);
         Set<String> permsSet = new HashSet<>();
-        for (SysRole perm : perms)
+        for (Role perm : perms)
         {
             if (StringUtils.isNotNull(perm))
             {

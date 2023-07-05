@@ -2,9 +2,9 @@
 <!DOCTYPE mapper
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.rk.common.mapper.SysRoleMapper">
+<mapper namespace="com.rk.financial.mapper.RoleMapper">
 
-	<resultMap type="SysRole" id="SysRoleResult">
+	<resultMap type="Role" id="RoleResult">
 		<id     property="roleId"             column="role_id"               />
 		<result property="roleName"           column="role_name"             />
 		<result property="roleKey"            column="role_key"              />
@@ -12,17 +12,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<sql id="selectRoleVo">
 	    select distinct r.role_id, r.role_name, r.role_key
-        from sys_role r
-	        left join sys_user_role ur on ur.role_id = r.role_id
-	        left join sys_user u on u.user_id = ur.user_id
+        from role r
+	        left join user_role ur on ur.role_id = r.role_id
+	        left join user u on u.user_id = ur.user_id
     </sql>
 
-	<select id="selectRolePermissionByUserId" parameterType="Long" resultMap="SysRoleResult">
+	<select id="selectRolePermissionByUserId" parameterType="Long" resultMap="RoleResult">
 		<include refid="selectRoleVo"/>
 		WHERE ur.user_id = #{userId}
 	</select>
 
-	<select id="selectRolesByUserName" parameterType="String" resultMap="SysRoleResult">
+	<select id="selectRolesByUserName" parameterType="String" resultMap="RoleResult">
 		<include refid="selectRoleVo"/>
 		WHERE u.user_name = #{userName}
 	</select>

@@ -1,4 +1,4 @@
-package com.rk.common.controller;
+package com.rk.financial.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,8 +20,8 @@ import com.rk.framework.security.LoginUser;
 import com.rk.framework.security.service.TokenService;
 import com.rk.framework.web.controller.BaseController;
 import com.rk.framework.web.domain.AjaxResult;
-import com.rk.common.domain.SysUser;
-import com.rk.common.service.ISysUserService;
+import com.rk.financial.domain.User;
+import com.rk.financial.service.IUserService;
 
 /**
  * 个人信息 业务处理
@@ -30,10 +30,10 @@ import com.rk.common.service.ISysUserService;
  */
 @RestController
 @RequestMapping("/system/user/profile")
-public class SysProfileController extends BaseController
+public class ProfileController extends BaseController
 {
     @Autowired
-    private ISysUserService userService;
+    private IUserService userService;
 
     @Autowired
     private TokenService tokenService;
@@ -45,7 +45,7 @@ public class SysProfileController extends BaseController
     public AjaxResult profile()
     {
         LoginUser loginUser = getLoginUser();
-        SysUser user = loginUser.getUser();
+        User user = loginUser.getUser();
         AjaxResult ajax = AjaxResult.success(user);
         ajax.put("roleGroup", userService.selectUserRoleGroup(loginUser.getUsername()));
         ajax.put("postGroup", userService.selectUserPostGroup(loginUser.getUsername()));
@@ -57,10 +57,10 @@ public class SysProfileController extends BaseController
      */
     @Log(title = "个人信息", businessType = BusinessType.UPDATE)
     @PutMapping
-    public AjaxResult updateProfile(@RequestBody SysUser user)
+    public AjaxResult updateProfile(@RequestBody User user)
     {
         LoginUser loginUser = getLoginUser();
-        SysUser sysUser = loginUser.getUser();
+        User sysUser = loginUser.getUser();
         user.setUserName(sysUser.getUserName());
         if (StringUtils.isNotEmpty(user.getPhonenumber()) && !userService.checkPhoneUnique(user))
         {

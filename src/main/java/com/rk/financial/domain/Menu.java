@@ -1,4 +1,4 @@
-package com.rk.common.domain;
+package com.rk.financial.domain;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +14,7 @@ import com.rk.framework.web.domain.BaseEntity;
  *
  * @author rk
  */
-public class SysMenu extends BaseEntity
+public class Menu extends BaseEntity
 {
     private static final long serialVersionUID = 1L;
 
@@ -64,7 +64,7 @@ public class SysMenu extends BaseEntity
     private String icon;
 
     /** 子菜单 */
-    private List<SysMenu> children = new ArrayList<SysMenu>();
+    private List<Menu> children = new ArrayList<Menu>();
 
     public Long getMenuId()
     {
@@ -223,12 +223,12 @@ public class SysMenu extends BaseEntity
         this.icon = icon;
     }
 
-    public List<SysMenu> getChildren()
+    public List<Menu> getChildren()
     {
         return children;
     }
 
-    public void setChildren(List<SysMenu> children)
+    public void setChildren(List<Menu> children)
     {
         this.children = children;
     }

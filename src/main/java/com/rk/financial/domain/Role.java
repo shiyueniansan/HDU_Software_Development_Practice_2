@@ -1,4 +1,4 @@
-package com.rk.common.domain;
+package com.rk.financial.domain;
 
 import com.rk.framework.aspectj.lang.annotation.Excel;
 import com.rk.framework.aspectj.lang.annotation.Excel.ColumnType;
@@ -15,7 +15,7 @@ import java.util.Set;
  *
  * @author rk
  */
-public class SysRole extends BaseEntity
+public class Role extends BaseEntity
 {
     private static final long serialVersionUID = 1L;
 

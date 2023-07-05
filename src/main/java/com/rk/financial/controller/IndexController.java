@@ -1,4 +1,4 @@
-package com.rk.common.controller;
+package com.rk.financial.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,7 +12,7 @@ import com.rk.framework.config.RKConfig;
  * @author rk
  */
 @RestController
-public class SysIndexController
+public class IndexController
 {
     /** 系统基础配置 */
     @Autowired

@@ -1,4 +1,4 @@
-package com.rk.common.domain.vo;
+package com.rk.financial.domain.vo;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import java.util.List;

@@ -15,17 +15,14 @@ import com.rk.common.exception.user.CaptchaException;
 import com.rk.common.exception.user.CaptchaExpireException;
 import com.rk.common.exception.user.UserNotExistsException;
 import com.rk.common.exception.user.UserPasswordNotMatchException;
-import com.rk.common.utils.DateUtils;
 import com.rk.common.utils.MessageUtils;
 import com.rk.common.utils.StringUtils;
-import com.rk.common.utils.ip.IpUtils;
 import com.rk.framework.manager.AsyncManager;
 import com.rk.framework.manager.factory.AsyncFactory;
 import com.rk.framework.redis.RedisCache;
 import com.rk.framework.security.LoginUser;
 import com.rk.framework.security.context.AuthenticationContextHolder;
-import com.rk.common.domain.SysUser;
-import com.rk.common.service.ISysUserService;
+import com.rk.financial.service.IUserService;
 
 /**
  * 登录校验方法
@@ -45,7 +42,7 @@ public class SysLoginService
     private RedisCache redisCache;
 
     @Autowired
-    private ISysUserService userService;
+    private IUserService userService;
 
     /**
      * 登录验证

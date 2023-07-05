@@ -1,15 +1,14 @@
-package com.rk.common.mapper;
+package com.rk.financial.mapper;
 
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
-import com.rk.common.domain.SysUser;
+import com.rk.financial.domain.User;
 
 /**
  * 用户表 数据层
  *
  * @author rk
  */
-public interface SysUserMapper
+public interface UserMapper
 {
     /**
      * 通过用户名查询用户
@@ -17,7 +16,7 @@ public interface SysUserMapper
      * @param userName 用户名
      * @return 用户对象信息
      */
-    public SysUser selectUserByUserName(String userName);
+    public User selectUserByUserName(String userName);
 
     /**
      * 修改用户信息
@@ -25,7 +24,7 @@ public interface SysUserMapper
      * @param user 用户信息
      * @return 结果
      */
-    public int updateUser(SysUser user);
+    public int updateUser(User user);
 
     /**
      * 修改用户头像
@@ -51,7 +50,7 @@ public interface SysUserMapper
      * @param phonenumber 手机号码
      * @return 结果
      */
-    public SysUser checkPhoneUnique(String phonenumber);
+    public User checkPhoneUnique(String phonenumber);
 
     /**
      * 校验email是否唯一
@@ -59,5 +58,5 @@ public interface SysUserMapper
      * @param email 用户邮箱
      * @return 结果
      */
-    public SysUser checkEmailUnique(String email);
+    public User checkEmailUnique(String email);
 }

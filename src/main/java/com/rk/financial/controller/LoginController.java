@@ -1,4 +1,4 @@
-package com.rk.common.controller;
+package com.rk.financial.controller;
 
 import java.util.List;
 import java.util.Set;
@@ -13,9 +13,9 @@ import com.rk.framework.security.LoginBody;
 import com.rk.framework.security.service.SysLoginService;
 import com.rk.framework.security.service.SysPermissionService;
 import com.rk.framework.web.domain.AjaxResult;
-import com.rk.common.domain.SysMenu;
-import com.rk.common.domain.SysUser;
-import com.rk.common.service.ISysMenuService;
+import com.rk.financial.domain.Menu;
+import com.rk.financial.domain.User;
+import com.rk.financial.service.IMenuService;
 
 /**
  * 登录验证
@@ -23,13 +23,13 @@ import com.rk.common.service.ISysMenuService;
  * @author rk
  */
 @RestController
-public class SysLoginController
+public class LoginController
 {
     @Autowired
     private SysLoginService loginService;
 
     @Autowired
-    private ISysMenuService menuService;
+    private IMenuService menuService;
 
     @Autowired
     private SysPermissionService permissionService;
@@ -59,7 +59,7 @@ public class SysLoginController
     @GetMapping("getInfo")
     public AjaxResult getInfo()
     {
-        SysUser user = SecurityUtils.getLoginUser().getUser();
+        User user = SecurityUtils.getLoginUser().getUser();
         // 角色集合
         Set<String> roles = permissionService.getRolePermission(user);
         // 权限集合
@@ -80,7 +80,7 @@ public class SysLoginController
     public AjaxResult getRouters()
     {
         Long userId = SecurityUtils.getUserId();
-        List<SysMenu> menus = menuService.selectMenuTreeByUserId(userId);
+        List<Menu> menus = menuService.selectMenuTreeByUserId(userId);
         return AjaxResult.success(menuService.buildMenus(menus));
     }
 }

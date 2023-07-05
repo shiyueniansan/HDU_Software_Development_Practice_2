@@ -1,14 +1,14 @@
-package com.rk.common.mapper;
+package com.rk.financial.mapper;
 
 import java.util.List;
-import com.rk.common.domain.SysRole;
+import com.rk.financial.domain.Role;
 
 /**
  * 角色表 数据层
  *
  * @author rk
  */
-public interface SysRoleMapper
+public interface RoleMapper
 {
     /**
      * 根据用户ID查询角色
@@ -16,7 +16,7 @@ public interface SysRoleMapper
      * @param userId 用户ID
      * @return 角色列表
      */
-    public List<SysRole> selectRolePermissionByUserId(Long userId);
+    public List<Role> selectRolePermissionByUserId(Long userId);
 
     /**
      * 根据用户ID查询角色
@@ -24,5 +24,5 @@ public interface SysRoleMapper
      * @param userName 用户名
      * @return 角色列表
      */
-    public List<SysRole> selectRolesByUserName(String userName);
+    public List<Role> selectRolesByUserName(String userName);
 }

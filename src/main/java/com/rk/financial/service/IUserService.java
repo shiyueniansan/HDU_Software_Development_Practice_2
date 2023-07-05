@@ -1,13 +1,13 @@
-package com.rk.common.service;
+package com.rk.financial.service;
 
-import com.rk.common.domain.SysUser;
+import com.rk.financial.domain.User;
 
 /**
  * 用户 业务层
  *
  * @author rk
  */
-public interface ISysUserService
+public interface IUserService
 {
     /**
      * 通过用户名查询用户
@@ -15,7 +15,7 @@ public interface ISysUserService
      * @param userName 用户名
      * @return 用户对象信息
      */
-    public SysUser selectUserByUserName(String userName);
+    public User selectUserByUserName(String userName);
 
     /**
      * 根据用户ID查询用户所属角色组
@@ -39,7 +39,7 @@ public interface ISysUserService
      * @param user 用户信息
      * @return 结果
      */
-    public boolean checkPhoneUnique(SysUser user);
+    public boolean checkPhoneUnique(User user);
 
     /**
      * 校验email是否唯一
@@ -47,7 +47,7 @@ public interface ISysUserService
      * @param user 用户信息
      * @return 结果
      */
-    public boolean checkEmailUnique(SysUser user);
+    public boolean checkEmailUnique(User user);
 
     /**
      * 修改用户基本信息
@@ -55,7 +55,7 @@ public interface ISysUserService
      * @param user 用户信息
      * @return 结果
      */
-    public int updateUserProfile(SysUser user);
+    public int updateUserProfile(User user);
 
     /**
      * 修改用户头像

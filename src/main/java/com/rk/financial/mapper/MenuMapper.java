@@ -1,15 +1,15 @@
-package com.rk.common.mapper;
+package com.rk.financial.mapper;
 
 import java.util.List;
-import org.apache.ibatis.annotations.Param;
-import com.rk.common.domain.SysMenu;
+
+import com.rk.financial.domain.Menu;
 
 /**
  * 菜单表 数据层
  *
  * @author rk
  */
-public interface SysMenuMapper
+public interface MenuMapper
 {
     /**
      * 根据用户ID查询权限
@@ -33,5 +33,5 @@ public interface SysMenuMapper
      * @param userId 用户ID
      * @return 菜单列表
      */
-    public List<SysMenu> selectMenuTreeByUserId(Long userId);
+    public List<Menu> selectMenuTreeByUserId(Long userId);
 }

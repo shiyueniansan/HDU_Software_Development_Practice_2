@@ -1,4 +1,4 @@
-package com.rk.common.service;
+package com.rk.financial.service;
 
 import java.util.Set;
 
@@ -7,7 +7,7 @@ import java.util.Set;
  *
  * @author rk
  */
-public interface ISysRoleService
+public interface IRoleService
 {
     /**
      * 根据用户ID查询角色权限

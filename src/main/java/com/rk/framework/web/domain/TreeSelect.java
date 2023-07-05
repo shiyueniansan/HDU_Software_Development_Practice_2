@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.stream.Collectors;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.rk.common.domain.SysMenu;
+import com.rk.financial.domain.Menu;
 
 /**
  * Treeselect树结构实体类
@@ -37,7 +37,7 @@ public class TreeSelect implements Serializable
 //        this.children = dept.getChildren().stream().map(TreeSelect::new).collect(Collectors.toList());
 //    }
 
-    public TreeSelect(SysMenu menu)
+    public TreeSelect(Menu menu)
     {
         this.id = menu.getMenuId();
         this.label = menu.getMenuName();
