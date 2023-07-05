@@ -74,24 +74,6 @@ public class SysUserServiceImpl implements ISysUserService
     }
 
     /**
-     * 校验用户名称是否唯一
-     *
-     * @param user 用户信息
-     * @return 结果
-     */
-    @Override
-    public boolean checkUserNameUnique(SysUser user)
-    {
-        Long userId = StringUtils.isNull(user.getUserId()) ? -1L : user.getUserId();
-        SysUser info = userMapper.checkUserNameUnique(user.getUserName());
-        if (StringUtils.isNotNull(info) && info.getUserId().longValue() != userId.longValue())
-        {
-            return UserConstants.NOT_UNIQUE;
-        }
-        return UserConstants.UNIQUE;
-    }
-
-    /**
      * 校验手机号码是否唯一
      *
      * @param user 用户信息
@@ -125,18 +107,6 @@ public class SysUserServiceImpl implements ISysUserService
             return UserConstants.NOT_UNIQUE;
         }
         return UserConstants.UNIQUE;
-    }
-
-    /**
-     * 注册用户信息
-     *
-     * @param user 用户信息
-     * @return 结果
-     */
-    @Override
-    public boolean registerUser(SysUser user)
-    {
-        return userMapper.insertUser(user) > 0;
     }
 
     /**

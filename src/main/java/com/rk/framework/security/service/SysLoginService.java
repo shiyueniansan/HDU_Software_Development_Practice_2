@@ -47,9 +47,6 @@ public class SysLoginService
     @Autowired
     private ISysUserService userService;
 
-//    @Autowired
-//    private ISysConfigService configService;
-
     /**
      * 登录验证
      *
@@ -93,7 +90,6 @@ public class SysLoginService
         }
         AsyncManager.me().execute(AsyncFactory.recordLogininfor(username, Constants.LOGIN_SUCCESS, MessageUtils.message("user.login.success")));
         LoginUser loginUser = (LoginUser) authentication.getPrincipal();
-        recordLoginInfo(loginUser.getUserId());
         // 生成token
         return tokenService.createToken(loginUser);
     }
@@ -108,7 +104,6 @@ public class SysLoginService
      */
     public void validateCaptcha(String username, String code, String uuid)
     {
-//        boolean captchaEnabled = configService.selectCaptchaEnabled();
         boolean captchaEnabled = true;
         if (captchaEnabled)
         {
@@ -155,26 +150,5 @@ public class SysLoginService
             AsyncManager.me().execute(AsyncFactory.recordLogininfor(username, Constants.LOGIN_FAIL, MessageUtils.message("user.password.not.match")));
             throw new UserPasswordNotMatchException();
         }
-//        // IP黑名单校验
-//        String blackStr = configService.selectConfigByKey("sys.login.blackIPList");
-//        if (IpUtils.isMatchedIp(blackStr, IpUtils.getIpAddr()))
-//        {
-//            AsyncManager.me().execute(AsyncFactory.recordLogininfor(username, Constants.LOGIN_FAIL, MessageUtils.message("login.blocked")));
-//            throw new BlackListException();
-//        }
-    }
-
-    /**
-     * 记录登录信息
-     *
-     * @param userId 用户ID
-     */
-    public void recordLoginInfo(Long userId)
-    {
-        SysUser sysUser = new SysUser();
-        sysUser.setUserId(userId);
-        sysUser.setLoginIp(IpUtils.getIpAddr());
-        sysUser.setLoginDate(DateUtils.getNowDate());
-        userService.updateUserProfile(sysUser);
     }
 }
