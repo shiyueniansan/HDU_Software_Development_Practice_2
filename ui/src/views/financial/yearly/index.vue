@@ -53,38 +53,11 @@
       <el-table-column label="本年度累计授课时数" align="center" prop="hour" />
       <el-table-column label="上年度月平均工资" align="center" prop="avgPay" />
       <el-table-column label="本年度累计实发工资" align="center" prop="netPay" />
-      <!--      <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
-        <template slot-scope="scope">
-          <el-button
-            size="mini"
-            type="text"
-            icon="el-icon-edit"
-            @click="handleUpdate(scope.row)"
-            v-hasPermi="['financial:yearly:edit']"
-          >修改</el-button>
-          <el-button
-            size="mini"
-            type="text"
-            icon="el-icon-delete"
-            @click="handleDelete(scope.row)"
-            v-hasPermi="['financial:yearly:remove']"
-          >删除</el-button>
-        </template>
-      </el-table-column>-->
     </el-table>
 
     <pagination v-show="total > 0" :total="total" :page.sync="queryParams.pageNum" :limit.sync="queryParams.pageSize"
       @pagination="getList" />
 
-    <!--    &lt;!&ndash; 添加或修改教职工年度对话框 &ndash;&gt;
-    <el-dialog :title="title" :visible.sync="open" width="500px" append-to-body>
-      <el-form ref="form" :model="form" :rules="rules" label-width="80px">
-      </el-form>
-      <div slot="footer" class="dialog-footer">
-        <el-button type="primary" @click="submitForm">确 定</el-button>
-        <el-button @click="cancel">取 消</el-button>
-      </div>
-    </el-dialog>-->
   </div>
 </template>
 
@@ -227,7 +200,7 @@ export default {
     handleExport() {
       this.download('financial/yearly/export', {
         ...this.queryParams
-      }, `yearly_${new Date().getTime()}.xlsx`)
+      }, `教职工年度_${new Date().getTime()}.xlsx`)
     }
   }
 };

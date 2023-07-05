@@ -314,7 +314,7 @@ export default {
     handleExport() {
       this.download('financial/payDetails/export', {
         ...this.queryParams
-      }, `payDetails_${new Date().getTime()}.xlsx`)
+      }, `工资明细表_${new Date().getTime()}.xlsx`)
     }
   }
 };

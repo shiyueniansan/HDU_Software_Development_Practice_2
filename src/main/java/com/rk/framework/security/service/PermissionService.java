@@ -7,7 +7,7 @@ import com.rk.common.utils.SecurityUtils;
 import com.rk.common.utils.StringUtils;
 import com.rk.framework.security.LoginUser;
 import com.rk.framework.security.context.PermissionContextHolder;
-import com.rk.common.domain.SysRole;
+import com.rk.financial.domain.Role;
 
 /**
  * 定义权限实现，ss取自SpringSecurity首字母
@@ -105,7 +105,7 @@ public class PermissionService
         {
             return false;
         }
-        for (SysRole sysRole : loginUser.getUser().getRoles())
+        for (Role sysRole : loginUser.getUser().getRoles())
         {
             String roleKey = sysRole.getRoleKey();
             if (SUPER_ADMIN.equals(roleKey) || roleKey.equals(StringUtils.trim(role)))

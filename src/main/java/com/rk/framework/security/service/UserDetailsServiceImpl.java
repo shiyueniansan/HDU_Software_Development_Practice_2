@@ -6,12 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
-import com.rk.common.enums.UserStatus;
 import com.rk.common.exception.ServiceException;
 import com.rk.common.utils.StringUtils;
 import com.rk.framework.security.LoginUser;
-import com.rk.common.domain.SysUser;
-import com.rk.common.service.ISysUserService;
+import com.rk.financial.domain.User;
+import com.rk.financial.service.IUserService;
 
 /**
  * 用户验证处理
@@ -24,7 +23,7 @@ public class UserDetailsServiceImpl implements UserDetailsService
     private static final Logger log = LoggerFactory.getLogger(UserDetailsServiceImpl.class);
 
     @Autowired
-    private ISysUserService userService;
+    private IUserService userService;
 
     @Autowired
     private SysPasswordService passwordService;
@@ -35,21 +34,11 @@ public class UserDetailsServiceImpl implements UserDetailsService
     @Override
     public UserDetails loadUserByUsername(String username)
     {
-        SysUser user = userService.selectUserByUserName(username);
+        User user = userService.selectUserByUserName(username);
         if (StringUtils.isNull(user))
         {
             log.info("登录用户：{} 不存在.", username);
             throw new ServiceException("登录用户：" + username + " 不存在");
-        }
-        else if (UserStatus.DELETED.getCode().equals(user.getDelFlag()))
-        {
-            log.info("登录用户：{} 已被删除.", username);
-            throw new ServiceException("对不起，您的账号：" + username + " 已被删除");
-        }
-        else if (UserStatus.DISABLE.getCode().equals(user.getStatus()))
-        {
-            log.info("登录用户：{} 已被停用.", username);
-            throw new ServiceException("对不起，您的账号：" + username + " 已停用");
         }
 
         passwordService.validate(user);
@@ -57,7 +46,7 @@ public class UserDetailsServiceImpl implements UserDetailsService
         return createLoginUser(user);
     }
 
-    public UserDetails createLoginUser(SysUser user)
+    public UserDetails createLoginUser(User user)
     {
         return new LoginUser(user.getUserId(), user.getDeptId(), user, permissionService.getMenuPermission(user));
     }

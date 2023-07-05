@@ -756,7 +756,7 @@ public class Convert
      */
     public static String utf8Str(Object obj)
     {
-        return str(obj, CharsetKit.CHARSET_UTF_8);
+        return str(obj, Charset.forName("UTF-8"));
     }
 
     /**

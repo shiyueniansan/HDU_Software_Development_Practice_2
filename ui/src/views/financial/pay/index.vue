@@ -215,7 +215,7 @@ export default {
     handleExport() {
       this.download('financial/pay/export', {
         ...this.queryParams
-      }, `pay_${new Date().getTime()}.xlsx`)
+      }, `工资表_${new Date().getTime()}.xlsx`)
     }
   }
 };
