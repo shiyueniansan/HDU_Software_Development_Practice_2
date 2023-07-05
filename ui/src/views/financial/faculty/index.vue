@@ -345,7 +345,7 @@ export default {
     handleExport() {
       this.download('financial/faculty/export', {
         ...this.queryParams
-      }, `faculty_${new Date().getTime()}.xlsx`)
+      }, `教职工_${new Date().getTime()}.xlsx`)
     }
   }
 };

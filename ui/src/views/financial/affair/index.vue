@@ -221,7 +221,7 @@ export default {
     handleExport() {
       this.download('financial/affair/export', {
         ...this.queryParams
-      }, `affair_${new Date().getTime()}.xlsx`)
+      }, `事务_${new Date().getTime()}.xlsx`)
     }
   }
 };

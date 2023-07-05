@@ -93,7 +93,7 @@
         </template>
       </el-table-column>
     </el-table>
-    
+
     <pagination
       v-show="total>0"
       :total="total"
@@ -258,7 +258,7 @@ export default {
     handleExport() {
       this.download('financial/title/export', {
         ...this.queryParams
-      }, `title_${new Date().getTime()}.xlsx`)
+      }, `职称_${new Date().getTime()}.xlsx`)
     }
   }
 };

@@ -207,7 +207,7 @@ export default {
     handleExport() {
       this.download('financial/job/export', {
         ...this.queryParams
-      }, `job_${new Date().getTime()}.xlsx`)
+      }, `职务_${new Date().getTime()}.xlsx`)
     }
   }
 };

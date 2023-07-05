@@ -20,7 +20,7 @@ export default {
     },
     height: {
       type: String,
-      default: '350px'
+      default: '607px'
     },
     autoResize: {
       type: Boolean,
@@ -90,10 +90,10 @@ export default {
           }
         },
         legend: {
-          data: ['expected', 'actual']
+          data: ['online', 'operate']
         },
         series: [{
-          name: 'expected', itemStyle: {
+          name: 'online', itemStyle: {
             normal: {
               color: '#FF005A',
               lineStyle: {
@@ -109,7 +109,7 @@ export default {
           animationEasing: 'cubicInOut'
         },
         {
-          name: 'actual',
+          name: 'operate',
           smooth: true,
           type: 'line',
           itemStyle: {
