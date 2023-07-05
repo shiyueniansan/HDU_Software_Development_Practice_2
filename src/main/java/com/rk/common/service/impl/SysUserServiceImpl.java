@@ -7,7 +7,6 @@ import com.rk.common.mapper.SysRoleMapper;
 import com.rk.common.mapper.SysUserMapper;
 import com.rk.common.service.ISysUserService;
 import com.rk.common.utils.StringUtils;
-import com.rk.framework.aspectj.lang.annotation.DataScope;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
@@ -32,19 +31,6 @@ public class SysUserServiceImpl implements ISysUserService
 
     @Autowired
     protected Validator validator;
-
-    /**
-     * 根据条件分页查询用户列表
-     *
-     * @param user 用户信息
-     * @return 用户信息集合信息
-     */
-    @Override
-    @DataScope(deptAlias = "d", userAlias = "u")
-    public List<SysUser> selectUserList(SysUser user)
-    {
-        return userMapper.selectUserList(user);
-    }
 
     /**
      * 通过用户名查询用户

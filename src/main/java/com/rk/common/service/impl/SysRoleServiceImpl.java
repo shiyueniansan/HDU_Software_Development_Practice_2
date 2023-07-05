@@ -4,7 +4,6 @@ import com.rk.common.domain.SysRole;
 import com.rk.common.mapper.SysRoleMapper;
 import com.rk.common.service.ISysRoleService;
 import com.rk.common.utils.StringUtils;
-import com.rk.framework.aspectj.lang.annotation.DataScope;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
