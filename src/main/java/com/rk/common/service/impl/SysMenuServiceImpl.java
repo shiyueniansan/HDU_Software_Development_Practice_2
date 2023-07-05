@@ -77,14 +77,7 @@ public class SysMenuServiceImpl implements ISysMenuService
     public List<SysMenu> selectMenuTreeByUserId(Long userId)
     {
         List<SysMenu> menus = null;
-        if (SecurityUtils.isAdmin(userId))
-        {
-            menus = menuMapper.selectMenuTreeAll();
-        }
-        else
-        {
-            menus = menuMapper.selectMenuTreeByUserId(userId);
-        }
+        menus = menuMapper.selectMenuTreeByUserId(userId);
         return getChildPerms(menus, 0);
     }
 
