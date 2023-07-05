@@ -40,9 +40,6 @@ public class CaptchaController
     @Value("${rk.captchaType}")
     private String captchaType;
 
-//    @Autowired
-//    private ISysConfigService configService;
-
     /**
      * 生成验证码
      */
@@ -50,7 +47,6 @@ public class CaptchaController
     public AjaxResult getCode(HttpServletResponse response) throws IOException
     {
         AjaxResult ajax = AjaxResult.success();
-//        boolean captchaEnabled = configService.selectCaptchaEnabled();
         boolean captchaEnabled = true;
         ajax.put("captchaEnabled", captchaEnabled);
         if (!captchaEnabled)
