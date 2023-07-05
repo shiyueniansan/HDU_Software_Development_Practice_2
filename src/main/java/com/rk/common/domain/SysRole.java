@@ -89,6 +89,10 @@ public class SysRole extends BaseEntity
     @Override
     public String toString() {
         return new ToStringBuilder(this,ToStringStyle.MULTI_LINE_STYLE)
-            .toString();
+            .append("roleId", getRoleId())
+            .append("roleName", getRoleName())
+            .append("roleKey", getRoleKey())
+            .append("permissions", getPermissions())
+                .toString();
     }
 }

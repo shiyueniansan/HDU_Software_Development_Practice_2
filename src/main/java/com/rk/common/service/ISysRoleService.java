@@ -1,9 +1,6 @@
 package com.rk.common.service;
 
-import java.util.List;
 import java.util.Set;
-import com.rk.common.domain.SysRole;
-import com.rk.common.domain.SysUserRole;
 
 /**
  * 角色业务层
