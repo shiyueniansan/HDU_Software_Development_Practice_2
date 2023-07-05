@@ -33,11 +33,6 @@ public class Constants
     public static final String HTTPS = "https://";
 
     /**
-     * 通用成功标识
-     */
-    public static final String SUCCESS = "0";
-
-    /**
      * 登录成功
      */
     public static final String LOGIN_SUCCESS = "Success";

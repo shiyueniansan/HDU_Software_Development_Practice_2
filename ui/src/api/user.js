@@ -1,13 +1,4 @@
 import request from '@/utils/request'
-import { parseStrEmpty } from "@/utils/rk";
-
-// // 查询用户详细
-// export function getUser(userId) {
-//   return request({
-//     url: '/system/user/' + parseStrEmpty(userId),
-//     method: 'get'
-//   })
-// }
 
 // 查询用户个人信息
 export function getUserProfile() {
