@@ -31,10 +31,6 @@ public class SysRole extends BaseEntity
     @Excel(name = "角色权限")
     private String roleKey;
 
-    /** 数据范围（1：所有数据权限；2：自定义数据权限；3：本部门数据权限；4：本部门及以下数据权限；5：仅本人数据权限） */
-    @Excel(name = "数据范围", readConverterExp = "1=所有数据权限,2=自定义数据权限,3=本部门数据权限,4=本部门及以下数据权限,5=仅本人数据权限")
-    private String dataScope;
-
     /** 角色菜单权限 */
     private Set<String> permissions;
 
@@ -72,11 +68,6 @@ public class SysRole extends BaseEntity
         return roleKey;
     }
 
-    public String getDataScope()
-    {
-        return dataScope;
-    }
-
     public Set<String> getPermissions()
     {
         return permissions;
@@ -93,10 +84,6 @@ public class SysRole extends BaseEntity
 
     public void setRoleKey(String roleKey) {
         this.roleKey = roleKey;
-    }
-
-    public void setDataScope(String dataScope) {
-        this.dataScope = dataScope;
     }
 
     @Override

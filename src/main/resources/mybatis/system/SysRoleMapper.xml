@@ -8,11 +8,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<id     property="roleId"             column="role_id"               />
 		<result property="roleName"           column="role_name"             />
 		<result property="roleKey"            column="role_key"              />
-		<result property="dataScope"          column="data_scope"            />
 	</resultMap>
 
 	<sql id="selectRoleVo">
-	    select distinct r.role_id, r.role_name, r.role_key, r.data_scope
+	    select distinct r.role_id, r.role_name, r.role_key
         from sys_role r
 	        left join sys_user_role ur on ur.role_id = r.role_id
 	        left join sys_user u on u.user_id = ur.user_id
