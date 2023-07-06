@@ -1,6 +1,6 @@
 <template>
   <div class="app-container">
-    <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="68px">
+    <el-form :model="queryParams" :rules="rulesQ" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="68px">
       <el-form-item label="职称" prop="des">
         <el-input
           v-model="queryParams.des"
@@ -157,10 +157,28 @@ export default {
       // 表单校验
       rules: {
         des: [
-          { required: true, message: "职称不能为空", trigger: "blur" }
+          { required: true, message: "职称不能为空", trigger: "blur" },
+          { min: 1, max: 20, message: "长度在 1 到 20 个字符", trigger: "blur" }
         ],
         factor: [
-          { required: true, message: "职称系数不能为空", trigger: "blur" }
+          { required: true, message: "职称系数不能为空", trigger: "blur" },
+          {
+            pattern: /^[+]{0,1}(\d+)$|^[+]{0,1}(\d+\.\d+)$/,
+            message: "请输入正确的职称系数",
+            trigger: "blur"
+          }
+        ]
+      },
+      rulesQ: {
+        des: [
+          { min: 1, max: 20, message: "长度在 1 到 20 个字符", trigger: "blur" }
+        ],
+        factor: [
+          {
+            pattern: /^[+]{0,1}(\d+)$|^[+]{0,1}(\d+\.\d+)$/,
+            message: "请输入正确的职称系数",
+            trigger: "blur"
+          }
         ]
       }
     };

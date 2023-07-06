@@ -1,6 +1,6 @@
 <template>
   <div class="app-container">
-    <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="85px">
+    <el-form :model="queryParams" :rules="rulesQ" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="85px">
       <el-form-item label="教职工编号" prop="facultyId">
         <el-input v-model="queryParams.facultyId" placeholder="请输入教职工编号" clearable @keyup.enter.native="handleQuery" />
       </el-form-item>
@@ -130,13 +130,34 @@ export default {
           { required: true, message: "教职工编号不能为空", trigger: "blur" }
         ],
         month: [
-          { required: true, message: "月份不能为空", trigger: "blur" }
+          { required: true, message: "月份不能为空", trigger: "blur" },
+          { pattern: /^(0?[1-9]|1[0-2])$/, message: "请输入正确的月份", trigger: "blur" }
         ],
         des: [
           { required: true, message: "描述不能为空", trigger: "blur" }
         ],
         hour: [
-          { required: true, message: "时长不能为空", trigger: "blur" }
+          { required: true, message: "时长不能为空", trigger: "blur" },
+          {
+            pattern: /^[+]{0,1}(\d+)$|^[+]{0,1}(\d+\.\d+)$/,
+              message: "请输入正确的时长",
+            trigger: "blur"
+          }
+        ]
+      },
+      rulesQ: {
+        month: [
+          { pattern: /^(0?[1-9]|1[0-2])$/, message: "请输入正确的月份", trigger: "blur" }
+        ],
+        des: [
+          { min: 1, max: 20, message: "长度在 1 到 20 个字符", trigger: "blur" }
+        ],
+        hour: [
+          {
+            pattern: /^[+]{0,1}(\d+)$|^[+]{0,1}(\d+\.\d+)$/,
+            message: "请输入正确的时长",
+            trigger: "blur"
+          }
         ]
       }
     };

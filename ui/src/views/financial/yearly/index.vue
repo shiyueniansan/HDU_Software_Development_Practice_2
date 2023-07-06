@@ -1,6 +1,6 @@
 <template>
   <div class="app-container">
-    <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="140px">
+    <el-form :model="queryParams" :rules="rulesQ" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="140px">
       <el-form-item label="教职工编号" prop="facultyId">
         <el-input v-model="queryParams.facultyId" placeholder="请输入教职工编号" clearable @keyup.enter.native="handleQuery" />
       </el-form-item>
@@ -101,6 +101,26 @@ export default {
       form: {},
       // 表单校验
       rules: {
+      },
+      rulesQ: {
+        facultyId: [
+          { pattern: /^[0-9]*$/, message: "请输入正确的教职工编号", trigger: "blur" }
+        ],
+        name: [
+          { min: 1, max: 20, message: "长度在 1 到 20 个字符", trigger: "blur" }
+        ],
+        totalPay: [
+          { pattern: /^[+]{0,1}(\d+)$|^[+]{0,1}(\d+\.\d+)$/, message: "请输入正确的本年度累计工资总额", trigger: "blur" }
+        ],
+        hour: [
+          { pattern: /^[+]{0,1}(\d+)$|^[+]{0,1}(\d+\.\d+)$/, message: "请输入正确的本年度累计授课时数", trigger: "blur" }
+        ],
+        avgPay: [
+          { pattern: /^[+]{0,1}(\d+)$|^[+]{0,1}(\d+\.\d+)$/, message: "请输入正确的上年度月平均工资", trigger: "blur" }
+        ],
+        netPay: [
+          { pattern: /^[+]{0,1}(\d+)$|^[+]{0,1}(\d+\.\d+)$/, message: "请输入正确的本年度累计实发工资", trigger: "blur" }
+        ]
       }
     };
   },

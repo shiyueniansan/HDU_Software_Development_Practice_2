@@ -1,6 +1,6 @@
 <template>
   <div class="app-container">
-    <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="85px">
+    <el-form :model="queryParams" :rules="rulesQ" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="85px">
       <el-form-item label="教职工编号" prop="facultyId">
         <el-input v-model="queryParams.facultyId" placeholder="请输入教职工编号" clearable @keyup.enter.native="handleQuery" />
       </el-form-item>
@@ -45,38 +45,10 @@
       <el-table-column label="姓名" align="center" prop="name" />
       <el-table-column label="月份" align="center" prop="month" />
       <el-table-column label="实发工资" align="center" prop="netPay" />
-      <!--      <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
-        <template slot-scope="scope">
-          <el-button
-            size="mini"
-            type="text"
-            icon="el-icon-edit"
-            @click="handleUpdate(scope.row)"
-            v-hasPermi="['financial:pay:edit']"
-          >修改</el-button>
-          <el-button
-            size="mini"
-            type="text"
-            icon="el-icon-delete"
-            @click="handleDelete(scope.row)"
-            v-hasPermi="['financial:pay:remove']"
-          >删除</el-button>
-        </template>
-      </el-table-column>-->
     </el-table>
 
     <pagination v-show="total > 0" :total="total" :page.sync="queryParams.pageNum" :limit.sync="queryParams.pageSize"
       @pagination="getList" />
-
-    <!--    &lt;!&ndash; 添加或修改工资表对话框 &ndash;&gt;
-    <el-dialog :title="title" :visible.sync="open" width="500px" append-to-body>
-      <el-form ref="form" :model="form" :rules="rules" label-width="80px">
-      </el-form>
-      <div slot="footer" class="dialog-footer">
-        <el-button type="primary" @click="submitForm">确 定</el-button>
-        <el-button @click="cancel">取 消</el-button>
-      </div>
-    </el-dialog>-->
   </div>
 </template>
 
@@ -118,6 +90,24 @@ export default {
       form: {},
       // 表单校验
       rules: {
+      },
+      rulesQ: {
+        facultyId: [
+          { pattern: /^[0-9]*$/, message: "请输入正确的教职工编号", trigger: "blur" }
+        ],
+        name: [
+          { min: 1, max: 20, message: "长度在 1 到 20 个字符", trigger: "blur" }
+        ],
+        month: [
+          { pattern: /^(0?[1-9]|1[0-2])$/, message: "请输入正确的月份", trigger: "blur" }
+        ],
+        netPay: [
+          {
+            pattern: /^[+]{0,1}(\d+)$|^[+]{0,1}(\d+\.\d+)$/,
+            message: "请输入正确的实发工资",
+            trigger: "blur"
+          }
+        ]
       }
     };
   },

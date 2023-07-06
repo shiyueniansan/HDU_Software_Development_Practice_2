@@ -1,6 +1,6 @@
 <template>
   <div class="app-container">
-    <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="85px">
+    <el-form :model="queryParams" :rules="rulesQ" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="85px">
       <el-form-item label="教职工编号" prop="facultyId">
         <el-input v-model="queryParams.facultyId" placeholder="请输入教职工编号" clearable @keyup.enter.native="handleQuery" />
       </el-form-item>
@@ -176,6 +176,84 @@ export default {
       form: {},
       // 表单校验
       rules: {
+      },
+      rulesQ: {
+        facultyId: [
+          { pattern: /^[0-9]*$/, message: "请输入正确的教职工编号", trigger: "blur" }
+        ],
+        month: [
+          { pattern: /^(0?[1-9]|1[0-2])$/, message: "请输入正确的月份", trigger: "blur" }
+        ],
+        livingSubsidy: [
+          {
+            pattern: /^[+]{0,1}(\d+)$|^[+]{0,1}(\d+\.\d+)$/,
+            message: "请输入正确的生活补贴",
+            trigger: "blur"
+          }
+        ],
+        readingSubsidy: [
+          {
+            pattern: /^[+]{0,1}(\d+)$|^[+]{0,1}(\d+\.\d+)$/,
+            message: "请输入正确的书报费",
+            trigger: "blur"
+          }
+        ],
+        transportationSubsidy: [
+          {
+            pattern: /^[+]{0,1}(\d+)$|^[+]{0,1}(\d+\.\d+)$/,
+            message: "请输入正确的交通费",
+            trigger: "blur"
+          }
+        ],
+        washingSubsidy: [
+          {
+            pattern: /^[+]{0,1}(\d+)$|^[+]{0,1}(\d+\.\d+)$/,
+            message: "请输入正确的洗理费",
+            trigger: "blur"
+          }
+        ],
+        teacherPay: [
+          {
+            pattern: /^[+]{0,1}(\d+)$|^[+]{0,1}(\d+\.\d+)$/,
+            message: "请输入正确的课时费",
+            trigger: "blur"
+          }
+        ],
+        staffPay: [
+          {
+            pattern: /^[+]{0,1}(\d+)$|^[+]{0,1}(\d+\.\d+)$/,
+            message: "请输入正确的岗位津贴",
+            trigger: "blur"
+          }
+        ],
+        extraTeacherPay: [
+          {
+            pattern: /^[+]{0,1}(\d+)$|^[+]{0,1}(\d+\.\d+)$/,
+            message: "请输入正确的超额课时费",
+            trigger: "blur"
+          }
+        ],
+        totalPay: [
+          {
+            pattern: /^[+]{0,1}(\d+)$|^[+]{0,1}(\d+\.\d+)$/,
+            message: "请输入正确的工资总额",
+            trigger: "blur"
+          }
+        ],
+        tax: [
+          {
+            pattern: /^[+]{0,1}(\d+)$|^[+]{0,1}(\d+\.\d+)$/,
+            message: "请输入正确的个人所得税",
+            trigger: "blur"
+          }
+        ],
+        netPay: [
+          {
+            pattern: /^[+]{0,1}(\d+)$|^[+]{0,1}(\d+\.\d+)$/,
+            message: "请输入正确的实发工资",
+            trigger: "blur"
+          }
+        ]
       },
       // 职务
       faculty_job:[

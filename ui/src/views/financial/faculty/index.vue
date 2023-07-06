@@ -1,6 +1,6 @@
 <template>
   <div class="app-container">
-    <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="75px">
+    <el-form :model="queryParams" :rules="rulesQ" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="75px">
       <el-form-item label="姓名" prop="name">
         <el-input v-model="queryParams.name" placeholder="请输入姓名" clearable @keyup.enter.native="handleQuery" />
       </el-form-item>
@@ -159,7 +159,6 @@ import { listFaculty, getFaculty, delFaculty, addFaculty, updateFaculty } from "
 
 export default {
   name: "Faculty",
-  // dicts: ['faculty_title', 'faculty_job', 'faculty_type'],
   dicts: [],
   data() {
     return {
@@ -201,11 +200,101 @@ export default {
       // 表单校验
       rules: {
         name: [
-          { required: true, message: "姓名不能为空", trigger: "blur" }
+          { required: true, message: "姓名不能为空", trigger: "blur" },
+          { min: 1, max: 20, message: "长度在 1 到 20 个字符", trigger: "blur" }
         ],
         type: [
           { required: true, message: "教师/职工不能为空", trigger: "change" }
         ],
+        basicPay: [
+          {
+            pattern: /^[+]{0,1}(\d+)$|^[+]{0,1}(\d+\.\d+)$/,
+            message: "请输入正确的基本工资",
+            trigger: "blur"
+          }
+        ],
+        livingSubsidy: [
+          {
+            pattern: /^[+]{0,1}(\d+)$|^[+]{0,1}(\d+\.\d+)$/,
+            message: "请输入正确的生活补贴",
+            trigger: "blur"
+          }
+        ],
+        readingSubsidy: [
+          {
+            pattern: /^[+]{0,1}(\d+)$|^[+]{0,1}(\d+\.\d+)$/,
+            message: "请输入正确的书报费",
+            trigger: "blur"
+          }
+        ],
+        transportationSubsidy: [
+          {
+            pattern: /^[+]{0,1}(\d+)$|^[+]{0,1}(\d+\.\d+)$/,
+            message: "请输入正确的交通费",
+            trigger: "blur"
+          }
+        ],
+        washingSubsidy: [
+          {
+            pattern: /^[+]{0,1}(\d+)$|^[+]{0,1}(\d+\.\d+)$/,
+            message: "请输入正确的洗理费",
+            trigger: "blur"
+          }
+        ],
+        quotaHour: [
+          {
+            pattern: /^[+]{0,1}(\d+)$|^[+]{0,1}(\d+\.\d+)$/,
+            message: "请输入正确的定额课时",
+            trigger: "blur"
+          }
+        ]
+      },
+      rulesQ: {
+        name: [
+          { min: 1, max: 20, message: "长度在 1 到 20 个字符", trigger: "blur" }
+        ],
+        basicPay: [
+          {
+            pattern: /^[+]{0,1}(\d+)$|^[+]{0,1}(\d+\.\d+)$/,
+            message: "请输入正确的基本工资",
+            trigger: "blur"
+          }
+        ],
+        livingSubsidy: [
+          {
+            pattern: /^[+]{0,1}(\d+)$|^[+]{0,1}(\d+\.\d+)$/,
+            message: "请输入正确的生活补贴",
+            trigger: "blur"
+          }
+        ],
+        readingSubsidy: [
+          {
+            pattern: /^[+]{0,1}(\d+)$|^[+]{0,1}(\d+\.\d+)$/,
+            message: "请输入正确的书报费",
+            trigger: "blur"
+          }
+        ],
+        transportationSubsidy: [
+          {
+            pattern: /^[+]{0,1}(\d+)$|^[+]{0,1}(\d+\.\d+)$/,
+            message: "请输入正确的交通费",
+            trigger: "blur"
+          }
+        ],
+        washingSubsidy: [
+          {
+            pattern: /^[+]{0,1}(\d+)$|^[+]{0,1}(\d+\.\d+)$/,
+            message: "请输入正确的洗理费",
+            trigger: "blur"
+          }
+        ],
+        quotaHour: [
+          {
+            pattern: /^[+]{0,1}(\d+)$|^[+]{0,1}(\d+\.\d+)$/,
+            message: "请输入正确的定额课时",
+            trigger: "blur"
+          }
+        ]
       },
       // 教师/职工
       faculty_type: [

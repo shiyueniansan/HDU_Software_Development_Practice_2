@@ -1,6 +1,6 @@
 <template>
   <div class="app-container">
-    <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="85px">
+    <el-form :model="queryParams" :rules="rulesQ" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="85px">
       <el-form-item label="月份" prop="month">
         <el-input v-model="queryParams.month" placeholder="请输入月份" clearable @keyup.enter.native="handleQuery" />
       </el-form-item>
@@ -127,6 +127,53 @@ export default {
       form: {},
       // 表单校验
       rules: {
+      },
+      rulesQ: {
+        month: [
+          { pattern: /^(0?[1-9]|1[0-2])$/, message: "请输入正确的月份", trigger: "blur" }
+        ],
+        teacherPay: [
+          {
+            pattern: /^[+]{0,1}(\d+)$|^[+]{0,1}(\d+\.\d+)$/,
+            message: "请输入正确的课时费",
+            trigger: "blur"
+          }
+        ],
+        staffPay: [
+          {
+            pattern: /^[+]{0,1}(\d+)$|^[+]{0,1}(\d+\.\d+)$/,
+            message: "请输入正确的岗位津贴",
+            trigger: "blur"
+          }
+        ],
+        extraTeacherPay: [
+          {
+            pattern: /^[+]{0,1}(\d+)$|^[+]{0,1}(\d+\.\d+)$/,
+            message: "请输入正确的超额课时费",
+            trigger: "blur"
+          }
+        ],
+        totalPay: [
+          {
+            pattern: /^[+]{0,1}(\d+)$|^[+]{0,1}(\d+\.\d+)$/,
+            message: "请输入正确的工资总额",
+            trigger: "blur"
+          }
+        ],
+        tax: [
+          {
+            pattern: /^[+]{0,1}(\d+)$|^[+]{0,1}(\d+\.\d+)$/,
+            message: "请输入正确的个人所得税",
+            trigger: "blur"
+          }
+        ],
+        netPay: [
+          {
+            pattern: /^[+]{0,1}(\d+)$|^[+]{0,1}(\d+\.\d+)$/,
+            message: "请输入正确的实发工资",
+            trigger: "blur"
+          }
+        ]
       },
       // 职务
       faculty_job:[

@@ -74,8 +74,6 @@ export default {
       loginForm: {
         username: "管理员",
         password: "123456",
-        // username: "admin",
-        // password: "admin123",
         rememberMe: false,
         code: "",
         uuid: ""
