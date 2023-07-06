@@ -127,7 +127,8 @@ export default {
       // 表单校验
       rules: {
         facultyId: [
-          { required: true, message: "教职工编号不能为空", trigger: "blur" }
+          { required: true, message: "教职工编号不能为空", trigger: "blur" },
+          { pattern: /^[0-9]*$/, message: "请输入正确的教职工编号", trigger: "blur" }
         ],
         month: [
           { required: true, message: "月份不能为空", trigger: "blur" },
