@@ -146,6 +146,12 @@ export default {
         ]
       },
       rulesQ: {
+        facultyId: [
+          { pattern: /^[0-9]*$/, message: "请输入正确的教职工编号", trigger: "blur" }
+        ],
+        name: [
+          { min: 1, max: 20, message: "长度在 1 到 20 个字符", trigger: "blur" }
+        ],
         month: [
           { pattern: /^(0?[1-9]|1[0-2])$/, message: "请输入正确的月份", trigger: "blur" }
         ],
