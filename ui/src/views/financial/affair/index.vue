@@ -118,7 +118,8 @@ export default {
           { pattern: /^(0?[1-9]|1[0-2])$/, message: "请输入正确的月份", trigger: "blur" }
         ],
         des: [
-          { required: true, message: "描述不能为空", trigger: "blur" }
+          { required: true, message: "描述不能为空", trigger: "blur" },
+          { min: 1, max: 20, message: "长度在 1 到 20 个字符", trigger: "blur" }
         ],
         hour: [
           { required: true, message: "时长不能为空", trigger: "blur" },
